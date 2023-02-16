@@ -10,4 +10,16 @@ class Apartment extends Model
     public function user(){
         return $this->hasMany('App\User');
     }
+
+    public function messages(){
+        return $this->belongsTo('App\Models\Message');
+    }
+
+    public function images(){
+        return $this->belongsTo('App\Models\Image');
+    }
+
+    public function views(){
+        return $this->belongsTo('App\Models\View');
+    }
 }
