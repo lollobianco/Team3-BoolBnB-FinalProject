@@ -69,11 +69,6 @@
         <label class="form-label form-check-label" for="">Address</label>
         <input type="text" class="form-control" name="address">
       </div>
-
-      <div class="mb-4">
-        <label class="form-label form-check-label" for="">Address</label>
-        <input type="text" class="form-control" name="address">
-      </div>
       
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Price</label>

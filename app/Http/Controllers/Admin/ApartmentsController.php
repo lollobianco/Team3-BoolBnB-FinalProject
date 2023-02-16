@@ -69,7 +69,10 @@ class ApartmentsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.pages.show');
+        $apartment = Apartment::findOrFail($id);
+
+
+        return view('admin.pages.edit', compact('apartment'));
     }
 
     /**
@@ -81,7 +84,11 @@ class ApartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $apartment = Apartment::findOrFail($id);
+        $apartment->update($data);
+
+        return redirect()->route('admin.apartments.show', $apartment->id);
     }
 
     /**
