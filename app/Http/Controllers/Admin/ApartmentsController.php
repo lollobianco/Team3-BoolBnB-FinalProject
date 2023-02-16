@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
 use Illuminate\Http\Request;
 
 class ApartmentsController extends Controller
@@ -14,7 +15,8 @@ class ApartmentsController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all(); 
+        return view('admin.pages.index', compact('apartments'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ApartmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.create');
     }
 
     /**
@@ -46,7 +48,7 @@ class ApartmentsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.pages.show');
     }
 
     /**
@@ -57,7 +59,7 @@ class ApartmentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pages.show');
     }
 
     /**
