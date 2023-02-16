@@ -3,8 +3,14 @@
 @section('content')
 
 @foreach ($apartments as $elem)
-    <h1>{{$elem->name}}</h1>
+    
+
+    <a href=" {{ route('admin.apartments.show', $elem['id']) }}">
+        <h1>{{$elem->name}}</h1>
+    </a>
     
 @endforeach
 
 @endsection
+
+

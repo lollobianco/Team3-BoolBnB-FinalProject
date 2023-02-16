@@ -37,7 +37,15 @@ class ApartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $new_apartment = new Apartment();
+
+        $new_apartment->fill($data);
+
+        $new_apartment->save();
+
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -48,7 +56,9 @@ class ApartmentsController extends Controller
      */
     public function show($id)
     {
-        return view('admin.pages.show');
+        $apartment = Apartment::findOrFail($id);
+
+        return view('admin.pages.show', compact('apartment'));
     }
 
     /**

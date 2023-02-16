@@ -27,7 +27,7 @@ class CreateApartmentsTable extends Migration
             $table->string ('lat');
             $table->string ('long');
             $table->string ('address');
-            $table->boolean ('available');
+            $table->boolean ('available')->default(true);
             $table->decimal ('price');
             $table->timestamps();
             
