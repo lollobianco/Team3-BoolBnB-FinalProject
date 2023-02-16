@@ -8,8 +8,7 @@
   <form method="POST" action="{{ route('admin.apartments.update', $apartment->id)}}" >
 
     @csrf
-    @method('PUT')
-
+    @method('PUT')   
     <div class="mb-3">
       <label class="form-label">Name</label>
       <input name="name" value="{{$apartment->name}}" type="text" class="form-control ">
