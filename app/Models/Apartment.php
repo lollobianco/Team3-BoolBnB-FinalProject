@@ -22,4 +22,8 @@ class Apartment extends Model
     public function views(){
         return $this->belongsTo('App\Models\View');
     }
+
+    public function services(){
+        return $this->belongsToMany('App\Models\Service');
+    }
 }
