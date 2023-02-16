@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // Relazione Con Appartamenti
+    public function apartments(){
+        return $this->belongsTo('App\Models\Apartment');
+    }
 }
