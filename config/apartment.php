@@ -9,7 +9,7 @@ return [
       'cover_image' => 'https://a0.muscache.com/im/pictures/25af7fb2-36a6-4446-a2dc-3a6f9710e63c.jpg?im_w=1200',
       'rooms' => '7',
       'beds' => '7',
-      'bathrooms' => '7',
+      'bathrooms' => '8',
       'mq' => '150',
       'accomodation' => '14',
       'lat' => '?',
