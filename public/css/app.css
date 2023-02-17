@@ -1,21 +1,124 @@
-
-
-@import url('https://fonts.cdnfonts.com/css/circular-std');
+@import url("https://fonts.cdnfonts.com/css/circular-std");
 
 * {
-  font-family: 'Circular Std', sans-serif;
+    font-family: "Circular Std", sans-serif;
 }
-
-
-
-
 
 .left-side-register {
-  background-image: linear-gradient(to left top, #ff385c, #f73b5d, #ef3e5d, #e7405e, #df425e, #dc4862, #da4e67, #d7536b, #d95e75, #da687e, #db7287, #dc7c90);
-
-  height: 100vh;
+    /* background-image: linear-gradient(to left top, #ff385c, #f73b5d, #ef3e5d, #e7405e, #df425e, #dc4862, #da4e67, #d7536b, #d95e75, #da687e, #db7287, #dc7c90); */
+    background: rgb(247, 59, 93);
+    background: radial-gradient(
+        circle,
+        rgba(247, 59, 93, 1) 0%,
+        rgba(138, 52, 67, 1) 100%
+    );
+    height: 100vh;
+    padding: 100px;
 }
 
-main {
-height: 100vh;
+.width-container {
+    width: 50%;
+}
+
+.form-group {
+    padding: 10px 0;
+}
+
+.plane{
+  left: 300px;
+  top: 100px;
+  width: 10%;
+}
+
+.plane{
+ -webkit-animation: shake-bottom 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;             animation: shake-bottom 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+}
+
+.pink-color {
+    color: #903445;
+}
+
+.card {
+    -webkit-box-shadow: 0px 0px 18px 18px rgba(0, 0, 0, 0.66);
+    box-shadow: 0px 0px 18px 18px rgba(0, 0, 0, 0.66);
+}
+
+@media only screen and (max-width: 1000px) {
+    .left-side-register {
+        padding: 10px;
+    }
+    .width-container {
+        width: 100%;
+    }
+}
+
+/* @media only screen and (max-width: 2560px){
+  
+} */
+
+@-webkit-keyframes shake-bottom {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+@keyframes shake-bottom {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
 }
