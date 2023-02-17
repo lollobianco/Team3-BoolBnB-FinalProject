@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container d-flex">
+<div class="container d-flex flex-wrap justify-content-between">
     @foreach ($apartments as $elem)
    
-        <div class="card p-2 mt-5 ms-5" style="width: 22rem;">
+        <div class="card p-2 mt-5 " style="width: 22rem;">
             <img src="{{ $elem->cover_image }}" class="card-img-top">
             <div class="card-body">
                 <a class="text-decoration-none text-black card-title"
