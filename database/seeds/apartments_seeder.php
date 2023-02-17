@@ -17,6 +17,7 @@ class apartments_seeder extends Seeder
         foreach($array_apartments as $element){
 
         $new_apartment = new Apartment;
+
         $new_apartment -> name = $element['name'];
         $new_apartment -> description = $element['description'];
         $new_apartment -> cover_image = $element['cover_image'];
@@ -30,6 +31,7 @@ class apartments_seeder extends Seeder
         $new_apartment -> address = $element['address'];
         $new_apartment -> available = $element['available'];
         $new_apartment -> price = $element['price'];
+        
         $new_apartment -> save();
 
         }

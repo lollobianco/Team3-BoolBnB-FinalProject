@@ -6,7 +6,7 @@
     <div class="width-container">
       {{-- <div class="col-md-6"><img src="{{asset('assets/Logo.svg')}}" alt=""></div> --}}
       <div class="">
-        <div class="card">
+        <div class="card cardregister">
           <img class="w-25 p-3" src="{{ asset('assets/Logo.svg') }}">
 
           <div class="card-body">
