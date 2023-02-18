@@ -1,16 +1,21 @@
 <template>
     <div>
-        <h1>Home Guest</h1>
+        <NavBar/>
+        <router-view></router-view>        
     </div>
 </template>
 
 <script>
-
+import NavBar from "../components/NavBar.vue"
+ 
     export default {
         name:"App",
+        components: {
+            NavBar,
+        }
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 </style>

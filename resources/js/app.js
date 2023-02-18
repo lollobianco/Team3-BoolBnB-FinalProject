@@ -10,7 +10,10 @@ require('./bootstrap');
     // importiamo il componente App
     import App from './views/App';
 
+    import router from './routes.js'
+
     const app = new Vue({
         el: '#root',
+        router,
         render: h => h(App), // renderizziamo App all'avvio di Vue
     });
