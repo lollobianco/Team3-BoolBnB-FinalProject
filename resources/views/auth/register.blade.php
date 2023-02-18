@@ -2,19 +2,19 @@
 
 @section('content')
   <div class="left-side-register d-flex align-items-center justify-content-center position-relative">
-    <img src="{{asset('assets/pngwing.com.png')}}" class="position-absolute plane" alt="">
     <div class="width-container">
-      {{-- <div class="col-md-6"><img src="{{asset('assets/Logo.svg')}}" alt=""></div> --}}
       <div class="">
         <div class="card cardregister">
-          <img class="w-25 p-3" src="{{ asset('assets/Logo.svg') }}">
+          <div class="d-flex justify-content-center">
+            <img class="w-25 mt-3" src="{{ asset('assets/Logo.svg') }}">
+          </div>
 
           <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
               @csrf
 
-              <div class="form-group row">
-                <label for="name" class="col-md-3 col-form-label pink-color text-md-right">{{ __('Name') }}</label>
+              <div class="form-group d-flex flex-column align-items-center">
+                <label for="name" class="col-md-3 pink-color2 col-form-label text-center">{{ __('Name') }}</label>
 
                 <div class="col-md-8">
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -29,8 +29,8 @@
               </div>
 
               {{-- SURNAME --}}
-              <div class="form-group row">
-                <label for="surname" class="col-md-3 col-form-label pink-color text-md-right">{{ __('Surname') }}</label>
+              <div class="form-group d-flex flex-column align-items-center">
+                <label for="surname" class="col-md-3 pink-color2 col-form-label text-center">{{ __('Surname') }}</label>
 
                 <div class="col-md-8">
                   <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
@@ -45,8 +45,9 @@
               </div>
 
               {{-- Date Of Birth --}}
-              <div class="form-group row">
-                <label for="date_of_birth" class="col-md-3 col-form-label pink-color text-md-right">{{ __('Date Of Birth') }}</label>
+              <div class="form-group d-flex flex-column align-items-center justify-content-around">
+                <label for="date_of_birth"
+                  class="col-md-3 pink-color2 col-form-label text-center">{{ __('Date Of Birth') }}</label>
 
                 <div class="col-md-8">
                   <input id="date_of_birth" type="date"
@@ -61,8 +62,9 @@
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label for="email" class="col-md-3 col-form-label pink-color text-md-right">{{ __('E-Mail Address') }}</label>
+              <div class="form-group d-flex flex-column align-items-center justify-content-around">
+                <label for="email"
+                  class="col-md-3 pink-color2 col-form-label text-center">{{ __('E-Mail Address') }}</label>
 
                 <div class="col-md-8">
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -76,8 +78,9 @@
                 </div>
               </div>
 
-              <div class="form-group row">
-                <label for="password" class="col-md-3 col-form-label pink-color text-md-right">{{ __('Password') }}</label>
+              <div class="form-group d-flex flex-column align-items-center justify-content-around">
+                <label for="password"
+                  class="col-md-3 pink-color2 col-form-label text-center">{{ __('Password') }}</label>
 
                 <div class="col-md-8">
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -91,9 +94,9 @@
                 </div>
               </div>
 
-              <div class="form-group row">
+              <div class="form-group d-flex flex-column align-items-center justify-content-around">
                 <label for="password-confirm"
-                  class="col-md-3 col-form-label pink-color text-md-right">{{ __('Confirm Password') }}</label>
+                  class="col-md-3 col-form-label pink-color2 col-form-label text-center">{{ __('Confirm Password') }}</label>
 
                 <div class="col-md-8">
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
@@ -101,9 +104,9 @@
                 </div>
               </div>
 
-              <div class="form-group row mb-0">
+              <div class="form-group d-flex flex-column align-items-center justify-content-around mb-0">
                 <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
+                  <button type="submit" class="btn rounded-5 btn-login-register">
                     {{ __('Register') }}
                   </button>
                 </div>

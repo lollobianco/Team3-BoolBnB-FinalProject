@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.cdnfonts.com/css/circular-std);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
@@ -10928,6 +10928,50 @@ a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6;
+  }
+}
+
+* {
+  font-family: "Circular Std", sans-serif;
+}
+
+.width-container {
+  width: 50%;
+}
+
+.form-group {
+  padding: 10px 0;
+  margin: 0;
+}
+
+.left-side-register {
+  height: 100vh;
+  padding: 100px;
+  background: rgb(247, 59, 93);
+  background: radial-gradient(circle, rgb(247, 59, 93) 0%, rgb(121, 55, 67) 100%);
+}
+
+.btn-login-register {
+  background-color: #d7526a !important;
+  color: white !important;
+}
+
+.pink-color2 {
+  color: #d7526a !important;
+}
+
+.form-control:focus {
+  border-color: #d7526a !important;
+  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .left-side-register {
+    padding: 10px;
+  }
+
+  .width-container {
+    width: 100%;
   }
 }
 
