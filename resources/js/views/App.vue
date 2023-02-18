@@ -20,5 +20,10 @@ import NavBar from "../components/NavBar.vue"
 
 <style lang="scss">
 
+@import url('https://fonts.cdnfonts.com/css/circular-std');
+
+* {
+    font-family: 'Circular Std', sans-serif;
+}
 
 </style>
