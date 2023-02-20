@@ -1,7 +1,7 @@
 @extends('layouts.loginregister')
 
 @section('content')
-  <div class="left-side-register d-flex align-items-center justify-content-center position-relative">
+  <div class="left-side-register py-5 d-flex align-items-center justify-content-center position-relative">
     <div class="width-container">
       <div class="">
         <div class="card cardregister">
@@ -105,7 +105,7 @@
               </div>
 
               <div class="form-group d-flex flex-column align-items-center justify-content-around mb-0">
-                <div class="col-md-6 offset-md-4">
+                <div class="">
                   <button type="submit" class="btn rounded-5 btn-login-register">
                     {{ __('Register') }}
                   </button>

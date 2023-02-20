@@ -2,7 +2,7 @@
 @extends('layouts.loginregister')
 
 @section('content')
-  <div class="left-side-register d-flex align-items-center justify-content-center">
+  <div class="left-side-register py-5 d-flex align-items-center justify-content-center">
     <div class="width-container">
       <div class="">
         <div class="card cardregister">

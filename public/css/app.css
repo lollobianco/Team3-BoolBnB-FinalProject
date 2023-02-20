@@ -10945,8 +10945,7 @@ a.text-dark:focus {
 }
 
 .left-side-register {
-  height: 100vh;
-  padding: 100px;
+  min-height: 100vh;
   background: rgb(247, 59, 93);
   background: radial-gradient(circle, rgb(247, 59, 93) 0%, rgb(121, 55, 67) 100%);
 }
