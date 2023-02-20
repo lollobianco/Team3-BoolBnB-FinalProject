@@ -17144,17 +17144,7 @@ __webpack_require__.r(__webpack_exports__);
         //Destrutturizzazione
         // const { current_page, last_page } = res.data;
         console.log(_this.apartments);
-        // this.pagination = {
-        //   lastPage: last_page,
-        //   currentPage: current_page,
-        // };
       });
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-      // .then(() => {
-      //   this.isLoading = false;
-      // });
     }
   }
 });

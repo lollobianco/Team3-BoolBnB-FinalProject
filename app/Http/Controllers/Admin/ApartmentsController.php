@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentsController extends Controller
 {
@@ -16,7 +17,12 @@ class ApartmentsController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all(); 
+        $user_id = Auth::user()->id;
+
+        // $user = User::find($user_id); 
+        $apartments = Apartment::whereHas('user', function($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        })->get();
      
         return view('admin.pages.index', compact('apartments'));
     }
@@ -66,10 +72,14 @@ class ApartmentsController extends Controller
 
         if(array_key_exists('cover_image', $data)){
 
+            
             $cover_url = Storage::put('cover_images', $data['cover_image']);
             $data['cover_image'] = $cover_url;
 
         }
+
+        $user_id = Auth::user()->id;
+        $data['user_id'] = $user_id;
 
         $new_apartment->fill($data);
 

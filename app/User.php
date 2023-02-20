@@ -41,6 +41,6 @@ class User extends Authenticatable
 
     // Relazione Con Appartamenti
     public function apartments(){
-        return $this->belongsTo('App\Models\Apartment');
+        return $this->hasMany('App\Models\Apartment');
     }
 }

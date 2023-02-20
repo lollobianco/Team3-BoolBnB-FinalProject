@@ -8,7 +8,7 @@ class Apartment extends Model
 {
     // Relazione con User
     public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function messages(){
@@ -40,6 +40,7 @@ class Apartment extends Model
         'long',
         'address',
         'available',
-        'price'
+        'price',
+        'user_id'
     ];
 }
