@@ -121,7 +121,7 @@
         @enderror
       </div>
 
-      <button type="submit" class="btn btn-primary">Add apartment</button>
+      <button type="submit" class="btn btn-primary">Edit apartment</button>
 
     </form>
 

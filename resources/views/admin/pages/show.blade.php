@@ -1,6 +1,8 @@
-@extends('layouts.loginregister')
+@extends('layouts.app')
 
 @section('content')
+<div class="p-5">
+
   @if (session('success'))
     <div class="container d-flex justify-content-center pt-5 alert-container">
       <div class="alert alert-success">
@@ -28,4 +30,6 @@
     @method('DELETE')
     <button type="submit" class="p-2 my-1 btn btn-danger">Delete apartment</button>
   </form>
+
+</div>
 @endsection
