@@ -28,7 +28,7 @@
           </ul>
           <ul v-else class="dropdown-menu">
             <li><a class="dropdown-item" href="/admin/apartments">My Apartments</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <li><a class="dropdown-item" @click="logout(), reloadPage()">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -53,11 +53,14 @@ export default {
       console.log(this.authUser);
     },
     logout() {
-      axios.post('/logout')
-        .catch(error => {
-          window.location.href = '/login';
-        });
+      axios.post('/logout').then(() => {
+        window.localStorage.removeItem('token');
+        this.$router.push('/');
+      });
     },
+    reloadPage(){
+      window.location.reload();
+    }
   }
 }
 </script>

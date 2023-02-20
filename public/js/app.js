@@ -17104,9 +17104,14 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.authUser);
     },
     logout: function logout() {
-      axios.post('/logout')["catch"](function (error) {
-        window.location.href = '/login';
+      var _this = this;
+      axios.post('/logout').then(function () {
+        window.localStorage.removeItem('token');
+        _this.$router.push('/');
       });
+    },
+    reloadPage: function reloadPage() {
+      window.location.reload();
     }
   }
 });
@@ -17238,7 +17243,14 @@ var render = function render() {
     staticClass: "dropdown-menu"
   }, [_vm._m(1), _vm._v(" "), _vm._m(2)]) : _c("ul", {
     staticClass: "dropdown-menu"
-  }, [_vm._m(3), _vm._v(" "), _vm._m(4)])])])])]);
+  }, [_vm._m(3), _vm._v(" "), _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    on: {
+      click: function click($event) {
+        _vm.logout(), _vm.reloadPage();
+      }
+    }
+  }, [_vm._v("Logout")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -17278,15 +17290,6 @@ var staticRenderFns = [function () {
       href: "/admin/apartments"
     }
   }, [_vm._v("My Apartments")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      href: "/logout"
-    }
-  }, [_vm._v("Logout")])]);
 }];
 render._withStripped = true;
 
