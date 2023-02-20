@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentsController extends Controller
 {
@@ -40,13 +41,41 @@ class ApartmentsController extends Controller
     {
         $data = $request->all();
 
+        $request->validate(
+
+            [
+                'name' => 'required|max:30',
+                'description' => 'required|max:500',
+                'cover_image' => 'required',
+                'rooms' => 'required|max:50',
+                'beds' => 'required|max:50',
+                'bathrooms' => 'required|max:50',
+                'mq' => 'required|max:50',
+                'accomodation' => 'required|max:50',
+                'lat' => 'required|max:50',
+                'long' => 'required|max:50',
+                'address' => 'required|max:50',
+                'available' => 'required|max:50',
+                'price' => 'required|max:50',
+
+            ]
+
+        );
+
         $new_apartment = new Apartment();
+
+        if(array_key_exists('cover_image', $data)){
+
+            $cover_url = Storage::put('cover_images', $data['cover_image']);
+            $data['cover_image'] = $cover_url;
+
+        }
 
         $new_apartment->fill($data);
 
         $new_apartment->save();
 
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.apartments.index')->with('success', "You have successfully added: $new_apartment->name");
     }
 
     /**
