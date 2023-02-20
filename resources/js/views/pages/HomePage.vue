@@ -21,10 +21,12 @@ export default {
   data() {
     return {
       apartments: [],
+      auth_user: [],
     };
   },
   mounted() {
     this.getPosts();
+    this.getUser();
   },
   methods: {
     getPosts() {
@@ -34,13 +36,19 @@ export default {
           console.log(res.data);
           this.apartments = res.data;
           this.apartments = this.apartments.apartments
-          //Destrutturizzazione
-          // const { current_page, last_page } = res.data;
-          console.log(this.apartments);
-    
+          console.log(this.apartments);   
         })
-
     },
+    getUser(){
+      axios
+        .get("http://127.0.0.1:8000/api/auth_user")
+        .then((res) => {
+          console.log(res.data);
+          this.auth_user = res.data;
+          // this.auth_user = this.apartments.apartments
+          console.log(this.auth_user);   
+        })
+    }
   },
 }
 </script>

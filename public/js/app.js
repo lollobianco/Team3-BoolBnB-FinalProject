@@ -17128,11 +17128,13 @@ __webpack_require__.r(__webpack_exports__);
   name: "HomePage",
   data: function data() {
     return {
-      apartments: []
+      apartments: [],
+      auth_user: []
     };
   },
   mounted: function mounted() {
     this.getPosts();
+    this.getUser();
   },
   methods: {
     getPosts: function getPosts() {
@@ -17141,9 +17143,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res.data);
         _this.apartments = res.data;
         _this.apartments = _this.apartments.apartments;
-        //Destrutturizzazione
-        // const { current_page, last_page } = res.data;
         console.log(_this.apartments);
+      });
+    },
+    getUser: function getUser() {
+      var _this2 = this;
+      axios.get("http://127.0.0.1:8000/api/auth_user").then(function (res) {
+        console.log(res.data);
+        _this2.auth_user = res.data;
+        // this.auth_user = this.apartments.apartments
+        console.log(_this2.auth_user);
       });
     }
   }

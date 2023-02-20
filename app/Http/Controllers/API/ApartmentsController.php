@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentsController extends Controller
 {
@@ -16,7 +17,10 @@ class ApartmentsController extends Controller
     public function index()
     {
         $apartments = Apartment::All();
-        return response()->json(compact('apartments'));
+        $auth_user = Auth::user();
+        
+        return response()->json(compact('apartments', 'auth_user'));
+
     }
 
     /**

@@ -50,7 +50,7 @@
               </a>
             </li>
             <li class="px-4">
-              <a class="text-decoration-none text-black" href="/">
+              <a class="text-decoration-none text-black" href="{{route('admin.index')}}">
                 Home Page
               </a>
             </li>
