@@ -17303,7 +17303,7 @@ var render = function render() {
     }, [_c("img", {
       staticClass: "card-img coverimg mt-3",
       attrs: {
-        src: elem.cover_image,
+        src: "/storage/" + elem.cover_image,
         alt: "cover image"
       }
     }), _vm._v(" "), _c("div", {

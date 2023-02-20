@@ -115,10 +115,32 @@ class ApartmentsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        $request->validate(
+
+            [
+                'name' => 'required|max:30',
+                'description' => 'required|max:500',
+                'cover_image' => 'required',
+                'rooms' => 'required|max:50',
+                'beds' => 'required|max:50',
+                'bathrooms' => 'required|max:50',
+                'mq' => 'required|max:50',
+                'accomodation' => 'required|max:50',
+                'lat' => 'required|max:50',
+                'long' => 'required|max:50',
+                'address' => 'required|max:50',
+                'available' => 'required|max:50',
+                'price' => 'required|max:50',
+
+            ]
+
+        );
+
         $apartment = Apartment::findOrFail($id);
         $apartment->update($data);
 
-        return redirect()->route('admin.apartments.show', $apartment->id);
+        return redirect()->route('admin.apartments.show', $apartment->id)->with('success', "You have successfully edited: $apartment->name");
     }
 
     /**

@@ -1,6 +1,14 @@
 @extends('layouts.loginregister')
 
 @section('content')
+  @if (session('success'))
+    <div class="container d-flex justify-content-center pt-5 alert-container">
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    </div>
+  @endif
+
   <h1>Pagina Show</h1>
 
   <h2>{{ $apartment->name }}</h2>

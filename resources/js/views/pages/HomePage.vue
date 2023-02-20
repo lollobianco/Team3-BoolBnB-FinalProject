@@ -4,7 +4,7 @@
       <div v-for="elem in apartments" :key="elem.id" 
         class="card mt-2 border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
 
-        <img :src="elem.cover_image" class="card-img coverimg mt-3" alt="cover image">
+        <img :src="'/storage/' + elem.cover_image" class="card-img coverimg mt-3" alt="cover image">
         <div class="card-body p-0">
           <h6 class="mt-2">{{ elem.address }}</h6>
           <h6  class="mt-0"> <strong>{{ elem.price  }} € </strong> notte</h6>
@@ -37,17 +37,9 @@ export default {
           //Destrutturizzazione
           // const { current_page, last_page } = res.data;
           console.log(this.apartments);
-          // this.pagination = {
-          //   lastPage: last_page,
-          //   currentPage: current_page,
-          // };
+    
         })
-      // .catch((err) => {
-      //   console.log(err);
-      // })
-      // .then(() => {
-      //   this.isLoading = false;
-      // });
+
     },
   },
 }
