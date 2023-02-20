@@ -7,7 +7,9 @@
       <div class="">
         <div class="card cardregister">
           <div class="d-flex justify-content-center">
-            <img class="w-25 mt-3" src="{{ asset('assets/Logo.svg') }}">
+            <a href="/" class="w-50 d-flex justify-content-center">
+              <img class="w-50 mt-3" src="{{ asset('assets/Logo.svg') }}" href="/">
+            </a>
           </div>
 
           <div class="card-body">
@@ -70,6 +72,11 @@
                   @endif
                 </div>
               </div>
+
+              <div class="form-group d-flex flex-column align-items-center justify-content-around mb-0">
+                <p><a class="pink-color2" href="/register">First time here? Register!</a></p>
+              </div>
+
             </form>
           </div>
         </div>
