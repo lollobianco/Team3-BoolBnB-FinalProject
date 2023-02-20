@@ -1,35 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-5">
+    @if (session('success'))
+        <div class="container d-flex justify-content-center pt-5 alert-container">
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
 
-  @if (session('success'))
-    <div class="container d-flex justify-content-center pt-5 alert-container">
-      <div class="alert alert-success">
-        {{ session('success') }}
-      </div>
-    </div>
-  @endif
+    <div class="container">
+        <div class="row d-flex flex-wrap justify-content-center">
 
-  <h1>Pagina Show</h1>
 
-  <h2>{{ $apartment->name }}</h2>
+            <h1 class="col-2  m-1 text-decoration-none text-black">{{ $apartment->name }}</h1>
+            <div class="card border-0">
+                <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded">
 
-  <p>{{ $apartment->description }}</p>
+                <div class="card-body">
+                    <p>
+                        {{ $apartment->description }}
+                    </p>
+                    <p>{{ $apartment->address }}</p>
 
-  <p>{{ $apartment->address }}</p>
+                    <p>{{ $apartment->price }}</p>
 
-  <p>{{ $apartment->price }}</p>
+                    <div>
+                        @foreach ($apartment->services as $service)
+                            @if (is_null($service->name))
+                            @else
+                                <span class="badge bg-dark text-white mb-4">{{ $service['name'] }}</span>
+                            @endif
+                        @endforeach
+                    </div>
 
-  <button class="btn btn-warning">
-    <a href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
-  </button>
+                    {{-- EDIT --}}
+                    <button class="btn btn-warning">
+                        <a href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
+                    </button>
 
-  <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="p-2 my-1 btn btn-danger">Delete apartment</button>
-  </form>
-
-</div>
-@endsection
+                    {{-- DESTROY --}}
+                    <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Are you sure?')"
+                            class="p-2 my-1 btn btn-danger">Delete apartment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endsection

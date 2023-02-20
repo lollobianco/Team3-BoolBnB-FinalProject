@@ -14,12 +14,13 @@ class ServiceSeeder extends Seeder
     {
         $services = ['Wi-Fi', 'Lavatrice', 'Cucina', 'Parcheggio', 'Tv', 'Climatizzatore', 'Piscina', 'Vista mare'];
 
+
+
         foreach ($services as $element) {
 
             $new_service = new Service;
-            $new_service->name = $element['name'];
+            $new_service->name = $element;
             $new_service->save();
-
         }
     }
 }

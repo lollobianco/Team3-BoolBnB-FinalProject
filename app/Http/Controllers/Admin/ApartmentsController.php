@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,11 @@ class ApartmentsController extends Controller
         $user_id = Auth::user()->id;
 
         // $user = User::find($user_id); 
-        $apartments = Apartment::whereHas('user', function($query) use ($user_id) {
+        $apartments = Apartment::with('services')->whereHas('user', function ($query) use ($user_id) {
             $query->where('user_id', $user_id);
         })->get();
-     
+
+        // dd($apartments);
         return view('admin.pages.index', compact('apartments'));
     }
 
@@ -34,7 +36,9 @@ class ApartmentsController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $services = Service::all();
+
+        return view('admin.pages.create', compact('services'));
     }
 
     /**
@@ -51,31 +55,27 @@ class ApartmentsController extends Controller
 
             [
                 'name' => 'required|max:30',
-                'description' => 'required|max:500',
+                'description' => 'max:500',
                 'cover_image' => 'required',
-                'rooms' => 'required|max:50',
-                'beds' => 'required|max:50',
-                'bathrooms' => 'required|max:50',
-                'mq' => 'required|max:50',
-                'accomodation' => 'required|max:50',
-                'lat' => 'required|max:50',
-                'long' => 'required|max:50',
+                'rooms' => 'required|max:50|min:1',
+                'beds' => 'max:50|min:1',
+                'bathrooms' => 'required|max:50|min:1',
+                'mq' => 'required|max:1000|min:1',
+                'accomodation' => 'max:50|min:1',
                 'address' => 'required|max:50',
-                'available' => 'required|max:50',
-                'price' => 'required|max:50',
-
+                'available' => 'required',
+                'price' => 'required|min:1',
             ]
 
         );
 
         $new_apartment = new Apartment();
 
-        if(array_key_exists('cover_image', $data)){
+        if (array_key_exists('cover_image', $data)) {
 
-            
+
             $cover_url = Storage::put('cover_images', $data['cover_image']);
             $data['cover_image'] = $cover_url;
-
         }
 
         $user_id = Auth::user()->id;
@@ -84,6 +84,10 @@ class ApartmentsController extends Controller
         $new_apartment->fill($data);
 
         $new_apartment->save();
+
+        if (array_key_exists('services', $data)) {
+            $new_apartment->services()->sync($data['services']);
+        }
 
         return redirect()->route('admin.apartments.index')->with('success', "You have successfully added: $new_apartment->name");
     }
@@ -96,8 +100,8 @@ class ApartmentsController extends Controller
      */
     public function show($id)
     {
-        $apartment = Apartment::findOrFail($id);
-
+        $apartment = Apartment::with('services')->findOrFail($id);
+        // dd($apartment);
         return view('admin.pages.show', compact('apartment'));
     }
 
@@ -109,10 +113,11 @@ class ApartmentsController extends Controller
      */
     public function edit($id)
     {
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::with('services')->findOrFail($id);
 
+        $services = Service::all();
 
-        return view('admin.pages.edit', compact('apartment'));
+        return view('admin.pages.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -130,24 +135,30 @@ class ApartmentsController extends Controller
 
             [
                 'name' => 'required|max:30',
-                'description' => 'required|max:500',
+                'description' => 'max:500',
                 'cover_image' => 'required',
-                'rooms' => 'required|max:50',
-                'beds' => 'required|max:50',
-                'bathrooms' => 'required|max:50',
-                'mq' => 'required|max:50',
-                'accomodation' => 'required|max:50',
-                'lat' => 'required|max:50',
-                'long' => 'required|max:50',
+                'rooms' => 'required|max:50|min:1',
+                'beds' => 'max:50|min:1',
+                'bathrooms' => 'required|max:50|min:1',
+                'mq' => 'required|max:1000|min:1',
+                'accomodation' => 'max:50|min:1',
                 'address' => 'required|max:50',
-                'available' => 'required|max:50',
-                'price' => 'required|max:50',
+                'available' => 'required',
+                'price' => 'required|min:1',
 
             ]
 
         );
 
+        if (array_key_exists('cover_image', $data)) {
+
+
+            $cover_url = Storage::put('cover_images', $data['cover_image']);
+            $data['cover_image'] = $cover_url;
+        }
+
         $apartment = Apartment::findOrFail($id);
+
         $apartment->update($data);
 
         return redirect()->route('admin.apartments.show', $apartment->id)->with('success', "You have successfully edited: $apartment->name");

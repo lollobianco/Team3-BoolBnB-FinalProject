@@ -20,16 +20,16 @@ class CreateApartmentsTable extends Migration
             $table->string ('name');
             $table->text ('description');
             $table->string ('cover_image');
-            $table->string ('rooms');
-            $table->string ('beds');
-            $table->string ('bathrooms');
-            $table->string ('mq');
-            $table->string ('accomodation');
-            $table->string ('lat');
-            $table->string ('long');
+            $table->integer ('rooms');
+            $table->integer ('beds');
+            $table->integer ('bathrooms');
+            $table->integer ('mq');
+            $table->integer ('accomodation');
+            $table->float ('lat')->nullable();
+            $table->float ('long')->nullable();
             $table->string ('address');
             $table->boolean ('available')->default(true);
-            $table->decimal ('price');
+            $table->float ('price');
             $table->timestamps();
             
         });

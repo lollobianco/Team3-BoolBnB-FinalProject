@@ -12,6 +12,7 @@
 * {
     font-family: "Circular Std", sans-serif;
 }
+
 .width-container {
     width: 50%;
 }
@@ -24,11 +25,9 @@
 .left-side-register {
     min-height: 100vh;
     background: rgb(247, 59, 93);
-    background: radial-gradient(
-        circle,
-        rgba(247, 59, 93, 1) 0%,
-        rgba(121, 55, 67, 1) 100%
-    );
+    background: radial-gradient(circle,
+            rgba(247, 59, 93, 1) 0%,
+            rgba(121, 55, 67, 1) 100%);
 }
 
 .btn-login-register {
@@ -49,7 +48,37 @@
     .left-side-register {
         padding: 10px;
     }
+
     .width-container {
         width: 100%;
     }
+}
+
+
+.cat {
+    cursor: pointer;
+}
+
+.cat label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.cat label span {
+    text-align: center;
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.cat label input {
+    position: absolute;
+    display: none;
+    color: #fff !important;
+}
+
+.action input:checked+span {
+    background-color: black;
+    border-radius: 0.25rem;
+    color: #F8F9FA;
 }
