@@ -17090,7 +17090,25 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "NavBar"
+  name: "NavBar",
+  data: function data() {
+    return {
+      authUser: window.authUser
+    };
+  },
+  created: function created() {
+    console.log(this.authUser);
+  },
+  methods: {
+    yourMethodName: function yourMethodName() {
+      console.log(this.authUser);
+    },
+    logout: function logout() {
+      axios.post('/logout')["catch"](function (error) {
+        window.location.href = '/login';
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -17129,12 +17147,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartments: [],
-      auth_user: []
+      authUser: window.authUser
     };
   },
   mounted: function mounted() {
     this.getPosts();
-    this.getUser();
+  },
+  created: function created() {
+    console.log(this.authUser);
   },
   methods: {
     getPosts: function getPosts() {
@@ -17146,14 +17166,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.apartments);
       });
     },
-    getUser: function getUser() {
-      var _this2 = this;
-      axios.get("http://127.0.0.1:8000/api/auth_user").then(function (res) {
-        console.log(res.data);
-        _this2.auth_user = res.data;
-        // this.auth_user = this.apartments.apartments
-        console.log(_this2.auth_user);
-      });
+    yourMethodName: function yourMethodName() {
+      console.log(this.authUser);
     }
   }
 });
@@ -17220,7 +17234,11 @@ var render = function render() {
     attrs: {
       icon: "fa-solid fa-user"
     }
-  })], 1)], 1), _vm._v(" "), _vm._m(1)])])])]);
+  })], 1)], 1), _vm._v(" "), _vm.authUser == null ? _c("ul", {
+    staticClass: "dropdown-menu"
+  }, [_vm._m(1), _vm._v(" "), _vm._m(2)]) : _c("ul", {
+    staticClass: "dropdown-menu"
+  }, [_vm._m(3), _vm._v(" "), _vm._m(4)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -17236,19 +17254,39 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("ul", {
-    staticClass: "dropdown-menu"
-  }, [_c("li", [_c("a", {
+  return _c("li", [_c("a", {
     staticClass: "dropdown-item",
     attrs: {
       href: "/login"
     }
-  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", [_c("a", {
+  }, [_vm._v("Login")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", [_c("a", {
     staticClass: "dropdown-item",
     attrs: {
       href: "/register"
     }
-  }, [_vm._v("Register")])])]);
+  }, [_vm._v("Register")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "/admin/apartments"
+    }
+  }, [_vm._v("My Apartments")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "/logout"
+    }
+  }, [_vm._v("Logout")])]);
 }];
 render._withStripped = true;
 

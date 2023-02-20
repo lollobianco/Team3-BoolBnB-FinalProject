@@ -19,7 +19,7 @@ class ApartmentsController extends Controller
         $apartments = Apartment::All();
         $auth_user = Auth::user();
         
-        return response()->json(compact('apartments', 'auth_user'));
+        return response()->json(compact('apartments'));
 
     }
 

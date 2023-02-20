@@ -22,9 +22,13 @@
             </div>
 
           </button>
-          <ul class="dropdown-menu">
+          <ul v-if="authUser == null" class="dropdown-menu">
             <li><a class="dropdown-item" href="/login">Login</a></li>
             <li><a class="dropdown-item" href="/register">Register</a></li>
+          </ul>
+          <ul v-else class="dropdown-menu">
+            <li><a class="dropdown-item" href="/admin/apartments">My Apartments</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -35,7 +39,26 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  data() {
+    return {
+      authUser: window.authUser
+    };
+  },
+  created() {
+    console.log(this.authUser);
+  },
+  methods: {
+    yourMethodName() {
+      console.log(this.authUser);
+    },
+    logout() {
+      axios.post('/logout')
+        .catch(error => {
+          window.location.href = '/login';
+        });
+    },
+  }
 }
 </script>
 
@@ -80,4 +103,5 @@ export default {
     display: none;
   }
 
-}</style>
+}
+</style>

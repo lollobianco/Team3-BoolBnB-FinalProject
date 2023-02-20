@@ -13,10 +13,3 @@ Route::namespace('api')->prefix('/apartments')->group(function(){
     Route::get('/{id}', 'ApartmentsController@show');
 
 });
-
-// Route::namespace('api')->prefix('/tags')->group(function(){
-    
-//     Route::get('/', 'TagsController@index'); // -> Genera: localhost:8080/api/posts
-//     Route::get('/{name}', 'TagsController@show');
-
-// });
