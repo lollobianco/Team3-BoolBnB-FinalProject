@@ -17193,7 +17193,9 @@ var render = function render() {
     staticClass: "row navbar-80"
   }, [_c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
-  }, [_vm._m(0), _vm._v(" "), _c("div", [_c("form", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "m-auto"
+  }, [_c("form", {
     staticClass: "d-flex text-center",
     attrs: {
       role: "search"
@@ -17237,26 +17239,45 @@ var render = function render() {
     staticClass: "dropdown-menu"
   }, [_vm._m(1), _vm._v(" "), _vm._m(2)]) : _c("ul", {
     staticClass: "dropdown-menu"
-  }, [_vm._m(3), _vm._v(" "), _c("li", [_c("a", {
+  }, [_c("li", [_c("a", {
+    staticClass: "dropdown-item",
+    attrs: {
+      href: "/admin/apartments"
+    }
+  }, [_c("font-awesome-icon", {
+    staticClass: "fa-solid mr-1",
+    attrs: {
+      icon: "fa-solid fa-user-pen"
+    }
+  }), _vm._v(" Personal Area")], 1)]), _vm._v(" "), _c("li", [_c("a", {
     staticClass: "dropdown-item",
     on: {
       click: function click($event) {
         _vm.logout(), _vm.reloadPage();
       }
     }
-  }, [_vm._v("Logout")])])])])])])]);
+  }, [_c("font-awesome-icon", {
+    staticClass: "fa-solid mr-1",
+    attrs: {
+      icon: "fa-solid fa-right-from-bracket"
+    }
+  }), _vm._v(" Logout")], 1)])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "logo-cont"
+  }, [_c("a", {
+    attrs: {
+      href: "/"
+    }
   }, [_c("img", {
     attrs: {
       src: __webpack_require__(/*! ../../../public/assets/Logo.svg */ "./public/assets/Logo.svg"),
       alt: "logo"
     }
-  })]);
+  })])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -17275,15 +17296,6 @@ var staticRenderFns = [function () {
       href: "/register"
     }
   }, [_vm._v("Register")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("li", [_c("a", {
-    staticClass: "dropdown-item",
-    attrs: {
-      href: "/admin/apartments"
-    }
-  }, [_vm._v("My Apartments")])]);
 }];
 render._withStripped = true;
 
@@ -21733,7 +21745,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\n  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.search-border[data-v-5dd24bca] {\n  border: 2px solid #d7526a;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\n  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.search-border[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
 
 // exports
 
@@ -69006,7 +69018,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);

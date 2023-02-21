@@ -142,7 +142,7 @@
 
       {{-- INVIO --}}
       <div>
-        <button type="submit" class="btn btn-primary mb-4">Add apartment</button>
+        <button type="submit" class="btn btn-primary">Add apartment</button>
       </div>
 
     </form>

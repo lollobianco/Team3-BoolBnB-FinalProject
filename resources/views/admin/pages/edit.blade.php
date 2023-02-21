@@ -130,7 +130,7 @@
       </div>
 
       <div>
-        <button type="submit" class="btn btn-warning mb-4 rounded-5">Edit apartment</button>
+        <button type="submit" class="btn btn-warning rounded-5">Edit apartment</button>
       </div>
 
     </form>

@@ -3,9 +3,11 @@
     <div class="row navbar-80">
       <div class="d-flex justify-content-between align-items-center">
         <div class="logo-cont">
-          <img src="../../../public/assets/Logo.svg" alt="logo">
+          <a href="/">
+            <img src="../../../public/assets/Logo.svg" alt="logo">
+          </a>
         </div>
-        <div>
+        <div class="m-auto">
           <form class="d-flex text-center" role="search">
             <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
               aria-label="Search">
@@ -27,8 +29,8 @@
             <li><a class="dropdown-item" href="/register">Register</a></li>
           </ul>
           <ul v-else class="dropdown-menu">
-            <li><a class="dropdown-item" href="/admin/apartments">My Apartments</a></li>
-            <li><a class="dropdown-item" @click="logout(), reloadPage()">Logout</a></li>
+            <li><a class="dropdown-item" href="/admin/apartments"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-user-pen" /> Personal Area</a></li>
+            <li><a class="dropdown-item" @click="logout(), reloadPage()"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-right-from-bracket" /> Logout</a></li>
           </ul>
         </div>
       </div>
@@ -83,12 +85,19 @@ export default {
 }
 
 .search-border {
-  border: 2px solid #d7526a;
+  border: 2px solid #d7526a!important;
 }
 
 .navbar-80 {
   width: 90%;
   margin: 0 auto;
+}
+
+.dropdown-menu{
+    .fa-solid{
+        color: #d7526a;
+        font-size: 0.75rem;
+    }
 }
 
 @media screen and (max-width: 600px) and (min-width: 320px) {
