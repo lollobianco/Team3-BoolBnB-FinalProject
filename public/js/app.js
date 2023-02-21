@@ -17219,7 +17219,7 @@ var render = function render() {
   })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "dropdown"
   }, [_c("button", {
-    staticClass: "btn btn-light dropdown-toggle d-flex align-items-center",
+    staticClass: "btn btn-light rounded-4 dropdown-toggle d-flex align-items-center",
     attrs: {
       type: "button",
       "data-bs-toggle": "dropdown",
@@ -17236,9 +17236,9 @@ var render = function render() {
       icon: "fa-solid fa-user"
     }
   })], 1)], 1), _vm._v(" "), _vm.authUser == null ? _c("ul", {
-    staticClass: "dropdown-menu"
+    staticClass: "dropdown-menu rounded-4"
   }, [_vm._m(1), _vm._v(" "), _vm._m(2)]) : _c("ul", {
-    staticClass: "dropdown-menu"
+    staticClass: "dropdown-menu rounded-4"
   }, [_c("li", [_c("a", {
     staticClass: "dropdown-item",
     attrs: {
@@ -21745,7 +21745,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\n  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.search-border[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.3);\n  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.search-border[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n.dropdown-toggle[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
 
 // exports
 

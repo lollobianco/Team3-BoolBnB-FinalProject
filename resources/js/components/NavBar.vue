@@ -16,7 +16,7 @@
           </form>
         </div>
         <div class="dropdown">
-          <button class="btn btn-light  dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown"
+          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             <font-awesome-icon icon="fa-solid fa-bars" />
             <div class="ms-2 p-2">
@@ -24,11 +24,11 @@
             </div>
 
           </button>
-          <ul v-if="authUser == null" class="dropdown-menu">
+          <ul v-if="authUser == null" class="dropdown-menu rounded-4">
             <li><a class="dropdown-item" href="/login">Login</a></li>
             <li><a class="dropdown-item" href="/register">Register</a></li>
           </ul>
-          <ul v-else class="dropdown-menu">
+          <ul v-else class="dropdown-menu rounded-4">
             <li><a class="dropdown-item" href="/admin/apartments"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-user-pen" /> Personal Area</a></li>
             <li><a class="dropdown-item" @click="logout(), reloadPage()"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-right-from-bracket" /> Logout</a></li>
           </ul>
@@ -98,6 +98,10 @@ export default {
         color: #d7526a;
         font-size: 0.75rem;
     }
+}
+
+.dropdown-toggle {
+    border: 2px solid #d7526a !important;
 }
 
 @media screen and (max-width: 600px) and (min-width: 320px) {

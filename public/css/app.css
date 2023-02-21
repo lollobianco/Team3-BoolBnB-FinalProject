@@ -11008,6 +11008,10 @@ a.text-dark:focus {
   font-size: 0.75rem;
 }
 
+.dropdown-toggle {
+  border: 2px solid #d7526a !important;
+}
+
 .logo-cont img {
   width: 150px;
 }

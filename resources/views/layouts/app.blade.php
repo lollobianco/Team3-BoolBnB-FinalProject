@@ -47,7 +47,7 @@
 
         {{-- DROP DOWN --}}
         <div class="dropdown">
-          <button class="btn btn-light  dropdown-toggle d-flex align-items-center" type="button"
+          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
             <div class="ms-2 p-2">
@@ -55,7 +55,7 @@
             </div>
 
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu rounded-4">
             <li><a class="dropdown-item" href="/admin/apartments"><i class="fa-solid mr-1 fa-house"></i> Apartments</a>
             </li>
             <li><a class="dropdown-item" href=""><i class="fa-solid mr-1 fa-table-columns"></i> Dashoard</a></li>
