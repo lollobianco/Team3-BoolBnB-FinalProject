@@ -25,9 +25,11 @@
 .left-side-register {
     min-height: 100vh;
     background: rgb(247, 59, 93);
-    background: radial-gradient(circle,
-            rgba(247, 59, 93, 1) 0%,
-            rgba(121, 55, 67, 1) 100%);
+    background: radial-gradient(
+        circle,
+        rgba(247, 59, 93, 1) 0%,
+        rgba(121, 55, 67, 1) 100%
+    );
 }
 
 .btn-login-register {
@@ -54,7 +56,6 @@
     }
 }
 
-
 .cat {
     cursor: pointer;
 }
@@ -77,8 +78,9 @@
     color: #fff !important;
 }
 
-.action input:checked+span {
-    background-color: rgb(40, 40, 40);
-    border-radius: 0.25rem;
-    color: #F8F9FA;
+.action input:checked + span {
+    background-color: #ff385c;
+    transition: 500ms;
+    border-radius: 50rem;
+    color: white;
 }

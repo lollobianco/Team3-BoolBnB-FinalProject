@@ -10997,8 +10997,9 @@ a.text-dark:focus {
 }
 
 .action input:checked + span {
-  background-color: rgb(40, 40, 40);
-  border-radius: 0.25rem;
-  color: #F8F9FA;
+  background-color: #ff385c;
+  transition: 500ms;
+  border-radius: 50rem;
+  color: white;
 }
 
