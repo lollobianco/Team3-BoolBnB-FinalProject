@@ -45,13 +45,7 @@ export default {
       authUser: window.authUser
     };
   },
-  created() {
-    console.log(this.authUser);
-  },
   methods: {
-    yourMethodName() {
-      console.log(this.authUser);
-    },
     logout() {
       axios.post('/logout').then(() => {
         window.localStorage.removeItem('token');

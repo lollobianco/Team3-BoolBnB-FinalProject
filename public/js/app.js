@@ -17096,13 +17096,7 @@ __webpack_require__.r(__webpack_exports__);
       authUser: window.authUser
     };
   },
-  created: function created() {
-    console.log(this.authUser);
-  },
   methods: {
-    yourMethodName: function yourMethodName() {
-      console.log(this.authUser);
-    },
     logout: function logout() {
       var _this = this;
       axios.post('/logout').then(function () {
