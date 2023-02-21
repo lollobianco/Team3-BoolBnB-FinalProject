@@ -6744,8 +6744,7 @@ a.close.disabled {
   float: left;
   width: 100%;
   margin-right: -100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
 }
 
@@ -10998,7 +10997,7 @@ a.text-dark:focus {
 }
 
 .action input:checked + span {
-  background-color: black;
+  background-color: rgb(40, 40, 40);
   border-radius: 0.25rem;
   color: #F8F9FA;
 }

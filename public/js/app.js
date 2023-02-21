@@ -68972,7 +68972,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Logo.svg?ebea300c31dce3d1324850858dce9dcd";
+module.exports = "/images/Logo.svg?4ed48ded3f899f3415ef8b60dcbf0d1c";
 
 /***/ }),
 
@@ -69385,8 +69385,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Team3-BoolBnB-FinalProject\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Team3-BoolBnB-FinalProject\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

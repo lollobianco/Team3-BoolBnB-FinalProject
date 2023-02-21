@@ -20,11 +20,13 @@
 
                 <div class="col-md-8">
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                   @error('name')
                     <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
                     </span>
                   @enderror
                 </div>
@@ -36,11 +38,13 @@
 
                 <div class="col-md-8">
                   <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
-                    name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                    name="surname" value="{{ old('surname') }}" autocomplete="surname" autofocus>
 
                   @error('surname')
                     <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
                     </span>
                   @enderror
                 </div>
@@ -54,7 +58,7 @@
                 <div class="col-md-8">
                   <input id="date_of_birth" type="date"
                     class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth"
-                    value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
+                    value="{{ old('date_of_birth') }}" autocomplete="date_of_birth" autofocus>
 
                   @error('date_of_birth')
                     <span class="invalid-feedback" role="alert">
