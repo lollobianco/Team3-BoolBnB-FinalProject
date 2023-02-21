@@ -119,7 +119,7 @@
       {{-- SERVICES --}}
       <div>
         @foreach ($services as $service)
-          <div class="cat action btn btn-outline-dark rounded-5 p-0 mr-2 mb-4">
+          <div class="cat action btn btn-secondary border-0 rounded-5 p-0 mr-2 mb-4">
             <label>
               <input type="checkbox" name="services[]" value="{{ $service->id }}"
                 {{ $apartment->services->contains($service) ? 'checked' : '' }}>
