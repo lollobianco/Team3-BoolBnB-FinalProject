@@ -173,6 +173,7 @@ class ApartmentsController extends Controller
     public function destroy($id)
     {
         $data = Apartment::findOrFail($id);
+        $data->services()->sync([]);
         $data->delete();
         return redirect()->route('admin.apartments.index');
     }

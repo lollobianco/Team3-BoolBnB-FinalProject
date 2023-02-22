@@ -12,7 +12,7 @@
         <!-- <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image"> -->
         <div class="card-body p-0">
           <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-          <h6 class="mt-0 card-element"> <strong>{{ elem.price }} € </strong> notte</h6>
+          <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
 
         </div>
       </a>

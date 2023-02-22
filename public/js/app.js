@@ -18813,7 +18813,7 @@ var render = function render() {
       staticClass: "mt-2 card-element"
     }, [_vm._v(_vm._s(elem.address))]), _vm._v(" "), _c("h6", {
       staticClass: "mt-0 card-element"
-    }, [_c("strong", [_vm._v(_vm._s(elem.price) + " € ")]), _vm._v(" notte")])])]);
+    }, [_c("strong", [_vm._v(_vm._s(elem.price) + "€ ")]), _vm._v(" a notte")])])]);
   }), 0)]);
 };
 var staticRenderFns = [];
