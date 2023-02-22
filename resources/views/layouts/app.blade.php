@@ -21,9 +21,16 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.css'
-    integrity='sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w=='
-    crossorigin='anonymous' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.css' integrity='sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w==' crossorigin='anonymous' />
+    
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps.css"
+/>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/maps/maps-web.min.js"></script>
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.23.0/services/services-web.min.js"></script>
+
 </head>
 
 <body>
@@ -150,6 +157,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+  <script>
+          // APIKEY DI TOMTOM
+          var APIKEY = "9xdLKHloT2QZwHLbyP0DmD0LGZHG6ADn"; 
+      var ITALIA = [45.46362, 9.18812]
+      var map = tt.map({
+        key: APIKEY,
+        container: 'mymap',
+        center: ITALIA,
+       
+        // style: 'https://api.tomtom.com/maps-sdk-for-web/styles/basic-main.json'
+        // not working maybe an old style
+
+      });
+
+
+      // semplice console.log
+      var handleResults = function (result) {
+        
+       console.log(result);
+
+      }
+
+      // funzione che restituisce i valori 
+      var search = function(){
+        tt.services.fuzzySearch({
+          key: APIKEY,
+          query: document.getElementById("query").value,
+
+        }).then(handleResults)
+      }
+
+
+    </script>
+  </script>
 </body>
 
 </html>

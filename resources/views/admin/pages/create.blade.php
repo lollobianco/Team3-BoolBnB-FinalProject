@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
   <div class="container-fluid w-75 m-auto right-section mt-5 py-5">
 
     <h1 class="text-center p-4">Add Apartment</h1>
@@ -147,6 +146,10 @@
       </div>
 
     </form>
+
+    {{-- !!!!!!!!!!!!!!!!!! TOMTOM MAP ADDRESS  !!!!!!!!!!!!!!!!!!!!!!!!! --}} 
+    <input type="text" id="query" value=""> <button onclick="search()">SEARCH</button>
+    <div id="mymap" style="height: 350px" class="w-50 m-auto">TOMTOM MAP</div>
 
   </div>
 @endsection
