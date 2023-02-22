@@ -16,8 +16,8 @@
           </form>
         </div>
         <div class="dropdown">
-          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             <font-awesome-icon icon="fa-solid fa-bars" />
             <div class="ms-2 p-2">
               <font-awesome-icon icon="fa-solid fa-user" />
@@ -29,8 +29,10 @@
             <li><a class="dropdown-item" href="/register">Register</a></li>
           </ul>
           <ul v-else class="dropdown-menu rounded-4">
-            <li><a class="dropdown-item" href="/admin/apartments"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-user-pen" /> Personal Area</a></li>
-            <li><a class="dropdown-item" @click="logout(), reloadPage()"><font-awesome-icon class="fa-solid mr-1" icon="fa-solid fa-right-from-bracket" /> Logout</a></li>
+            <li><a class="dropdown-item" href="/admin/apartments"><font-awesome-icon class="fa-solid mr-1"
+                  icon="fa-solid fa-user-pen" /> Personal Area</a></li>
+            <li><a class="dropdown-item" @click="logout(), reloadPage()"><font-awesome-icon class="fa-solid mr-1"
+                  icon="fa-solid fa-right-from-bracket" /> Logout</a></li>
           </ul>
         </div>
       </div>
@@ -54,7 +56,7 @@ export default {
         this.$router.push('/');
       });
     },
-    reloadPage(){
+    reloadPage() {
       window.location.reload();
     }
   }
@@ -69,9 +71,9 @@ export default {
 }
 
 .container-nav {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);
-  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.92);
+  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
 }
 
 .form-control:focus {
@@ -85,7 +87,7 @@ export default {
 }
 
 .search-border {
-  border: 2px solid #d7526a!important;
+  border: 2px solid #d7526a !important;
 }
 
 .navbar-80 {
@@ -93,15 +95,15 @@ export default {
   margin: 0 auto;
 }
 
-.dropdown-menu{
-    .fa-solid{
-        color: #d7526a;
-        font-size: 0.75rem;
-    }
+.dropdown-menu {
+  .fa-solid {
+    color: #d7526a;
+    font-size: 0.75rem;
+  }
 }
 
 .dropdown-toggle {
-    border: 2px solid #d7526a !important;
+  border: 2px solid #d7526a !important;
 }
 
 @media screen and (max-width: 600px) and (min-width: 320px) {

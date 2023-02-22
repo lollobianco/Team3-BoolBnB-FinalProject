@@ -9,20 +9,26 @@
     </div>
   @endif
 
-  <div class="container">
-    <div class="row d-flex flex-wrap justify-content-center">
+  <h1 class="">Your Apartments</h1>
+  <div class="pb-4"> <a class="pink-color2" href="/"><i class="fa-solid mr-2 fa-house"></i>Click here to return to
+      home</a> </div>
+  <div class="container-fluid d-flex">
+    <div class="row">
       @foreach ($apartments as $elem)
-        <a class="col-2  m-1 text-decoration-none text-black" href=" {{ route('admin.apartments.show', $elem['id']) }}">
+        {{-- <a href="{{ route('admin.apartments.show', $elem['id']) }}"> --}}
+          <a href="{{ route('admin.apartments.show', $elem['id']) }}" class="card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
+            <div class="card-relative">
+              <i class="fa-regular fa-eye"></i>
+              <img src="{{ asset("storage/$elem->cover_image") }}" class="card-img coverimg" alt="cover image">
+            </div>
+            <div class="card-body p-0">
 
-          <div class="card border-0">
-            <img src="{{ asset("storage/$elem->cover_image") }}" class="rounded">
-            <div class="card-body">
-
-              <h2 class="fs-5 text-center">{{ $elem->name }}</h2>
+              <h6 class="mt-2 card-element">{{ $elem->address }}</h6>
+              <h6 class="mt-0 card-element"> <strong>{{ $elem->price }} € </strong> notte</h6>
 
             </div>
-          </div>
-        </a>
+          </a>
+        {{-- </a> --}}
       @endforeach
     </div>
   </div>

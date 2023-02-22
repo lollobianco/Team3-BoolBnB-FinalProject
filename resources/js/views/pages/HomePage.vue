@@ -1,15 +1,21 @@
 <template>
-  <div class="container-fluid d-flex homepage">
+  <div class="container-fluid d-flex">
     <div class="row">
-      <div v-for="elem in apartments" :key="elem.id" class="card mt-2 border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
+      <a v-for="elem in apartments" :key="elem.id" href="#"
+        class="card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
 
-        <img :src="'/storage/' + elem.cover_image" class="card-img coverimg mt-3" alt="cover image">
+        <div class="card-relative">
+          <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
+          <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image">
+        </div>
+
+        <!-- <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image"> -->
         <div class="card-body p-0">
-          <h6 class="mt-2">{{ elem.address }}</h6>
-          <h6 class="mt-0"> <strong>{{ elem.price }} € </strong> notte</h6>
+          <h6 class="mt-2 card-element">{{ elem.address }}</h6>
+          <h6 class="mt-0 card-element"> <strong>{{ elem.price }} € </strong> notte</h6>
 
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -47,14 +53,59 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .coverimg {
   aspect-ratio: 1/1;
   object-fit: cover;
+  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);
 }
 
-.homepage {
-  margin-top: 1rem;
-  width: 95%;
+.card {
+  background: transparent !important;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover .coverimg {
+  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);
+  transition: 300ms;
+}
+
+.card-relative {
+  position: relative;
+}
+
+.fa-eye {
+  display: none;
+  color: #ff385c;
+  position: absolute;
+  opacity: 0;
+  font-size: 2rem;
+}
+
+.card:hover .fa-eye {
+  display: block;
+  opacity: 1;
+  transition: 300ms;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-element {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.card:hover .card-element {
+  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);
 }
 </style>
