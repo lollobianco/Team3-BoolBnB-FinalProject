@@ -18790,7 +18790,7 @@ var render = function render() {
   }, _vm._l(_vm.apartments, function (elem) {
     return _c("a", {
       key: elem.id,
-      staticClass: "card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12",
+      staticClass: "apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12",
       attrs: {
         href: "#"
       }
@@ -18802,7 +18802,7 @@ var render = function render() {
         icon: "fa-regular fa-eye"
       }
     }), _vm._v(" "), _c("img", {
-      staticClass: "card-img coverimg",
+      staticClass: "card-img coverimg rounded-4",
       attrs: {
         src: "/storage/" + elem.cover_image,
         alt: "cover image"
@@ -23238,7 +23238,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
+exports.push([module.i, ".coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
 
 // exports
 

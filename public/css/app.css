@@ -11107,3 +11107,18 @@ a.text-dark:focus {
   }
 }
 
+.sidebar-container {
+  background-color: rgb(23, 23, 23);
+}
+
+.side-ico {
+  font-size: 1.6rem;
+  color: black !important;
+}
+
+.side-btn {
+  width: 100%;
+  padding: 10px !important;
+  box-shadow: none !important;
+}
+
