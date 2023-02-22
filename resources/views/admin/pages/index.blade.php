@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
   <div class="d-flex">
     @if (session('success'))
@@ -9,39 +10,7 @@
     @endif
   </div>
 
-  <div class="container-fluid pl-0 d-flex test">
-
-    <div class="sidebar-container py-5 px-3">
-      <div class="nav nav-flush text-center">
-        <div class="nav-item d-flex flex-column">
-          <a href="/" class="nav-link active p-0" aria-current="page">
-            <button type="button" class="btn d-flex flex-align-center justify-content-center btn-light rounded-circle side-btn mb-3" data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Home" data-mdb-trigger="hover">
-              <i class="fa-solid fa-house side-ico"></i>
-            </button>
-          </a>
-          <a href="" class="nav-link active p-0">
-            <button type="button" class="btn d-flex flex-align-center justify-content-center btn-light rounded-circle side-btn mb-3" data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="My Apartment" data-mdb-trigger="hover">
-              <i class="fas side-ico fa-house-user"></i>
-            </button>
-          </a>
-          <a href="" class="nav-link active p-0">
-            <button type="button" class="btn d-flex flex-align-center justify-content-center btn-light rounded-circle side-btn mb-3" data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Create Apartment" data-mdb-trigger="hover">
-              <i class="fas fa-plus side-ico"></i>
-            </button>
-          </a>
-          <a href="" class="nav-link active p-0">
-            <button type="button" class="btn d-flex flex-align-center justify-content-center btn-light rounded-circle side-btn mb-3" data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Dashboard" data-mdb-trigger="hover">
-              <i class="fa-solid side-ico fa-table-columns"></i>
-            </button>
-          </a>
-          <a href="" class="nav-link active p-0 align-self-end">
-            <button type="button" class="btn d-flex flex-align-center justify-content-center btn-light rounded-circle side-btn mb-3" data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Dashboard" data-mdb-trigger="hover">
-              <i class="fa-solid side-ico fa-table-columns"></i>
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+  <div class="container-fluid p-0 d-flex">
 
     <div class="d-flex right-section flex-wrap p-5">
 

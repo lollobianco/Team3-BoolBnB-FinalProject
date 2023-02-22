@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container ">
+
+  <div class="container-fluid right-section">
 
     <h1 class="text-center p-4">Add Apartment</h1>
 

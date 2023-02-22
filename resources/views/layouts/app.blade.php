@@ -27,64 +27,123 @@
 </head>
 
 <body>
-  <div id="app" class="container-fluid py-3 container-nav d-flex justify-content-center align-items-center">
-    <div class="row navbar-80 d-flex justify-content-center align-items-center">
-      <div class="d-flex justify-content-between justify-content-center align-items-center">
-        {{-- LOGO --}}
-        <div class="logo-cont">
-          <a href="/">
-            <img src="{{ asset('assets/Logo.svg') }}" alt="logo">
-          </a>
+  <div class="d-flex flex-column ">
+    <div id="app" class="container-fluid py-3 container-nav position-fixed d-flex justify-content-center align-items-center navz-index z-index-nav">
+      <div class="row navbar-80 d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-between justify-content-center align-items-center">
+          {{-- LOGO --}}
+          <div class="logo-cont">
+            <a href="/">
+              <img src="{{ asset('assets/Logo.svg') }}" alt="logo">
+            </a>
+          </div>
+  
+          {{-- MENU --}}
+          <div class="m-auto">
+            <form class="d-flex text-center" role="search">
+              <input class="form-control me-2 rounded-5 search-border-pink" type="search" placeholder="Search"
+                aria-label="Search">
+              <button class="btn btn-login-register rounded-circle" type="submit"><i
+                  class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+  
+          {{-- DROP DOWN --}}
+          <div class="dropdown">
+            <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+              <div class="ms-2 p-2">
+                <i class="fa-solid fa-user"></i>
+              </div>
+  
+            </button>
+            <ul class="dropdown-menu rounded-4">
+              <li><a class="dropdown-item" href="/admin/apartments"><i class="fa-solid mr-1 fa-house"></i> Apartments</a>
+              </li>
+              <li><a class="dropdown-item" href=""><i class="fa-solid mr-1 fa-table-columns"></i> Dashoard</a></li>
+              <li><a class="dropdown-item" href="{{ route('admin.apartments.create') }}"><i
+                    class="fa-solid mr-1 fa-plus"></i> Add</a></li>
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <i class="fa-solid mr-1 fa-right-from-bracket"></i>
+                  {{ __('Logout') }}
+                </a>
+  
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+              </li>
+  
+            </ul>
+          </div>
         </div>
-
-        {{-- MENU --}}
-        <div class="m-auto">
-          <form class="d-flex text-center" role="search">
-            <input class="form-control me-2 rounded-5 search-border-pink" type="search" placeholder="Search"
-              aria-label="Search">
-            <button class="btn btn-login-register rounded-circle" type="submit"><i
-                class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
-        </div>
-
-        {{-- DROP DOWN --}}
-        <div class="dropdown">
-          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-bars"></i>
-            <div class="ms-2 p-2">
-              <i class="fa-solid fa-user"></i>
+  
+      </div>
+    </div>
+  
+    <main class="d-flex">
+      <div class="d-flex align-items-center sidebar-height position-fixed">
+        <div class="sidebar-container rounded-4 ml-2 py-5 px-3">
+          <div class="nav nav-flush text-center">
+            <div class="nav-item d-flex flex-column align-items-center position-stiky">
+              <div>
+                <a href="/" class="nav-link active p-0" aria-current="page">
+                  <button type="button"
+                    class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
+                    data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Home"
+                    data-mdb-trigger="hover">
+                    <i class="fa-solid fa-house side-ico"></i>
+                  </button>
+                </a>
+                <a href="/admin/apartments" class="nav-link active p-0">
+                  <button type="button"
+                    class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
+                    data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                    data-mdb-content="My Apartment" data-mdb-trigger="hover">
+                    <i class="fas side-ico fa-house-user"></i>
+                  </button>
+                </a>
+                <a href="{{ route('admin.apartments.create') }}" class="nav-link active p-0">
+                  <button type="button"
+                    class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
+                    data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                    data-mdb-content="Create Apartment" data-mdb-trigger="hover">
+                    <i class="fas fa-plus side-ico"></i>
+                  </button>
+                </a>
+                <a href="" class="nav-link active p-0">
+                  <button type="button"
+                    class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
+                    data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Dashboard"
+                    data-mdb-trigger="hover">
+                    <i class="fa-solid side-ico fa-table-columns"></i>
+                  </button>
+                </a>
+              </div>
+              
+              <div>
+                <a class="nav-link active p-0 align-self-end" href="{{ route('logout') }}"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <button type="button"
+                  class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn"
+                  data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Logout"
+                  data-mdb-trigger="hover">
+                    <i class="fa-solid side-ico fa-right-from-bracket"></i>
+                  </button>               
+                </a>
+        
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+              </div>
             </div>
-
-          </button>
-          <ul class="dropdown-menu rounded-4">
-            <li><a class="dropdown-item" href="/admin/apartments"><i class="fa-solid mr-1 fa-house"></i> Apartments</a>
-            </li>
-            <li><a class="dropdown-item" href=""><i class="fa-solid mr-1 fa-table-columns"></i> Dashoard</a></li>
-            <li><a class="dropdown-item" href="{{ route('admin.apartments.create') }}"><i
-                  class="fa-solid mr-1 fa-plus"></i> Add</a></li>
-            <li>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa-solid mr-1 fa-right-from-bracket"></i>
-                {{ __('Logout') }}
-              </a>
-
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-            </li>
-
-          </ul>
+          </div>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <main class="">
-    @yield('content')
-  </main>
+      @yield('content')
+    </main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

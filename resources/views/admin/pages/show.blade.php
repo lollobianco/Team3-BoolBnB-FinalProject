@@ -9,13 +9,12 @@
         </div>
     @endif
 
-    <div class="container">
-        <div class="row d-flex flex-wrap justify-content-center">
-
+    <div class="container-fluid p-0 d-flex">
+        <div class="d-flex right-section p-5">
 
             <h1 class="col-2  m-1 text-decoration-none text-black">{{ $apartment->name }}</h1>
-            <div class="card border-0">
-                <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded">
+            <div class="border-0">
+                <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid">
 
                 <div class="card-body">
                     <p>
@@ -49,4 +48,5 @@
                 </div>
             </div>
         </div>
+    </div>
     @endsection
