@@ -12,14 +12,48 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        $services = ['Wi-Fi', 'Lavatrice', 'Cucina', 'Parcheggio', 'Tv', 'Climatizzatore', 'Piscina', 'Vista mare'];
+        $services = [
+            [
+                'name' => 'Wi-Fi',
+                'icon' => 'fa-solid fa-wifi'
+            ],
+            [
+                'name' => 'Lavatrice',
+                'icon' => 'fa-solid fa-soap'
+            ],
+            [
+                'name' => 'Cucina',
+                'icon' => 'fa-solid fa-kitchen-set'
+            ],
+            [
+                'name' => 'Parcheggio',
+                'icon' => 'fa-solid fa-car'
+            ],
+            [
+                'name' => 'Tv',
+                'icon' => 'fa-solid fa-tv'
+            ],
+            [
+                'name' => 'Climatizzatore',
+                'icon' => 'fa-solid fa-fan'
+            ],
+            [
+                'name' => 'Piscina',
+                'icon' => 'fa-solid fa-person-swimming'
+            ],
+            [
+                'name' => 'Vista Mare',
+                'icon' => 'fa-solid fa-water'
+            ]
+        ];
 
 
 
         foreach ($services as $element) {
 
             $new_service = new Service;
-            $new_service->name = $element;
+            $new_service->name = $element['name'];
+            $new_service->icon = $element['icon'];
             $new_service->save();
         }
     }

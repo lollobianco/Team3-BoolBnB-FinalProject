@@ -28,7 +28,9 @@
 
 <body>
   <div class="d-flex flex-column ">
-    <div id="app" class="container-fluid py-3 container-nav position-fixed d-flex justify-content-center align-items-center navz-index z-index-nav">
+    
+    <div id="app" class="container-fluid container-nav position-fixed d-flex justify-content-center align-items-center navz-index z-index-nav">
+    
       <div class="row navbar-80 d-flex justify-content-center align-items-center">
         <div class="d-flex justify-content-between justify-content-center align-items-center">
           {{-- LOGO --}}
