@@ -10,7 +10,7 @@
     @endif
   </div>
 
-  <div class="container-fluid p-0 d-flex">
+  <div class="container-fluid d-flex">
 
     <div class="d-flex right-section flex-wrap p-5">
 

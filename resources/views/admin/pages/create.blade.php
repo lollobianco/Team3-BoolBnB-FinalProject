@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="container-fluid right-section">
+  <div class="container-fluid w-75 m-auto right-section mt-5 py-5">
 
     <h1 class="text-center p-4">Add Apartment</h1>
 
