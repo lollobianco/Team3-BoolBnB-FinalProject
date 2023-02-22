@@ -87,7 +87,7 @@
   
     <main class="">
       <div class="d-flex align-items-center sidebar-height position-fixed">
-        <div class="sidebar-container rounded-4 ml-2 py-5 px-3">
+        <div class="sidebar-container rounded-4 ml-2 py-4 px-2">
           <div class="nav nav-flush text-center">
             <div class="nav-item d-flex flex-column align-items-center position-stiky">
               <div>

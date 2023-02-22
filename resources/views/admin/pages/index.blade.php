@@ -4,7 +4,7 @@
 
   <div class="container-fluid d-flex">
 
-    <div class="d-flex flex-column right-section flex-wrap p-5">
+    <div class="d-flex flex-column right-section p-5">
       
       <div class="d-flex">
         @if (session('success'))
@@ -15,7 +15,7 @@
         @endif
       </div>
 
-      <div class="d-flex">
+      <div class="d-flex flex-wrap">
       @foreach ($apartments as $elem)
           {{-- <a href="{{ route('admin.apartments.show', $elem['id']) }}"> --}}
           <a href="{{ route('admin.apartments.show', $elem['id']) }}"
