@@ -6744,8 +6744,7 @@ a.close.disabled {
   float: left;
   width: 100%;
   margin-right: -100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
 }
 
@@ -11144,5 +11143,11 @@ a.text-dark:focus {
 .right-section {
   margin-left: 6rem;
   margin-top: 8vh;
+}
+
+.dash-container {
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  padding: 20px 0;
 }
 

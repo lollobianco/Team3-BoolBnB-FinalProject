@@ -2,9 +2,9 @@
 
 @section('content')
     
-<div class="container-fluid w-75 mx-auto my-5 py-5 vh-100">
+<div class="container-fluid w-75 mx-auto my-5 py-5">
 
-    <div class="d-flex my-5">
+    {{-- <div class="d-flex my-5">
       <h1 class="">Your DashBoard:</h1>
       @if (session('success'))
         <div class="alert alert-success ml-4 mb-2 alert-dismissible fade show" role="alert">
@@ -12,9 +12,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       @endif
-    </div>
+    </div> --}}
 
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-between dash-container">
       
       <div class="d-flex col-3 flex-column border rounded-4">
         @foreach ($apartments as $elem)

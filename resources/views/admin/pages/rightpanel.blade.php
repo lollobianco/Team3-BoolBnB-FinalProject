@@ -21,14 +21,14 @@
             <div id="carouselExampleRide" class="carousel m-auto slide rounded-4 w-75" data-bs-ride="true">
 
                 {{-- Carusel --}}
-                <div class="carousel-inner">
+                {{-- <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid d-block w-100">
                     </div>
                     <div class="carousel-item">
                         <img src="..." class="d-block w-100" alt="...">
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- Bottoni --}}
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
