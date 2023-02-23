@@ -319,7 +319,8 @@
             key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
             container: "map",
             center: ITALIA,
-            zoom: 4
+            zoom: 4,
+            language: "it-IT",
         })
 
 
@@ -420,7 +421,7 @@
                 bounds.extend(getBounds(markerData))
             }
             map.fitBounds(bounds, {
-                padding: 100,
+                
                 linear: true
             })
         }
@@ -509,7 +510,7 @@
             var innerElem = document.createElement("div")
             innerElem.setAttribute(
                 "style",
-                "background: white; width: 10px; height: 10px; border-radius: 50%; border: 3px solid black;"
+                "background: white; width: 10px; height: 15px; border-radius: 50%; border: 3px solid black;"
             )
 
             elem.appendChild(innerElem)
