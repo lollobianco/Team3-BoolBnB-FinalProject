@@ -34,10 +34,13 @@
         crossorigin='anonymous' />
 </head>
 
-<body style="">
+<body class="m-0 p-0">
 
     {{-- NAV BAR --}}
-    <div class="row navbar-80 d-flex justify-content-center align-items-center mt-3 pt-1">
+    <div
+    class="container-fluid container-nav position-fixed d-flex justify-content-center align-items-center create-nav z-index-nav">
+
+    <div class="row navbar-80 d-flex justify-content-center align-items-center">
         <div class="d-flex justify-content-between justify-content-center align-items-center">
             {{-- LOGO --}}
             <div class="logo-cont">
@@ -49,8 +52,8 @@
             {{-- MENU --}}
             <div class="m-auto">
                 <form class="d-flex text-center" role="search">
-                    <input class="form-control me-2 rounded-5 search-border-pink" type="search" placeholder="Search"
-                        aria-label="Search">
+                    <input class="form-control me-2 rounded-5 search-border-pink" type="search"
+                        placeholder="Search" aria-label="Search">
                     <button class="btn btn-login-register rounded-circle" type="submit"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
@@ -91,6 +94,7 @@
         </div>
 
     </div>
+</div>
 
 
     {{-- Main  nav bar --}}
@@ -155,13 +159,13 @@
         </div>
     </div>
 
-    {{-- BOdy --}}
+  
 
    
       
       {{-- MAPPA  --}}
-    <div class="h-75 d-flex w-75 m-auto mt-5">
-        <div id="map" style="width: 50%; height: 100%; border-radius: 1%"></div>
+        <div class="h-100 d-flex w-75 m-auto mapcontainer">
+        <div id="map" style="width: 50%; height: 90%; border-radius: 2%"></div>
         <form class="d-flex flex-column w-50 ps-5 m-auto h-100" method="POST" action="{{ route('admin.apartments.store') }}"
       enctype="multipart/form-data">
 
@@ -322,7 +326,7 @@
           {{-- SERVICES --}}
           <div class="w-75 fs-6 mt-5 pt-1">
               @foreach ($services as $service)
-                  <div class="cat action btn btn-secondary border-0 rounded-5 p-1 mr-1 mb-2 ">
+                  <div class="cat action btn btn-dark border-0 rounded-5 p-1 mr-1 mb-2 ">
                       <label class="">
                           <input type="checkbox" name="services[]"
                               value="{{ $service->id }}"><span>{{ $service->name }}</span>
