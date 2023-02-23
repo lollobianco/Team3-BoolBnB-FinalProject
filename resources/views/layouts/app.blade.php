@@ -98,14 +98,14 @@
           <div class="nav nav-flush text-center">
             <div class="nav-item d-flex flex-column align-items-center position-stiky">
               <div>
-                <a href="/" class="nav-link active p-0" aria-current="page">
+                {{-- <a href="/" class="nav-link active p-0" aria-current="page">
                   <button type="button"
                     class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
                     data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Home"
                     data-mdb-trigger="hover">
                     <i class="fa-solid fa-house side-ico"></i>
                   </button>
-                </a>
+                </a> --}}
                 <a href="/admin/apartments" class="nav-link active p-0">
                   <button type="button"
                     class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
