@@ -36,8 +36,8 @@
 
 <body style="">
 
-  {{-- NAV BAR --}}
-    <div class="row navbar-80 d-flex justify-content-center align-items-center">
+    {{-- NAV BAR --}}
+    <div class="row navbar-80 d-flex justify-content-center align-items-center mt-3 pt-1">
         <div class="d-flex justify-content-between justify-content-center align-items-center">
             {{-- LOGO --}}
             <div class="logo-cont">
@@ -93,7 +93,7 @@
     </div>
 
 
-    {{-- Main  nav bar--}}
+    {{-- Main  nav bar --}}
     <div class="">
         <div class="d-flex align-items-center sidebar-height position-fixed">
             <div class="sidebar-container rounded-4 ml-2 py-4 px-2">
@@ -153,173 +153,224 @@
                 </div>
             </div>
         </div>
-        @yield('content')
     </div>
 
     {{-- BOdy --}}
-    <div class="container-fluid w-75 m-auto right-section mt-5 py-5">
 
-        <h1 class="text-center p-4">Add Apartment</h1>
+   
+      
+      {{-- MAPPA  --}}
+    <div class="h-75 d-flex w-75 m-auto mt-5">
+        <div id="map" style="width: 50%; height: 100%; border-radius: 1%"></div>
+        <form class="d-flex flex-column w-50 ps-5 m-auto h-100" method="POST" action="{{ route('admin.apartments.store') }}"
+      enctype="multipart/form-data">
+
+      @csrf
 
 
-    </div>
-    <div class="d-flex justify-content-center h-25 pt-5">
-        <div id="map"  style="width: 75%; height: 75%;"></div>
-    </div>
+      <div class="fs-1 mb-5 mt-1">New apartment</div>
 
-    <form class="d-flex flex-column w-75 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
-        enctype="multipart/form-data">
 
-        @csrf
 
-        {{-- NAME --}}
-        <div class="mb-4">
-            <label class="form-label">Name</label>
-            <input name="name" type="text" class="form-control ">
-            @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+      {{-- NAME --}}
+      <div class="mb-4">
+          <label class="form-label">Name</label>
+          <input name="name" type="text" class="form-control ">
+          @error('name')
+              <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+      </div>
 
-        {{-- DESCRIPTION --}}
-        <div class="mb-4">
-            <label class="form-label">Description</label>
-            <textarea name="description" class="form-control"></textarea>
-            @error('description')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+      {{-- DESCRIPTION --}}
+      <div class="mb-4">
+          <label class="form-label">Description</label>
+          <textarea name="description" class="form-control"></textarea>
+          @error('description')
+              <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+      </div>
 
-        {{-- IMMAGINE --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Image</label>
-            <input type="file" name="cover_image" class="form-control-file">
-            @error('cover_image')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
-        {{-- ROOMS --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Rooms</label>
-            <input type="number" min="1" max="50" class="form-control" name="rooms">
-            @error('rooms')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+      {{-- primo raggruppamento  --}}
+      <div class="d-flex">
 
-        {{-- BEDS --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Beds</label>
-            <input type="number" min="1" max="50" class="form-control" name="beds">
-            @error('beds')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+          {{-- ROOMS --}}
+          <div class="mb-4 w-25">
+              <label class="form-label form-check-label" for="">Rooms</label>
+              <input type="number" min="1" max="50" class="form-control" name="rooms">
+              @error('rooms')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
 
-        {{-- BATHROOM --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Bathrooms</label>
-            <input type="number" min="1" max="50" class="form-control" name="bathrooms">
-            @error('bathrooms')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+          {{-- BEDS --}}
+          <div class="mb-4 w-25 ms-5">
+              <label class="form-label form-check-label" for="">Beds</label>
+              <input type="number" min="1" max="50" class="form-control" name="beds">
+              @error('beds')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
 
-        {{-- MQ --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Mq</label>
-            <input type="number" min="1" max="1000" class="form-control" name="mq">
-            @error('mq')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
-        {{-- ACCOMODATION --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Accomodation</label>
-            <input type="number" min="1" max="50" class="form-control" name="accomodation">
-            @error('accomodation')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        {{-- 
-              LAT LONG--------------------------------------------------
-            <div class="mb-4">
-                <label class="form-label form-check-label" for="">Lat</label>
-                <input type="number"  min="1" class="form-control" name="lat">
-                @error('lat')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div>
+          {{-- BATHROOM --}}
+          <div class="mb-4 w-25 ms-5">
+              <label class="form-label form-check-label" for="">Bathrooms</label>
+              <input type="number" min="1" max="50" class="form-control" name="bathrooms">
+              @error('bathrooms')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
+          {{-- MQ --}}
+          <div class="mb-4 w-25 ms-5">
+              <label class="form-label form-check-label" for="">Mq</label>
+              <input type="number" min="1" max="1000" class="form-control" name="mq">
+              @error('mq')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
+      </div>
 
-            
-            <div class="mb-4">
-                <label class="form-label form-check-label" for="">Long</label>
-                <input type="number"  min="1" class="form-control" name="long">
-                @error('long')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div> 
-            LAT LONG--------------------------------------------------
-            --}}
 
-        {{-- ADDRESS --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Address</label>
-            <input type="text" class="form-control"  name="address" id="address">
-            @error('address')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
 
-        {{-- PRICE --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Price</label>
-            <input type="number" min="1" class="form-control" name="price">
-            @error('price')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+      {{-- secondo raggruppamento --}}
 
-        {{-- AVAILABLE --}}
-        <div class="mb-4">
-            <label class="form-label form-check-label" for="">Availability</label>
-            <select name="available" class="form-control">
-                <option value=1>Available</option>
-                <option value=0>Not Available</option>
-            </select>
-        </div>
+      <div class="d-flex">
 
-        {{-- SERVICES --}}
-        <div>
-            @foreach ($services as $service)
-                <div class="cat action btn btn-secondary border-0 rounded-5 p-0 mr-2 mb-4">
-                    <label>
-                        <input type="checkbox" name="services[]"
-                            value="{{ $service->id }}"><span>{{ $service->name }}</span>
-                    </label>
-                </div>
-            @endforeach
-        </div>
+          {{-- IMMAGINE --}}
+          
+              <div class="file-input w-25  mt-4">
+                <input
+                  type="file"
+                  name="cover_image"
+                  id="file-input"
+                  class="file-input__input "
+                />
+                <label class="file-input__label " for="file-input">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="upload"
+                    class="svg-inline--fa fa-upload fa-w-16 ms-2"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                    ></path>
+                  </svg>
+                  <span class="p-1">Upload apartment image</span></label>
+                  @error('cover_image')
+                  <div class=" alert alert-danger">{{ $message }}</div>
+              @enderror
+              </div>
+          {{-- </div> --}}
 
-        {{-- INPUT LAT LONG HIDDEN --}}
-        <input type="hidden" name="lat" type="text" id="lat"> </input>
-        <input type="hidden" name="long" type="text" id="long"> </input>
+          {{-- ACCOMODATION --}}
+          <div class="mb-4 w-25 ms-5">
+              <label class="form-label form-check-label" for="">Accomodation</label>
+              <input type="number" min="1" max="50" class="form-control" name="accomodation">
+              @error('accomodation')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
 
-        {{-- INVIO --}}
-        <div>
-            <button type="submit" class="btn btn-primary">Add apartment</button>
-        </div>
 
-    </form>
+          {{-- ADDRESS --}}
+          <div class=" d-none">
+              <label class="form-label form-check-label" for="">Address</label>
+              <input type="text" type="hidden" class="form-control" name="address" id="address">
+              @error('address')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
+
+
+          {{-- PRICE --}}
+          <div class="w-25 ms-5">
+              <label class="form-label form-check-label" for="">Price</label>
+              <input type="number" min="1" class="form-control" name="price">
+              @error('price')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+          </div>
+
+
+
+
+          {{-- AVAILABLE --}}
+          <div class="mb-4 w-25 ms-5">
+              <label class="form-label form-check-label" for="">Availability</label>
+              <select name="available" class="form-control">
+                  <option value=1>Available</option>
+                  <option value=0>Not Available</option>
+              </select>
+          </div>
+      </div>
+
+
+
+
+
+      
+
+      <div class="d-flex  justify-content-between">
+
+          {{-- SERVICES --}}
+          <div class="w-75 fs-6 mt-5 pt-1">
+              @foreach ($services as $service)
+                  <div class="cat action btn btn-secondary border-0 rounded-5 p-1 mr-1 mb-2 ">
+                      <label class="">
+                          <input type="checkbox" name="services[]"
+                              value="{{ $service->id }}"><span>{{ $service->name }}</span>
+                      </label>
+                  </div>
+              @endforeach
+          </div>
+
+          {{-- INPUT LAT LONG HIDDEN --}}
+          <input type="hidden" name="lat" type="text" id="lat"> </input>
+          <input type="hidden" name="long" type="text" id="long"> </input>
+
+          {{-- INVIO --}}
+          <div class="w-25 mt-5">
+              <button type="submit" class=" btn-custom ">Add apartment</button>
+          </div>
+
+
+      </div>
+
+
+
+
+  </form>
+
+    
+   
+    {{-- FINE MAPPA  --}}
+    
+  
+  
+
+  
+ 
+
+
+    
+
+
+
+    
     <script>
         var ITALIA = [12.49427, 41.89056]
         var map = tt.map({
             key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
             container: "map",
             center: ITALIA,
-            zoom: 4,
+            zoom: 5,
             language: "it-IT",
         })
 
@@ -377,7 +428,7 @@
                 addr.value = address
             });
 
-            
+
             console.log(address)
             var latitudine = document.getElementById('lat');
             latitudine.value = lat;
@@ -392,10 +443,10 @@
             var longitudine = document.getElementById('long');
             longitudine.value = long;
         }
-        
 
 
-        
+
+
 
 
 
@@ -421,7 +472,7 @@
                 bounds.extend(getBounds(markerData))
             }
             map.fitBounds(bounds, {
-                
+
                 linear: true
             })
         }
