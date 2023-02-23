@@ -58,9 +58,16 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
+        $user_id = Auth::user()->id;
+
+        // $user = User::find($user_id); 
+        $apartments = Apartment::with('services')->whereHas('user', function ($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        })->get();
+
         $apartment = Apartment::with('services')->findOrFail($id);
         // dd($apartment);
-        return view('admin.pages.rightpanel', compact('apartment'));
+        return view('admin.pages.rightpanel', compact('apartment', 'apartments'));
     }
 
     /**

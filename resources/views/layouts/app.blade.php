@@ -140,7 +140,7 @@
                                         <i class="fas fa-plus side-ico"></i>
                                     </button>
                                 </a>
-                                <a href="" class="nav-link active p-0">
+                                <a href="{{ route('admin.dashboard.index') }}" class="nav-link active p-0">
                                     <button type="button"
                                         class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
                                         data-mdb-container="body" data-mdb-toggle="popover"

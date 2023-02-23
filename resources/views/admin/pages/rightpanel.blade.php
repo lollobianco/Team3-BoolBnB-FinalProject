@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('right-panel')
     @if (session('success'))
@@ -9,7 +9,7 @@
         </div>
     @endif
 
-    <div class="container-fluid w-75 mt-5 py-5">
+    <div class="container-fluid">
 
 
         <div class=" row border-0 d-flex flex-column">
