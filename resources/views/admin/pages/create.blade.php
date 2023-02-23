@@ -267,7 +267,7 @@
         {{-- ADDRESS --}}
         <div class="mb-4">
             <label class="form-label form-check-label" for="">Address</label>
-            <input type="text" class="form-control" name="address">
+            <input type="text" class="form-control"  name="address" id="address">
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -362,16 +362,24 @@
             fitToViewport(results)
 
             // Lat
+
+
             var lat
             var address
             results.forEach(element => {
                 lat = element.position.lat
-                address = element.address
+                address = element.address.streetName
+                console.log(address)
+
+                var addr = document.getElementById('address');
+                addr.value = address
             });
 
+            
             console.log(address)
             var latitudine = document.getElementById('lat');
             latitudine.value = lat;
+
             // Long
             var long
             results.forEach(element => {
@@ -382,6 +390,12 @@
             var longitudine = document.getElementById('long');
             longitudine.value = long;
         }
+        
+
+
+        
+
+
 
         function handleResultSelection(event) {
             var result = event.data.result
