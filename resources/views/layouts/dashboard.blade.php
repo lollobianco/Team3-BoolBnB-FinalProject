@@ -5,7 +5,6 @@
 <div class="container-fluid w-75 mx-auto dash-container">
 
     {{-- <div class="d-flex my-5">
-      <h1 class="">Your DashBoard:</h1>
       @if (session('success'))
         <div class="alert alert-success ml-4 mb-2 alert-dismissible fade show" role="alert">
           {{ session('success') }}.
@@ -38,7 +37,7 @@
       </div>
 
       <div class="col-9">
-        <div class="border rounded-4 p-4 h-100">
+        <div class="border container-fluid rounded-4 p-5 h-100">
           @yield('right-panel')
         </div>
       </div>
