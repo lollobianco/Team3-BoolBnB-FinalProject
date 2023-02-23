@@ -25,8 +25,8 @@ class CreateApartmentsTable extends Migration
             $table->integer ('bathrooms');
             $table->integer ('mq');
             $table->integer ('accomodation');
-            $table->float ('lat')->nullable();
-            $table->float ('long')->nullable();
+            $table->double ('lat')->nullable();
+            $table->double ('long')->nullable();
             $table->string ('address');
             $table->boolean ('available')->default(true);
             $table->float ('price');
