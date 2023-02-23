@@ -163,8 +163,8 @@
 
 
     </div>
-    <div class="d-flex justify-content-center h-50">
-        <div id="map" style="width: 50%; height: 50%;"></div>
+    <div class="d-flex justify-content-center h-25 pt-5">
+        <div id="map"  style="width: 75%; height: 75%;"></div>
     </div>
 
     <form class="d-flex flex-column w-75 m-auto" method="POST" action="{{ route('admin.apartments.store') }}"
@@ -327,12 +327,12 @@
         var options = {
             searchOptions: {
                 key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
-                language: "en-GB",
+                language: "it-IT",
                 limit: 1,
             },
             autocompleteOptions: {
                 key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
-                language: "en-GB",
+                language: "it-IT",
             },
         }
         var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
