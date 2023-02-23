@@ -46,9 +46,6 @@ export default {
           console.log(this.apartments);
         })
     },
-    yourMethodName() {
-      console.log(this.authUser);
-    }
   },
 }
 </script>

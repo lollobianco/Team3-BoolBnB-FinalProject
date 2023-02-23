@@ -21,8 +21,11 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
 
     Route::get('/', 'HomeController@index')->name('index');
     Route::resource('/apartments', ApartmentsController::class);
+    Route::resource('/dashboard', DashboardController::class);
+
 
 });
+
 Route::get('{any?}', function(){
     return view('guest.home');
 })->where("any", ".*");
