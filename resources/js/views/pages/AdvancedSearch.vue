@@ -89,9 +89,9 @@ export default {
           this.apartment_service = res.data.apartment_service;
           this.services = res.data.services;
 
-          console.log(this.apartments);
+          // console.log(this.apartments);
           console.log(this.apartment_service);
-          console.log(this.services);
+          // console.log(this.services);
         })
     },
 
@@ -127,47 +127,32 @@ export default {
           };
         });
 
-      } else if (this.min_rooms == null && this.min_beds == null) {
+      } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
         this.filtered_apartments = [];
 
-        this.active_services.forEach(element => {
+          this.apartment_service.forEach(apartment => {
+            console.log(apartment)
 
-          this.apartment_service.forEach(service => {
-            console.log(element)
-            console.log(service.service_id)
-            if (element == service.service_id) {
-              console.log('OK')
-            } else {
-              console.log('NOOO')
-            }
+            this.apartments.forEach(elem => {
+
+              if (elem.id == apartment.apartment_id) {
+                console.log('OK')
+                this.apartments.forEach(element => {
+                  if(element.indexOf(apartment.apartment_id) == true){
+                    console.log('Non pusha')
+                  }
+                  this.filtered_apartments.push(elem);
+                  console.log('pusha');
+                });
+              } else {
+                console.log('NOOO')
+              }
+
+            })
+
           });
 
-        });
-      } else if (this.min_rooms != null && this.min_beds == null && this.active_services.length > 0) {
-
-        this.filtered_apartments = [];
-
-        this.active_services.forEach(element => {
-
-          this.apartment_service.forEach(service => {
-            console.log(element)
-            console.log(service.service_id)
-            if (element == service.service_id) {
-              this.apartments.forEach(apartment => {
-                console.log(element)
-                if (apartment.rooms >= this.min_rooms && service.apartment_id == apartment.id) {
-                  this.filtered_apartments.push(apartment);
-                  console.log(this.filtered_apartments);
-                  console.log('Elemento Pushato')
-                };
-              });
-              
-            } else {
-              console.log('NOOO')
-            }
-          });
-
-        });
+        
 
       }
 

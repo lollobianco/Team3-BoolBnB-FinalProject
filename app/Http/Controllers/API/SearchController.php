@@ -21,7 +21,7 @@ class SearchController extends Controller
 
         $services = Service::all();
 
-        $apartment_service = Apartment::select('apartment_service.apartment_id', 'apartment_service.service_id')
+        $apartment_service = Apartment::select('apartments.id', 'apartments.name', 'apartments.description', 'apartments.cover_image', 'apartments.rooms', 'apartments.beds', 'apartments.bathrooms', 'apartments.mq', 'apartments.accomodation', 'apartments.lat','apartments.long','apartments.address', 'apartments.available', 'apartments.price', 'apartments.user_id','apartment_service.apartment_id', 'apartment_service.service_id')
             ->join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
             ->join('services', 'services.id', '=', 'apartment_service.service_id')
             ->get();

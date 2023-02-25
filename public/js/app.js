@@ -18608,9 +18608,10 @@ __webpack_require__.r(__webpack_exports__);
         _this.apartments = res.data.apartments;
         _this.apartment_service = res.data.apartment_service;
         _this.services = res.data.services;
-        console.log(_this.apartments);
+
+        // console.log(this.apartments);
         console.log(_this.apartment_service);
-        console.log(_this.services);
+        // console.log(this.services);
       });
     },
     advancedSearch: function advancedSearch() {
@@ -18645,34 +18646,19 @@ __webpack_require__.r(__webpack_exports__);
           }
           ;
         });
-      } else if (this.min_rooms == null && this.min_beds == null) {
+      } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
         this.filtered_apartments = [];
-        this.active_services.forEach(function (element) {
-          _this2.apartment_service.forEach(function (service) {
-            console.log(element);
-            console.log(service.service_id);
-            if (element == service.service_id) {
+        this.apartment_service.forEach(function (apartment) {
+          console.log(apartment);
+          _this2.apartments.forEach(function (elem) {
+            if (elem.id == apartment.apartment_id) {
               console.log('OK');
-            } else {
-              console.log('NOOO');
-            }
-          });
-        });
-      } else if (this.min_rooms != null && this.min_beds == null && this.active_services.length > 0) {
-        this.filtered_apartments = [];
-        this.active_services.forEach(function (element) {
-          _this2.apartment_service.forEach(function (service) {
-            console.log(element);
-            console.log(service.service_id);
-            if (element == service.service_id) {
-              _this2.apartments.forEach(function (apartment) {
-                console.log(element);
-                if (apartment.rooms >= _this2.min_rooms && service.apartment_id == apartment.id) {
-                  _this2.filtered_apartments.push(apartment);
-                  console.log(_this2.filtered_apartments);
-                  console.log('Elemento Pushato');
+              _this2.apartments.forEach(function (element) {
+                if (element.indexOf(apartment.apartment_id) == true) {
+                  console.log('Non pusha');
                 }
-                ;
+                _this2.filtered_apartments.push(elem);
+                console.log('pusha');
               });
             } else {
               console.log('NOOO');
