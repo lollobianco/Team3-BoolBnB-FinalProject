@@ -11,8 +11,12 @@
           <form class="d-flex text-center" role="search">
             <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
               aria-label="Search">
-            <button class="btn btn-login-register rounded-circle" type="submit"><font-awesome-icon
-                icon="fa-solid fa-magnifying-glass" /></button>
+            <button class="btn btn-login-register rounded-circle" type="submit">
+              <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+            </button>
+            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-circle ms-2" type="submit" >
+              <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
+            </router-link>        
           </form>
         </div>
         <div class="dropdown">

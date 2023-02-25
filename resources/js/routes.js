@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import HomePage from './views/pages/HomePage.vue'
+import AdvancedSearch from './views/pages/AdvancedSearch.vue'
 
 const router = new VueRouter({
   mode: "history",
@@ -13,6 +14,16 @@ const router = new VueRouter({
       name: "home",
       component: HomePage,
     },
+    {
+      path: "/advaced-search",
+      name: "advanced-search",
+      component: AdvancedSearch,
+    },
+    // {
+    //   path: "/services/:name",
+    //   name: "services",
+    //   component: ServicesSearch,
+    // }
   ],
 });
 

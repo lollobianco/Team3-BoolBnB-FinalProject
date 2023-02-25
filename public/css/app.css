@@ -10999,7 +10999,7 @@ a.text-dark:focus {
 .action input:checked + span {
   background-color: #ff385c;
   transition: 500ms;
-  border-radius: 50rem;
+  border-radius: 30rem;
   color: white;
 }
 
@@ -11009,7 +11009,7 @@ a.text-dark:focus {
 }
 
 .dropdown-toggle {
-  border: 2px solid #d7526a !important;
+  border: 1px solid #d7526a !important;
 }
 
 .coverimg {
@@ -11061,7 +11061,7 @@ a.text-dark:focus {
 }
 
 .card-element {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
 .apartment-card:hover .card-element {
@@ -11073,11 +11073,11 @@ a.text-dark:focus {
 }
 
 .container-nav {
-  padding: 2.5rem;
+  padding: 2rem;
   height: 8vh;
-  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
-  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
 }
 
 .form-control:focus {
@@ -11149,5 +11149,58 @@ a.text-dark:focus {
   height: calc(100vh - 80px);
   margin-top: 80px;
   padding: 20px 0;
+}
+
+.btn-custom {
+  color: #fff;
+  background-color: #D7526A;
+  padding: 1.2rem 1.2rem;
+  border: solid #D7526A 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 50px 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-custom:hover {
+  transition: 1000ms;
+  padding: 2rem 2rem;
+  transform: translateY(0px);
+  background-color: #fff;
+  color: #D7526A;
+}
+
+.file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input__label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0px 2px;
+  background-color: #D7526A;
+}
+
+.file-input__label svg {
+  height: 1.1rem;
+}
+
+.mapcontainer {
+  padding-top: 10vh !important;
 }
 
