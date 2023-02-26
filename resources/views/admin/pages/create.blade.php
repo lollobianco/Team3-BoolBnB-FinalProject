@@ -179,7 +179,7 @@
       {{-- NAME --}}
       <div class="mb-4">
           <label class="form-label">Name</label>
-          <input name="name" type="text" class="form-control ">
+          <input name="name" type="text" class="form-control " required >
           @error('name')
               <div class="alert alert-danger">{{ $message }}</div>
           @enderror
@@ -188,7 +188,7 @@
       {{-- DESCRIPTION --}}
       <div class="mb-4">
           <label class="form-label">Description</label>
-          <textarea name="description" class="form-control"></textarea>
+          <textarea name="description" class="form-control" required></textarea>
           @error('description')
               <div class="alert alert-danger">{{ $message }}</div>
           @enderror
@@ -201,7 +201,7 @@
           {{-- ROOMS --}}
           <div class="mb-4 w-25">
               <label class="form-label form-check-label" for="">Rooms</label>
-              <input type="number" min="1" max="50" class="form-control" name="rooms">
+              <input type="number" min="1" max="50" class="form-control" name="rooms" required >
               @error('rooms')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -210,7 +210,7 @@
           {{-- BEDS --}}
           <div class="mb-4 w-25 ms-5">
               <label class="form-label form-check-label" for="">Beds</label>
-              <input type="number" min="1" max="50" class="form-control" name="beds">
+              <input type="number" min="1" max="50" class="form-control" name="beds" required >
               @error('beds')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -220,7 +220,7 @@
           {{-- BATHROOM --}}
           <div class="mb-4 w-25 ms-5">
               <label class="form-label form-check-label" for="">Bathrooms</label>
-              <input type="number" min="1" max="50" class="form-control" name="bathrooms">
+              <input type="number" min="1" max="50" class="form-control" name="bathrooms" required >
               @error('bathrooms')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -228,7 +228,7 @@
           {{-- MQ --}}
           <div class="mb-4 w-25 ms-5">
               <label class="form-label form-check-label" for="">Mq</label>
-              <input type="number" min="1" max="1000" class="form-control" name="mq">
+              <input type="number" min="1" max="1000" class="form-control" name="mq" required >
               @error('mq')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -249,7 +249,7 @@
                   name="cover_image"
                   id="file-input"
                   class="file-input__input "
-                />
+                 required />
                 <label class="file-input__label " for="file-input">
                   <svg
                     aria-hidden="true"
@@ -276,7 +276,7 @@
           {{-- ACCOMODATION --}}
           <div class="mb-4 w-25 ms-5">
               <label class="form-label form-check-label" for="">Accomodation</label>
-              <input type="number" min="1" max="50" class="form-control" name="accomodation">
+              <input type="number" min="1" max="50" class="form-control" name="accomodation" required >
               @error('accomodation')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -284,9 +284,9 @@
 
 
           {{-- ADDRESS --}}
-          <div class=" d-none">
-              <label class="form-label form-check-label" for="">Address</label>
-              <input type="text" type="hidden" class="form-control" name="address" id="address">
+          <div class="">
+              {{-- <label class="form-label form-check-label" for="">Address</label> --}}
+              <input type="text" class="form-control border-0 position-absolute" style="top: 100px; left: -500px; opacity: 0.0" name="address" id="address" required >
               @error('address')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -296,7 +296,7 @@
           {{-- PRICE --}}
           <div class="w-25 ms-5">
               <label class="form-label form-check-label" for="">Price</label>
-              <input type="number" min="1" class="form-control" name="price">
+              <input type="number" min="1" class="form-control" name="price" required >
               @error('price')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -308,7 +308,7 @@
           {{-- AVAILABLE --}}
           <div class="mb-4 w-25 ms-5">
               <label class="form-label form-check-label" for="">Availability</label>
-              <select name="available" class="form-control">
+              <select name="available" class="form-control" required >
                   <option value=1>Available</option>
                   <option value=0>Not Available</option>
               </select>
@@ -336,8 +336,8 @@
           </div>
 
           {{-- INPUT LAT LONG HIDDEN --}}
-          <input type="hidden" name="lat" type="text" id="lat"> </input>
-          <input type="hidden" name="long" type="text" id="long"> </input>
+          <input type="hidden" name="lat" type="text" id="lat" > </input>
+          <input type="hidden" name="long" type="text" id="long" > </input>
 
           {{-- INVIO --}}
           <div class="w-25 mt-5">

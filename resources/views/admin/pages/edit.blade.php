@@ -16,7 +16,7 @@
       {{-- NAME --}}
       <div class="mb-4">
         <label class="form-label">Name</label>
-        <input name="name" value="{{ $apartment->name }}" type="text" class="form-control ">
+        <input name="name" value="{{ $apartment->name }}" type="text" class="form-control " required>
         @error('name')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -25,7 +25,7 @@
       {{-- DESCRIPTION --}}
       <div class="mb-4">
         <label class="form-label">Description</label>
-        <textarea name="description" class="form-control">{{ $apartment->description }}</textarea>
+        <textarea name="description" class="form-control" required>{{ $apartment->description }}</textarea>
         @error('description')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -34,7 +34,7 @@
       {{-- IMMAGINE --}}
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Image</label>
-        <input type="file" name="cover_image" class="form-control-file">
+        <input type="file" name="cover_image" class="form-control-file" required>
         @error('cover_image')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -44,7 +44,7 @@
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Rooms</label>
         <input type="number" min="1" max="50" value="{{ $apartment->rooms }}" class="form-control"
-          name="rooms">
+          name="rooms" required>
         @error('rooms')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -54,7 +54,7 @@
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Beds</label>
         <input type="number" min="1" max="50" value="{{ $apartment->beds }}" class="form-control"
-          name="beds">
+          name="beds" required>
         @error('beds')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -64,7 +64,7 @@
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Bathrooms</label>
         <input type="number" min="1" max="50" value="{{ $apartment->bathrooms }}" class="form-control"
-          name="bathrooms">
+          name="bathrooms" required>
         @error('bathrooms')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -74,7 +74,7 @@
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Mq</label>
         <input type="number" min="1" max="1000" value="{{ $apartment->mq }}" class="form-control"
-          name="mq">
+          name="mq" required>
         @error('mq')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -84,7 +84,7 @@
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Accomodation</label>
         <input type="number" min="1" max="50" value="{{ $apartment->accomodation }}" class="form-control"
-          name="accomodation">
+          name="accomodation" required>
         @error('accomodation')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -93,7 +93,7 @@
       {{-- ADDRESS --}}
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Address</label>
-        <input type="text" value="{{ $apartment->address }}" class="form-control" name="address">
+        <input type="text" value="{{ $apartment->address }}" class="form-control" name="address" required>
         @error('address')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -102,7 +102,7 @@
       {{-- PRICE --}}
       <div class="mb-4">
         <label class="form-label form-check-label" for="">Price</label>
-        <input type="number" min="1" value="{{ $apartment->price }}" class="form-control" name="price">
+        <input type="number" min="1" value="{{ $apartment->price }}" class="form-control" name="price" required>
         @error('price')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -111,7 +111,7 @@
       {{-- AVAILABLE --}}
       <div class="mb-4">
         <label class="form-label">Availability</label>
-        <select name="available" class="form-control">
+        <select name="available" class="form-control" required>
           <option value=1>Available</option>
           <option value=0>Not Available</option>
         </select>
