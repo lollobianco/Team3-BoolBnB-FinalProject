@@ -10,13 +10,13 @@
         <div class="m-auto">
           <form class="d-flex text-center" role="search">
             <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
-              aria-label="Search">
-            <button class="btn btn-login-register rounded-circle" type="submit">
+              aria-label="Search" v-model="searched_address">
+            <button class="btn btn-login-register rounded-circle" onclick="return false" @keyup.enter="searchText()">
               <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
             </button>
-            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-circle ms-2" type="submit" >
+            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-circle ms-2" type="submit">
               <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
-            </router-link>        
+            </router-link>
           </form>
         </div>
         <div class="dropdown">
@@ -50,10 +50,24 @@ export default {
   name: "NavBar",
   data() {
     return {
-      authUser: window.authUser
+      authUser: window.authUser,
+      searched_address: '',
+      apartments: [],
     };
   },
+  mounted() {
+    this.getServices();
+  },
   methods: {
+    getServices() {
+      axios
+        .get("http://127.0.0.1:8000/api/advanced-search")
+        .then((res) => {
+
+          this.apartments = res.data.apartments;                  
+
+        })
+    },
     logout() {
       axios.post('/logout').then(() => {
         window.localStorage.removeItem('token');
@@ -62,7 +76,17 @@ export default {
     },
     reloadPage() {
       window.location.reload();
+    },
+
+    searchText () {
+      router.push({
+        name: 'AdvancedSearch',
+        props: {
+          searched_address: this.searched_address
+        }
+      })
     }
+
   }
 }
 </script>

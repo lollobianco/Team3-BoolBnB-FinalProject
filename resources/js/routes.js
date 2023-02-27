@@ -18,6 +18,7 @@ const router = new VueRouter({
       path: "/advaced-search",
       name: "advanced-search",
       component: AdvancedSearch,
+      props: true,
     },
     // {
     //   path: "/services/:name",

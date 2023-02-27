@@ -60,15 +60,21 @@
 <script>
 export default {
   name: 'AdvancedSearch',
+  props: {
+    searched_address: {
+      type: String,
+      required: false
+    }
+  },
   data() {
     return {
-      apartments: [],
-      apartment_service: '',
-      services: [],
+      apartments: [], //Tutti gli appartamenti con i servizi
+      apartment_service: '', //Solo i servizi degli appartamenti
+      services: [], //Tutti i servizi
 
-      filtered_apartments: [],
+      filtered_apartments: [], //Appartamenti filtrati
 
-      active_services: [],
+      active_services: [], //Servizi che vogliamo filtrare
       min_beds: null,
       min_rooms: null,
 
@@ -85,9 +91,8 @@ export default {
         .then((res) => {
 
           this.apartments = res.data.apartments;
-          this.services = res.data.services;
-
-          // console.log(this.apartments);
+          console.log(this.apartments)
+          this.services = res.data.services;          
 
         })
     },
@@ -121,7 +126,19 @@ export default {
         // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
         return true;
       });
-    }
+    },
+    
+    // searchText() {
+    //   this.filtered_apartments = this.apartments.filter(apartment => {
+
+    //     if (this.searched_address && apartment.address != this.searched_address) {
+    //       return false;
+    //     }
+    //     return true;
+
+    //   });
+    // },
+    
   }
 }
 

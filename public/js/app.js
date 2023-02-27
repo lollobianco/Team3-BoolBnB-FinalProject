@@ -18536,19 +18536,38 @@ __webpack_require__.r(__webpack_exports__);
   name: "NavBar",
   data: function data() {
     return {
-      authUser: window.authUser
+      authUser: window.authUser,
+      searched_address: '',
+      apartments: []
     };
   },
+  mounted: function mounted() {
+    this.getServices();
+  },
   methods: {
-    logout: function logout() {
+    getServices: function getServices() {
       var _this = this;
+      axios.get("http://127.0.0.1:8000/api/advanced-search").then(function (res) {
+        _this.apartments = res.data.apartments;
+      });
+    },
+    logout: function logout() {
+      var _this2 = this;
       axios.post('/logout').then(function () {
         window.localStorage.removeItem('token');
-        _this.$router.push('/');
+        _this2.$router.push('/');
       });
     },
     reloadPage: function reloadPage() {
       window.location.reload();
+    },
+    searchText: function searchText() {
+      router.push({
+        name: 'AdvancedSearch',
+        props: {
+          searched_address: this.searched_address
+        }
+      });
     }
   }
 });
@@ -18586,13 +18605,26 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
+  props: {
+    searched_address: {
+      type: String,
+      required: false
+    }
+  },
   data: function data() {
     return {
       apartments: [],
+      //Tutti gli appartamenti con i servizi
       apartment_service: '',
+      //Solo i servizi degli appartamenti
       services: [],
+      //Tutti i servizi
+
       filtered_apartments: [],
+      //Appartamenti filtrati
+
       active_services: [],
+      //Servizi che vogliamo filtrare
       min_beds: null,
       min_rooms: null,
       i: 1
@@ -18606,9 +18638,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios.get("http://127.0.0.1:8000/api/advanced-search").then(function (res) {
         _this.apartments = res.data.apartments;
+        console.log(_this.apartments);
         _this.services = res.data.services;
-
-        // console.log(this.apartments);
       });
     },
     advancedSearch: function advancedSearch() {
@@ -18642,7 +18673,14 @@ __webpack_require__.r(__webpack_exports__);
         // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
         return true;
       });
-    }
+    } // searchText() {
+    //   this.filtered_apartments = this.apartments.filter(apartment => {
+    //     if (this.searched_address && apartment.address != this.searched_address) {
+    //       return false;
+    //     }
+    //     return true;
+    //   });
+    // },
   }
 });
 
@@ -18714,16 +18752,37 @@ var render = function render() {
       role: "search"
     }
   }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.searched_address,
+      expression: "searched_address"
+    }],
     staticClass: "form-control me-2 rounded-5 search-border",
     attrs: {
       type: "search",
       placeholder: "Search",
       "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.searched_address
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.searched_address = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("button", {
     staticClass: "btn btn-login-register rounded-circle",
     attrs: {
-      type: "submit"
+      onclick: "return false"
+    },
+    on: {
+      keyup: function keyup($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
+        return _vm.searchText();
+      }
     }
   }, [_c("font-awesome-icon", {
     attrs: {
@@ -70954,7 +71013,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/advaced-search",
     name: "advanced-search",
-    component: _views_pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _views_pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    props: true
   }
   // {
   //   path: "/services/:name",
