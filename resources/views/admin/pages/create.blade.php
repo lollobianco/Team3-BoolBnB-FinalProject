@@ -73,7 +73,7 @@
                     <li><a class="dropdown-item" href="/admin/apartments"><i class="fa-solid mr-1 fa-house"></i>
                             Apartments</a>
                     </li>
-                    <li><a class="dropdown-item" href=""><i class="fa-solid mr-1 fa-table-columns"></i>
+                    <li><a class="dropdown-item" href="{{ route('admin.dashboard.index') }}"><i class="fa-solid mr-1 fa-table-columns"></i>
                             Dashoard</a></li>
                     <li><a class="dropdown-item" href="{{ route('admin.apartments.create') }}"><i
                                 class="fa-solid mr-1 fa-plus"></i> Add</a></li>
@@ -128,7 +128,7 @@
                                     <i class="fas fa-plus side-ico"></i>
                                 </button>
                             </a>
-                            <a href="" class="nav-link active p-0">
+                            <a href="{{ route('admin.dashboard.index') }}" class="nav-link active p-0">
                                 <button type="button"
                                     class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
                                     data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
@@ -286,7 +286,7 @@
           {{-- ADDRESS --}}
           <div class="">
               {{-- <label class="form-label form-check-label" for="">Address</label> --}}
-              <input type="text" class="form-control border-0 position-absolute" style="top: 100px; left: -500px; opacity: 0.0" name="address" id="address" required >
+              <input type="text" class="form-control border-0 position-absolute" style="top: 120px; left: -1000px; opacity: 0.0;" name="address" id="address" required >
               @error('address')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror

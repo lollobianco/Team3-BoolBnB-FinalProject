@@ -3,7 +3,7 @@
 
     <div class="d-flex">
 
-      <div v-for="service in services" :key="service.id" class="cat action btn btn-secondary border-0 rounded-5 p-0 me-2 mb-4">
+      <div v-for="service in services" :key="service.id" class="cat action btn btn-secondary border-0 rounded-5 me-2">
         <label>
           <input type="checkbox" :value="service.name" v-model="active_services">
           <span>{{ service.name }}</span>
@@ -13,14 +13,14 @@
       <div class="d-flex">
         <div class="mx-3">
           <div>Select Min Number of Rooms</div>
-          <select name="Rooms" id="" class="w-100" v-model="min_rooms">
+          <select name="Rooms" id="" class="w-100 form-select" v-model="min_rooms">
             <option v-for="i in 50" :key="i" :value="i">{{ i }} Rooms</option>
           </select>
         </div>
 
         <div>
           <div>Select Min Number of Beds</div>
-          <select name="Beds" id="" class="w-100" v-model="min_beds">
+          <select name="Beds" id="" class="w-100 form-select" v-model="min_beds">
             <option v-for="i in 50" :key="i" :value="i">{{ i }} Beds</option>
           </select>
         </div>

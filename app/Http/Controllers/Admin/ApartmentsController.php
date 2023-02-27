@@ -136,7 +136,7 @@ class ApartmentsController extends Controller
             [
                 'name' => 'required|max:30',
                 'description' => 'max:500',
-                'cover_image' => 'required',
+                'cover_image' => '',
                 'rooms' => 'required|max:50|min:1',
                 'beds' => 'max:50|min:1',
                 'bathrooms' => 'required|max:50|min:1',

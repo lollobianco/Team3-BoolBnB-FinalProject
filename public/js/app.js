@@ -18868,7 +18868,7 @@ var render = function render() {
   }, [_vm._l(_vm.services, function (service) {
     return _c("div", {
       key: service.id,
-      staticClass: "cat action btn btn-secondary border-0 rounded-5 p-0 me-2 mb-4"
+      staticClass: "cat action btn btn-secondary border-0 rounded-5 me-2"
     }, [_c("label", [_c("input", {
       directives: [{
         name: "model",
@@ -18913,7 +18913,7 @@ var render = function render() {
       value: _vm.min_rooms,
       expression: "min_rooms"
     }],
-    staticClass: "w-100",
+    staticClass: "w-100 form-select",
     attrs: {
       name: "Rooms",
       id: ""
@@ -18943,7 +18943,7 @@ var render = function render() {
       value: _vm.min_beds,
       expression: "min_beds"
     }],
-    staticClass: "w-100",
+    staticClass: "w-100 form-select",
     attrs: {
       name: "Beds",
       id: ""
