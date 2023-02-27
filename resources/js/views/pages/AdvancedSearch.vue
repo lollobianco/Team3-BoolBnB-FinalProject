@@ -3,10 +3,9 @@
 
     <div class="d-flex">
 
-      <div v-for="service in services" :key="service.id"
-        class="cat action btn btn-secondary border-0 rounded-5 p-0 me-2 mb-4">
+      <div v-for="service in services" :key="service.id" class="cat action btn btn-secondary border-0 rounded-5 p-0 me-2 mb-4">
         <label>
-          <input type="checkbox" :value="service.id" v-model="active_services">
+          <input type="checkbox" :value="service.name" v-model="active_services">
           <span>{{ service.name }}</span>
         </label>
       </div>
@@ -85,7 +84,7 @@ export default {
         .get("http://127.0.0.1:8000/api/advanced-search")
         .then((res) => {
 
-          this.apartments = res.data.apartments;          
+          this.apartments = res.data.apartments;
           this.services = res.data.services;
 
           // console.log(this.apartments);
@@ -94,85 +93,35 @@ export default {
     },
 
     advancedSearch() {
+      this.filtered_apartments = this.apartments.filter(apartment => {
+        // filtra per numero minimo di stanze
+        if (this.min_rooms && apartment.rooms < this.min_rooms) {
+          return false;
+        }
+        // filtra per numero minimo di letti
+        if (this.min_beds && apartment.beds < this.min_beds) {
+          return false;
+        }
+        // filtra per servizi attivi
+        if (this.active_services.length > 0) {
 
-      if (this.min_rooms != null || this.min_beds != null || this.active_services.length != 0) {
-        // this.filtered_apartments = [];
-        this.apartments.forEach(apartment => {
-          // console.log(apartment)
-          this.apartment_services = apartment.services
+          const apartmentServiceIds = apartment.services.map(service => service.name);
 
-          this.apartment_services.forEach(test => {
-            
-            if(this.active_services.includes(test.id)){
-              console.log(test)
-
-            }else{
-              console.log('NOOOOOOOOO')
-            }
-
+          const activeServiceIds = [];
+          this.active_services.forEach(elem => {
+            activeServiceIds.push(elem)
           })
 
-
-
-          // if (apartment.services.includes() >= this.min_rooms) {
-          //   this.filtered_apartments.push(element);
-          //   console.log(this.filtered_apartments);
-          // };
-        });
-
-      // } else if (this.min_beds != null && this.min_rooms == null) {
-      //   this.filtered_apartments = [];
-      //   this.apartments.forEach(element => {
-      //     console.log(element)
-      //     if (element.beds >= this.min_beds) {
-      //       this.filtered_apartments.push(element);
-      //       console.log(this.filtered_apartments);
-      //     };
-      //   });
-
-      // } else if (this.min_rooms != null && this.min_beds != null) {
-      //   this.filtered_apartments = [];
-      //   this.apartments.forEach(element => {
-      //     console.log(element)
-      //     if (element.beds >= this.min_beds && element.rooms >= this.min_rooms) {
-      //       this.filtered_apartments.push(element);
-      //       console.log(this.filtered_apartments);
-      //     };
-      //   });
-
-      // } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
-      //   this.filtered_apartments = [];
-
-      //     this.apartment_service.forEach(apartment => {
-      //       console.log(apartment)
-
-      //       this.apartments.forEach(elem => {
-
-      //         if (elem.id == apartment.apartment_id) {
-      //           console.log('OK')
-      //           this.apartments.forEach(element => {
-      //             if(element.indexOf(apartment.apartment_id) == true){
-      //               console.log('Non pusha')
-      //             }
-      //             this.filtered_apartments.push(elem);
-      //             console.log('pusha');
-      //           });
-      //         } else {
-      //           console.log('NOOO')
-      //         }
-
-      //       })
-
-      //     });
-
-        
-
-      // }
-
-
-      }
+          const matches = activeServiceIds.filter(id => apartmentServiceIds.includes(id));
+          if (matches.length !== activeServiceIds.length) {
+            return false;
+          }
+          console.log(matches)
+        }
+        // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
+        return true;
+      });
     }
-
   }
 }
 

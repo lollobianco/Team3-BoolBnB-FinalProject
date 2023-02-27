@@ -18613,72 +18613,35 @@ __webpack_require__.r(__webpack_exports__);
     },
     advancedSearch: function advancedSearch() {
       var _this2 = this;
-      if (this.min_rooms != null || this.min_beds != null || this.active_services.length != 0) {
-        // this.filtered_apartments = [];
-        this.apartments.forEach(function (apartment) {
-          // console.log(apartment)
-          _this2.apartment_services = apartment.services;
-          _this2.apartment_services.forEach(function (test) {
-            if (_this2.active_services.includes(test.id)) {
-              console.log(test);
-            } else {
-              console.log('NOOOOOOOOO');
-            }
+      this.filtered_apartments = this.apartments.filter(function (apartment) {
+        // filtra per numero minimo di stanze
+        if (_this2.min_rooms && apartment.rooms < _this2.min_rooms) {
+          return false;
+        }
+        // filtra per numero minimo di letti
+        if (_this2.min_beds && apartment.beds < _this2.min_beds) {
+          return false;
+        }
+        // filtra per servizi attivi
+        if (_this2.active_services.length > 0) {
+          var apartmentServiceIds = apartment.services.map(function (service) {
+            return service.name;
           });
-
-          // if (apartment.services.includes() >= this.min_rooms) {
-          //   this.filtered_apartments.push(element);
-          //   console.log(this.filtered_apartments);
-          // };
-        });
-
-        // } else if (this.min_beds != null && this.min_rooms == null) {
-        //   this.filtered_apartments = [];
-        //   this.apartments.forEach(element => {
-        //     console.log(element)
-        //     if (element.beds >= this.min_beds) {
-        //       this.filtered_apartments.push(element);
-        //       console.log(this.filtered_apartments);
-        //     };
-        //   });
-
-        // } else if (this.min_rooms != null && this.min_beds != null) {
-        //   this.filtered_apartments = [];
-        //   this.apartments.forEach(element => {
-        //     console.log(element)
-        //     if (element.beds >= this.min_beds && element.rooms >= this.min_rooms) {
-        //       this.filtered_apartments.push(element);
-        //       console.log(this.filtered_apartments);
-        //     };
-        //   });
-
-        // } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
-        //   this.filtered_apartments = [];
-
-        //     this.apartment_service.forEach(apartment => {
-        //       console.log(apartment)
-
-        //       this.apartments.forEach(elem => {
-
-        //         if (elem.id == apartment.apartment_id) {
-        //           console.log('OK')
-        //           this.apartments.forEach(element => {
-        //             if(element.indexOf(apartment.apartment_id) == true){
-        //               console.log('Non pusha')
-        //             }
-        //             this.filtered_apartments.push(elem);
-        //             console.log('pusha');
-        //           });
-        //         } else {
-        //           console.log('NOOO')
-        //         }
-
-        //       })
-
-        //     });
-
-        // }
-      }
+          var activeServiceIds = [];
+          _this2.active_services.forEach(function (elem) {
+            activeServiceIds.push(elem);
+          });
+          var matches = activeServiceIds.filter(function (id) {
+            return apartmentServiceIds.includes(id);
+          });
+          if (matches.length !== activeServiceIds.length) {
+            return false;
+          }
+          console.log(matches);
+        }
+        // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
+        return true;
+      });
     }
   }
 });
@@ -18917,8 +18880,8 @@ var render = function render() {
         type: "checkbox"
       },
       domProps: {
-        value: service.id,
-        checked: Array.isArray(_vm.active_services) ? _vm._i(_vm.active_services, service.id) > -1 : _vm.active_services
+        value: service.name,
+        checked: Array.isArray(_vm.active_services) ? _vm._i(_vm.active_services, service.name) > -1 : _vm.active_services
       },
       on: {
         change: function change($event) {
@@ -18926,7 +18889,7 @@ var render = function render() {
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
           if (Array.isArray($$a)) {
-            var $$v = service.id,
+            var $$v = service.name,
               $$i = _vm._i($$a, $$v);
             if ($$el.checked) {
               $$i < 0 && (_vm.active_services = $$a.concat([$$v]));
