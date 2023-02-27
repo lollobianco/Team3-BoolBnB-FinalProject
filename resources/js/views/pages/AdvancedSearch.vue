@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       apartments: [],
-      apartment_service: [],
+      apartment_service: '',
       services: [],
 
       filtered_apartments: [],
@@ -85,81 +85,95 @@ export default {
         .get("http://127.0.0.1:8000/api/advanced-search")
         .then((res) => {
 
-          this.apartments = res.data.apartments;
-          this.apartment_service = res.data.apartment_service;
+          this.apartments = res.data.apartments;          
           this.services = res.data.services;
 
           // console.log(this.apartments);
-          console.log(this.apartment_service);
-          // console.log(this.services);
+
         })
     },
 
     advancedSearch() {
 
-      if (this.min_rooms != null && this.min_beds == null) {
-        this.filtered_apartments = [];
-        this.apartments.forEach(element => {
-          console.log(element)
-          if (element.rooms >= this.min_rooms) {
-            this.filtered_apartments.push(element);
-            console.log(this.filtered_apartments);
-          };
+      if (this.min_rooms != null || this.min_beds != null || this.active_services.length != 0) {
+        // this.filtered_apartments = [];
+        this.apartments.forEach(apartment => {
+          // console.log(apartment)
+          this.apartment_services = apartment.services
+
+          this.apartment_services.forEach(test => {
+            
+            if(this.active_services.includes(test.id)){
+              console.log(test)
+
+            }else{
+              console.log('NOOOOOOOOO')
+            }
+
+          })
+
+
+
+          // if (apartment.services.includes() >= this.min_rooms) {
+          //   this.filtered_apartments.push(element);
+          //   console.log(this.filtered_apartments);
+          // };
         });
 
-      } else if (this.min_beds != null && this.min_rooms == null) {
-        this.filtered_apartments = [];
-        this.apartments.forEach(element => {
-          console.log(element)
-          if (element.beds >= this.min_beds) {
-            this.filtered_apartments.push(element);
-            console.log(this.filtered_apartments);
-          };
-        });
+      // } else if (this.min_beds != null && this.min_rooms == null) {
+      //   this.filtered_apartments = [];
+      //   this.apartments.forEach(element => {
+      //     console.log(element)
+      //     if (element.beds >= this.min_beds) {
+      //       this.filtered_apartments.push(element);
+      //       console.log(this.filtered_apartments);
+      //     };
+      //   });
 
-      } else if (this.min_rooms != null && this.min_beds != null) {
-        this.filtered_apartments = [];
-        this.apartments.forEach(element => {
-          console.log(element)
-          if (element.beds >= this.min_beds && element.rooms >= this.min_rooms) {
-            this.filtered_apartments.push(element);
-            console.log(this.filtered_apartments);
-          };
-        });
+      // } else if (this.min_rooms != null && this.min_beds != null) {
+      //   this.filtered_apartments = [];
+      //   this.apartments.forEach(element => {
+      //     console.log(element)
+      //     if (element.beds >= this.min_beds && element.rooms >= this.min_rooms) {
+      //       this.filtered_apartments.push(element);
+      //       console.log(this.filtered_apartments);
+      //     };
+      //   });
 
-      } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
-        this.filtered_apartments = [];
+      // } else if (this.active_services.length > 0 && this.min_rooms == null && this.min_beds == null) {
+      //   this.filtered_apartments = [];
 
-          this.apartment_service.forEach(apartment => {
-            console.log(apartment)
+      //     this.apartment_service.forEach(apartment => {
+      //       console.log(apartment)
 
-            this.apartments.forEach(elem => {
+      //       this.apartments.forEach(elem => {
 
-              if (elem.id == apartment.apartment_id) {
-                console.log('OK')
-                this.apartments.forEach(element => {
-                  if(element.indexOf(apartment.apartment_id) == true){
-                    console.log('Non pusha')
-                  }
-                  this.filtered_apartments.push(elem);
-                  console.log('pusha');
-                });
-              } else {
-                console.log('NOOO')
-              }
+      //         if (elem.id == apartment.apartment_id) {
+      //           console.log('OK')
+      //           this.apartments.forEach(element => {
+      //             if(element.indexOf(apartment.apartment_id) == true){
+      //               console.log('Non pusha')
+      //             }
+      //             this.filtered_apartments.push(elem);
+      //             console.log('pusha');
+      //           });
+      //         } else {
+      //           console.log('NOOO')
+      //         }
 
-            })
+      //       })
 
-          });
+      //     });
 
         
 
+      // }
+
+
       }
-
-
     }
-  }
 
+  }
 }
 
 </script>

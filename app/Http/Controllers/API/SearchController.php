@@ -17,7 +17,7 @@ class SearchController extends Controller
     public function index()
     {
         
-        $apartments = Apartment::all();
+        $apartments = Apartment::With('services')->get();
 
         $services = Service::all();
 

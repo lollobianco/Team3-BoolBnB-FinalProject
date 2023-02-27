@@ -17,6 +17,6 @@ Route::namespace('api')->prefix('/apartments')->group(function(){
 Route::namespace('api')->prefix('/advanced-search')->group(function(){
     
     Route::get('/', 'SearchController@index'); // -> Genera: localhost:8080/api/posts
-    // Route::get('/{id}', 'ApartmentsController@show');
+    
     
 });
