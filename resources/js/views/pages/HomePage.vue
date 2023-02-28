@@ -1,23 +1,24 @@
 <template>
   <div class="container-fluid d-flex">
     <div class="row">
-      <a v-for="elem in apartments" :key="elem.id" href="#"
-        class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
+        <router-link v-for="elem in apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
+          class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
 
-        <div class="card-relative">
-          <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-          <img :src="'/storage/' + elem.cover_image" class="card-img coverimg rounded-4" alt="cover image">
-        </div>
+          <div class="card-relative">
+            <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
+            <img :src="'/storage/' + elem.cover_image" class="card-img coverimg rounded-4" alt="cover image">
+          </div>
 
-        <!-- <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image"> -->
-        <div class="card-body p-0">
-          <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-          <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
-            <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
-          <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
+          <!-- <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image"> -->
+          <div class="card-body p-0">
+            <h6 class="mt-2 card-element">{{ elem.address }}</h6>
+            <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
+              <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
+            <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
 
-        </div>
-      </a>
+          </div>
+        </router-link>
+        
     </div>
   </div>
 </template>

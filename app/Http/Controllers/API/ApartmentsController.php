@@ -42,7 +42,9 @@ class ApartmentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartments = Apartment::with('services')->find($id);
+        if(!$apartments) return response('Appartamento non trovato', 404);
+        return response()->json($apartments);
     }
 
     /**
