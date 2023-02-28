@@ -1,57 +1,129 @@
 <template>
-  <div>
+  <div class="container-fluid">
+    <div class="row">
 
-    <div class="d-flex">
+      <div class="col-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center">
 
-      <div v-for="service in services" :key="service.id" class="cat action btn btn-secondary border-0 rounded-5 me-2">
-        <label>
-          <input type="checkbox" :value="service.name" v-model="active_services">
-          <span>{{ service.name }}</span>
-        </label>
-      </div>
 
-      <div class="d-flex">
-        <div class="mx-3">
-          <div>Select Min Number of Rooms</div>
-          <select name="Rooms" id="" class="w-100 form-select" v-model="min_rooms">
-            <option v-for="i in 50" :key="i" :value="i">{{ i }} Rooms</option>
-          </select>
-        </div>
+        <form action="" class="d-flex mb-5">
+          <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search" aria-label="Search"
+            v-model="searched_address">
+        </form>
 
-        <div>
-          <div>Select Min Number of Beds</div>
-          <select name="Beds" id="" class="w-100 form-select" v-model="min_beds">
-            <option v-for="i in 50" :key="i" :value="i">{{ i }} Beds</option>
-          </select>
-        </div>
-      </div>
+        <div class="">
 
-      <button @click="advancedSearch()">
-        Search
-      </button>
-
-    </div>
-
-    <div class="container-fluid d-flex">
-      <div class="row">
-        <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
-          class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
-
-          <div class="card-relative">
-            <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-            <img :src="'/storage/' + elem.cover_image" class="card-img coverimg rounded-4" alt="cover image">
+          <div class="mb-5">
+            <div v-for="service in services" :key="service.id"
+              class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
+              <label>
+                <input type="checkbox" :value="service.name" v-model="active_services">
+                <span>{{ service.name }}</span>
+              </label>
+            </div>
           </div>
 
-          <!-- <img :src="'/storage/' + elem.cover_image" class="card-img coverimg" alt="cover image"> -->
-          <div class="card-body p-0">
-            <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-            <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
-            <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
-            <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
+          <div class="d-flex w-100 ">
+            <div class="w-50 px-1">
+              <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms" class="form-control"
+                v-model="min_rooms">
+            </div>
 
+            <div class="mb-5 w-50 px-1">
+              <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds" class="form-control"
+                v-model="min_beds">
+            </div>
           </div>
-        </a>
+
+        </div>
+
+        <div class="w-100 d-flex justify-content-around align-items-center">
+          <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
+          <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
+        </div>
+
+
+
       </div>
+
+      <div class="offcanvas offcanvas-start border-0" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+        aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header w-100">
+          <!-- <h5 class="offcanvas-title" id="staticBackdropLabel">Search</h5> -->
+          <!-- <button type="button" class="ms-auto btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+          <font-awesome-icon icon="fa-solid fa-x" type="button"
+            class="ms-auto btn-custom rounded-2 btn text-white p-2 fs-4" data-bs-dismiss="offcanvas" aria-label="Close" />
+        </div>
+        <div class="offcanvas-body p-1">
+          <div class="p-0 h-100 d-flex flex-column justify-content-center">
+            <div class="">
+
+
+              <form action="" class="d-flex mb-5">
+                <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
+                  aria-label="Search" v-model="searched_address">
+              </form>
+
+              <div class="">
+
+                <div class="mb-5">
+                  <div v-for="service in services" :key="service.id"
+                    class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
+                    <label>
+                      <input type="checkbox" :value="service.name" v-model="active_services">
+                      <span>{{ service.name }}</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="d-flex w-100 ">
+                  <div class="w-50 px-1">
+                    <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms"
+                      class="form-control" v-model="min_rooms">
+                  </div>
+
+                  <div class="mb-5 w-50 px-1">
+                    <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds"
+                      class="form-control" v-model="min_beds">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="w-100 d-flex justify-content-around align-items-center" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="submit" class="btn-custom w-75" @click="advancedSearch()" >Search</button>
+                <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-9 p-5 right-side ms-auto">
+        <div class="d-flex">
+          <div class="row">
+            <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
+              class="apartment-card border-0 col-lg-3 col-md-5 img-fluid px-2 col-sm-12">
+
+              <div class="card-relative">
+                <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg rounded-4" alt="cover image">
+              </div>
+
+              <div class="card-body p-0">
+                <h6 class="mt-2 card-element">{{ elem.address }}</h6>
+                <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
+                <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
+                <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
+
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -83,6 +155,9 @@ export default {
   },
   mounted() {
     this.getServices();
+    if (window.matchMedia("(max-width: 1300px)").matches) {
+      this.openOffcanvas(); // La funzione che vuoi far partire
+    }
   },
   methods: {
     getServices() {
@@ -92,7 +167,7 @@ export default {
 
           this.apartments = res.data.apartments;
           console.log(this.apartments)
-          this.services = res.data.services;          
+          this.services = res.data.services;
 
         })
     },
@@ -127,7 +202,11 @@ export default {
         return true;
       });
     },
-    
+    openOffcanvas() {
+      let myOffcanvas = new bootstrap.Offcanvas(document.querySelector('#staticBackdrop'));
+      myOffcanvas.show();
+    }
+
     // searchText() {
     //   this.filtered_apartments = this.apartments.filter(apartment => {
 
@@ -138,13 +217,41 @@ export default {
 
     //   });
     // },
-    
+
   }
 }
 
 </script>
 
 <style lang="scss" scoped>
+.bg-landscape-mobile {
+  display: none;
+}
+
+#staticBackdrop {
+  background-image: url('../../../../public/assets/image.jpg');
+  background-position: bottom;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.bg-landscape-desktop {
+  background-image: url('../../../../public/assets/image.jpg');
+  background-position: bottom;
+  background-size: cover;
+  min-height: calc(100vh - 94.66px);
+  margin-top: 94.66px;
+  position: fixed;
+}
+
+.right-side {
+  margin-top: 94.66px;
+}
+
+.btn-close {
+  color: white !important;
+}
+
 .coverimg {
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -227,5 +334,56 @@ export default {
   transition: 500ms;
   border-radius: 30rem;
   color: white;
+}
+
+.search-border {
+  border: 2px solid #d7526a !important;
+}
+
+.btn-login-register {
+  background-color: #d7526a !important;
+  color: white !important;
+}
+
+.btn-custom {
+  color: #fff;
+  background-color: #d7526a;
+  padding: 0.8rem 0.8rem;
+  border: solid #d7526a 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 50px 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center;
+  // align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-custom:hover {
+  transition: 1000ms;
+  // padding: 1rem 1rem;
+  // transform: translateY(-0px);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  background-color: #fff;
+  color: #d7526a;
+}
+
+.pink-color2 {
+  color: #d7526a !important;
+}
+
+@media screen and (max-width: 1300px) and (min-width: 320px) {
+
+  .bg-landscape-desktop {
+    display: none !important;
+  }
+
 }
 </style>

@@ -11153,9 +11153,9 @@ a.text-dark:focus {
 
 .btn-custom {
   color: #fff;
-  background-color: #D7526A;
-  padding: 1.2rem 1.2rem;
-  border: solid #D7526A 1px;
+  background-color: #d7526a;
+  padding: 0.8rem 0.8rem;
+  border: solid #d7526a 1px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 50px 50px;
   transition: 1000ms;
@@ -11169,10 +11169,9 @@ a.text-dark:focus {
 
 .btn-custom:hover {
   transition: 1000ms;
-  padding: 2rem 2rem;
-  transform: translateY(0px);
+  transform: scale(1.1);
   background-color: #fff;
-  color: #D7526A;
+  color: #d7526a;
 }
 
 .file-input__input {
@@ -11193,7 +11192,7 @@ a.text-dark:focus {
   font-weight: 600;
   color: #fff;
   padding: 0px 2px;
-  background-color: #D7526A;
+  background-color: #d7526a;
 }
 
 .file-input__label svg {

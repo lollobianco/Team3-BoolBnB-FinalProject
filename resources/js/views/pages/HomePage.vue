@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid d-flex">
+  <div class="container-fluid height-contaier d-flex p-5">
     <div class="row">
       <a v-for="elem in apartments" :key="elem.id" href="#"
         class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.height-contaier{
+  margin-top: 94.66px;
+}
 .coverimg {
   aspect-ratio: 1/1;
   object-fit: cover;

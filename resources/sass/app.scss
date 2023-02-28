@@ -25,9 +25,11 @@
 .left-side-register {
     min-height: 100vh;
     background: rgb(247, 59, 93);
-    background: radial-gradient(circle,
-            rgba(247, 59, 93, 1) 0%,
-            rgba(121, 55, 67, 1) 100%);
+    background: radial-gradient(
+        circle,
+        rgba(247, 59, 93, 1) 0%,
+        rgba(121, 55, 67, 1) 100%
+    );
 }
 
 .btn-login-register {
@@ -76,7 +78,7 @@
     color: #fff !important;
 }
 
-.action input:checked+span {
+.action input:checked + span {
     background-color: #ff385c;
     transition: 500ms;
     border-radius: 30rem;
@@ -160,9 +162,9 @@
 .container-nav {
     padding: 2rem;
     height: 8vh;
-    box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.50);
-    -webkit-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.30);
-    -moz-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
 }
 
 .form-control:focus {
@@ -231,7 +233,6 @@
     background-color: white;
 }
 
-
 .right-section {
     margin-left: 6rem;
     margin-top: 8vh;
@@ -243,15 +244,11 @@
     padding: 20px 0;
 }
 
-
-
-
-
 .btn-custom {
     color: #fff;
-    background-color: #D7526A;
-    padding: 1.2rem 1.2rem;
-    border: solid #D7526A 1px;
+    background-color: #d7526a;
+    padding: 0.8rem 0.8rem;
+    border: solid #d7526a 1px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 50px 50px;
     transition: 1000ms;
@@ -264,20 +261,17 @@
 }
 
 .btn-custom:hover {
-
     transition: 1000ms;
-    padding: 2rem 2rem;
-    transform: translateY(-0px);
+    // padding: 1rem 1rem;
+    // transform: translateY(-0px);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
     background-color: #fff;
-    color: #D7526A;
-    
+    color: #d7526a;
 }
-
-
-
-
-
-
 
 // file input
 
@@ -299,14 +293,13 @@
     font-weight: 600;
     color: #fff;
     padding: 0px 2px;
-    background-color: #D7526A;   
+    background-color: #d7526a;
 }
 
 .file-input__label svg {
     height: 1.1rem;
 }
 
-.mapcontainer{
-    padding-top: 10vh!important;
-   
+.mapcontainer {
+    padding-top: 10vh !important;
 }

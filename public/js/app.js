@@ -18632,7 +18632,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getServices();
+    if (window.matchMedia("(max-width: 1300px)").matches) {
+      this.openOffcanvas(); // La funzione che vuoi far partire
+    }
   },
+
   methods: {
     getServices: function getServices() {
       var _this = this;
@@ -18673,6 +18677,10 @@ __webpack_require__.r(__webpack_exports__);
         // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
         return true;
       });
+    },
+    openOffcanvas: function openOffcanvas() {
+      var myOffcanvas = new bootstrap.Offcanvas(document.querySelector('#staticBackdrop'));
+      myOffcanvas.show();
     } // searchText() {
     //   this.filtered_apartments = this.apartments.filter(apartment => {
     //     if (this.searched_address && apartment.address != this.searched_address) {
@@ -18751,50 +18759,13 @@ var render = function render() {
     attrs: {
       role: "search"
     }
-  }, [_c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.searched_address,
-      expression: "searched_address"
-    }],
-    staticClass: "form-control me-2 rounded-5 search-border",
-    attrs: {
-      type: "search",
-      placeholder: "Search",
-      "aria-label": "Search"
-    },
-    domProps: {
-      value: _vm.searched_address
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.searched_address = $event.target.value;
-      }
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-login-register rounded-circle",
-    attrs: {
-      onclick: "return false"
-    },
-    on: {
-      keyup: function keyup($event) {
-        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
-        return _vm.searchText();
-      }
-    }
-  }, [_c("font-awesome-icon", {
-    attrs: {
-      icon: "fa-solid fa-magnifying-glass"
-    }
-  })], 1), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-login-register rounded-circle ms-2",
+  }, [_c("router-link", {
+    staticClass: "btn btn-login-register rounded-5",
     attrs: {
       to: "/advaced-search",
       type: "submit"
     }
-  }, [_c("font-awesome-icon", {
+  }, [_vm._v("\n            Advanced Search\n            "), _c("font-awesome-icon", {
     attrs: {
       icon: "fa-solid fa-arrow-down-wide-short"
     }
@@ -18898,9 +18869,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("NavBar"), _vm._v(" "), _c("main", {
-    staticClass: "p-5"
-  }, [_c("router-view")], 1)], 1);
+  return _c("div", [_c("NavBar"), _vm._v(" "), _c("main", {}, [_c("router-view")], 1)], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -18922,12 +18891,45 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "d-flex"
-  }, [_vm._l(_vm.services, function (service) {
+  return _c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center"
+  }, [_c("form", {
+    staticClass: "d-flex mb-5",
+    attrs: {
+      action: ""
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.searched_address,
+      expression: "searched_address"
+    }],
+    staticClass: "form-control me-2 rounded-5 search-border",
+    attrs: {
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.searched_address
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.searched_address = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {}, [_c("div", {
+    staticClass: "mb-5"
+  }, _vm._l(_vm.services, function (service) {
     return _c("div", {
       key: service.id,
-      staticClass: "cat action btn btn-secondary border-0 rounded-5 me-2"
+      staticClass: "my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2"
     }, [_c("label", [_c("input", {
       directives: [{
         name: "model",
@@ -18961,84 +18963,254 @@ var render = function render() {
         }
       }
     }), _vm._v(" "), _c("span", [_vm._v(_vm._s(service.name))])])]);
-  }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex"
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "d-flex w-100"
   }, [_c("div", {
-    staticClass: "mx-3"
-  }, [_c("div", [_vm._v("Select Min Number of Rooms")]), _vm._v(" "), _c("select", {
+    staticClass: "w-50 px-1"
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.min_rooms,
       expression: "min_rooms"
     }],
-    staticClass: "w-100 form-select",
+    staticClass: "form-control",
     attrs: {
       name: "Rooms",
-      id: ""
+      id: "",
+      type: "number",
+      min: "1",
+      max: "50",
+      placeholder: "Number of Rooms"
+    },
+    domProps: {
+      value: _vm.min_rooms
     },
     on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.min_rooms = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.min_rooms = $event.target.value;
       }
     }
-  }, _vm._l(50, function (i) {
-    return _c("option", {
-      key: i,
-      domProps: {
-        value: i
-      }
-    }, [_vm._v(_vm._s(i) + " Rooms")]);
-  }), 0)]), _vm._v(" "), _c("div", [_c("div", [_vm._v("Select Min Number of Beds")]), _vm._v(" "), _c("select", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-5 w-50 px-1"
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.min_beds,
       expression: "min_beds"
     }],
-    staticClass: "w-100 form-select",
+    staticClass: "form-control",
     attrs: {
       name: "Beds",
-      id: ""
+      id: "",
+      type: "number",
+      min: "1",
+      max: "50",
+      placeholder: "Number of Beds"
+    },
+    domProps: {
+      value: _vm.min_beds
     },
     on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.min_beds = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.min_beds = $event.target.value;
       }
     }
-  }, _vm._l(50, function (i) {
-    return _c("option", {
-      key: i,
-      domProps: {
-        value: i
-      }
-    }, [_vm._v(_vm._s(i) + " Beds")]);
-  }), 0)])]), _vm._v(" "), _c("button", {
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-100 d-flex justify-content-around align-items-center"
+  }, [_c("button", {
+    staticClass: "btn-custom w-75",
+    attrs: {
+      type: "submit"
+    },
     on: {
       click: function click($event) {
         return _vm.advancedSearch();
       }
     }
-  }, [_vm._v("\n      Search\n    ")])], 2), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid d-flex"
+  }, [_vm._v("Search")]), _vm._v(" "), _c("font-awesome-icon", {
+    staticClass: "pink-color2 fs-1",
+    attrs: {
+      icon: "fa-solid fa-plane-departure"
+    }
+  })], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "offcanvas offcanvas-start border-0",
+    attrs: {
+      "data-bs-backdrop": "static",
+      tabindex: "-1",
+      id: "staticBackdrop",
+      "aria-labelledby": "staticBackdropLabel"
+    }
+  }, [_c("div", {
+    staticClass: "offcanvas-header w-100"
+  }, [_c("font-awesome-icon", {
+    staticClass: "ms-auto btn-custom rounded-2 btn text-white p-2 fs-4",
+    attrs: {
+      icon: "fa-solid fa-x",
+      type: "button",
+      "data-bs-dismiss": "offcanvas",
+      "aria-label": "Close"
+    }
+  })], 1), _vm._v(" "), _c("div", {
+    staticClass: "offcanvas-body p-1"
+  }, [_c("div", {
+    staticClass: "p-0 h-100 d-flex flex-column justify-content-center"
+  }, [_c("div", {}, [_c("form", {
+    staticClass: "d-flex mb-5",
+    attrs: {
+      action: ""
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.searched_address,
+      expression: "searched_address"
+    }],
+    staticClass: "form-control me-2 rounded-5 search-border",
+    attrs: {
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.searched_address
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.searched_address = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {}, [_c("div", {
+    staticClass: "mb-5"
+  }, _vm._l(_vm.services, function (service) {
+    return _c("div", {
+      key: service.id,
+      staticClass: "my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2"
+    }, [_c("label", [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.active_services,
+        expression: "active_services"
+      }],
+      attrs: {
+        type: "checkbox"
+      },
+      domProps: {
+        value: service.name,
+        checked: Array.isArray(_vm.active_services) ? _vm._i(_vm.active_services, service.name) > -1 : _vm.active_services
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.active_services,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+          if (Array.isArray($$a)) {
+            var $$v = service.name,
+              $$i = _vm._i($$a, $$v);
+            if ($$el.checked) {
+              $$i < 0 && (_vm.active_services = $$a.concat([$$v]));
+            } else {
+              $$i > -1 && (_vm.active_services = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.active_services = $$c;
+          }
+        }
+      }
+    }), _vm._v(" "), _c("span", [_vm._v(_vm._s(service.name))])])]);
+  }), 0), _vm._v(" "), _c("div", {
+    staticClass: "d-flex w-100"
+  }, [_c("div", {
+    staticClass: "w-50 px-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.min_rooms,
+      expression: "min_rooms"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "Rooms",
+      id: "",
+      type: "number",
+      min: "1",
+      max: "50",
+      placeholder: "Number of Rooms"
+    },
+    domProps: {
+      value: _vm.min_rooms
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.min_rooms = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-5 w-50 px-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.min_beds,
+      expression: "min_beds"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "Beds",
+      id: "",
+      type: "number",
+      min: "1",
+      max: "50",
+      placeholder: "Number of Beds"
+    },
+    domProps: {
+      value: _vm.min_beds
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.min_beds = $event.target.value;
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-100 d-flex justify-content-around align-items-center",
+    attrs: {
+      "data-bs-dismiss": "offcanvas",
+      "aria-label": "Close"
+    }
+  }, [_c("button", {
+    staticClass: "btn-custom w-75",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.advancedSearch();
+      }
+    }
+  }, [_vm._v("Search")]), _vm._v(" "), _c("font-awesome-icon", {
+    staticClass: "pink-color2 fs-1",
+    attrs: {
+      icon: "fa-solid fa-plane-departure"
+    }
+  })], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-9 p-5 right-side ms-auto"
+  }, [_c("div", {
+    staticClass: "d-flex"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.filtered_apartments, function (elem) {
     return _c("a", {
       key: elem.id,
-      staticClass: "apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12",
+      staticClass: "apartment-card border-0 col-lg-3 col-md-5 img-fluid px-2 col-sm-12",
       attrs: {
         href: "#"
       }
@@ -19066,7 +19238,7 @@ var render = function render() {
     }, [_vm._v("Beds: " + _vm._s(elem.beds))]), _vm._v(" "), _c("h6", {
       staticClass: "mt-0 card-element"
     }, [_c("strong", [_vm._v(_vm._s(elem.price) + "€ ")]), _vm._v(" a notte")])])]);
-  }), 0)])]);
+  }), 0)])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -19089,7 +19261,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container-fluid d-flex"
+    staticClass: "container-fluid height-contaier d-flex p-5"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.apartments, function (elem) {
@@ -23509,7 +23681,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.search-border[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n.dropdown-toggle[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  position: fixed;\n  background-color: #fff;\n  top: 0;\n  z-index: 100;\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n.dropdown-toggle[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
 
 // exports
 
@@ -23542,12 +23714,13 @@ exports.push([module.i, "* {\n  font-family: \"Circular Std\", sans-serif;\n}", 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}", ""]);
+exports.push([module.i, ".bg-landscape-mobile[data-v-112ea134] {\n  display: none;\n}\n#staticBackdrop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: 100vh;\n}\n.bg-landscape-desktop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: calc(100vh - 94.66px);\n  margin-top: 94.66px;\n  position: fixed;\n}\n.right-side[data-v-112ea134] {\n  margin-top: 94.66px;\n}\n.btn-close[data-v-112ea134] {\n  color: white !important;\n}\n.coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}\n.search-border[data-v-112ea134] {\n  border: 2px solid #d7526a !important;\n}\n.btn-login-register[data-v-112ea134] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.btn-custom[data-v-112ea134] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.8rem 0.8rem;\n  border: solid #d7526a 1px;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-112ea134]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n.pink-color2[data-v-112ea134] {\n  color: #d7526a !important;\n}\n@media screen and (max-width: 1300px) and (min-width: 320px) {\n.bg-landscape-desktop[data-v-112ea134] {\n    display: none !important;\n}\n}", ""]);
 
 // exports
 
@@ -23566,7 +23739,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
+exports.push([module.i, ".height-contaier[data-v-5157a858] {\n  margin-top: 94.66px;\n}\n.coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
 
 // exports
 
@@ -23655,6 +23828,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -70795,6 +70995,17 @@ module.exports = "/images/Logo.svg?4ed48ded3f899f3415ef8b60dcbf0d1c";
 
 /***/ }),
 
+/***/ "./public/assets/image.jpg":
+/*!*********************************!*\
+  !*** ./public/assets/image.jpg ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/image.jpg?074eaa35f194d918ca129aafbd199635";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -70833,7 +71044,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);

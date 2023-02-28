@@ -8,13 +8,9 @@
           </a>
         </div>
         <div class="m-auto">
-          <form class="d-flex text-center" role="search">
-            <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
-              aria-label="Search" v-model="searched_address">
-            <button class="btn btn-login-register rounded-circle" onclick="return false" @keyup.enter="searchText()">
-              <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-            </button>
-            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-circle ms-2" type="submit">
+          <form class="d-flex text-center" role="search">            
+            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-5" type="submit">
+              Advanced Search
               <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
             </router-link>
           </form>
@@ -102,6 +98,10 @@ export default {
   box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  z-index: 100;
 }
 
 .form-control:focus {
@@ -112,10 +112,6 @@ export default {
 .btn-login-register {
   background-color: #d7526a !important;
   color: white !important;
-}
-
-.search-border {
-  border: 2px solid #d7526a !important;
 }
 
 .navbar-80 {

@@ -17,13 +17,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faBars, faUser, faMagnifyingGlass, faUserPen, faRightFromBracket, faArrowDownWideShort } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faUser, faMagnifyingGlass, faUserPen, faRightFromBracket, faArrowDownWideShort, faPlaneDeparture, faX } from '@fortawesome/free-solid-svg-icons'
 
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 
 
 /* add icons to the library */
-library.add(faBars, faUser, faMagnifyingGlass, faUserPen, faRightFromBracket, faEye, faArrowDownWideShort)
+library.add(faBars, faUser, faMagnifyingGlass, faUserPen, faRightFromBracket, faEye, faArrowDownWideShort, faPlaneDeparture, faX)
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
