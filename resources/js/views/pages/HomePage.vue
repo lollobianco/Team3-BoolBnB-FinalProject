@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid height-contaier d-flex p-5">
+  <div class="container-fluid height-contaier d-flex p-lg-5 p-sm-1">
     <div class="row">
         <router-link v-for="elem in apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
           class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">

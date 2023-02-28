@@ -99,9 +99,7 @@
         </div>
       </div>
 
-
-
-      <div class="col-lg-9 col-sm-12 p-4 right-side ms-auto">
+      <div class="col-lg-9 col-sm-12 p-sm-4 right-side  p-lg-5 ms-auto">
         <div class="d-flex">
           <div class="row">
             <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
@@ -241,6 +239,9 @@ export default {
   min-height: calc(100vh - 94.66px);
   margin-top: 94.66px;
   position: fixed;
+  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
 }
 
 .right-side {

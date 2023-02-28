@@ -19235,7 +19235,7 @@ var render = function render() {
       icon: "fa-solid fa-plane-departure"
     }
   })], 1)])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-9 col-sm-12 p-4 right-side ms-auto"
+    staticClass: "col-lg-9 col-sm-12 p-sm-4 right-side p-lg-5 ms-auto"
   }, [_c("div", {
     staticClass: "d-flex"
   }, [_c("div", {
@@ -19334,7 +19334,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container-fluid height-contaier d-flex p-5"
+    staticClass: "container-fluid height-contaier d-flex p-lg-5 p-sm-1"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.apartments, function (elem) {
@@ -23798,7 +23798,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".bg-landscape-mobile[data-v-112ea134] {\n  display: none;\n}\n#staticBackdrop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: 100vh;\n}\n.bg-landscape-desktop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: calc(100vh - 94.66px);\n  margin-top: 94.66px;\n  position: fixed;\n}\n.right-side[data-v-112ea134] {\n  margin-top: 94.66px;\n}\n.btn-close[data-v-112ea134] {\n  color: white !important;\n}\n.coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}\n.search-border[data-v-112ea134] {\n  border: 2px solid #d7526a !important;\n}\n.btn-login-register[data-v-112ea134] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.btn-custom[data-v-112ea134] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.8rem 0.8rem;\n  border: solid #d7526a 1px;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-112ea134]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n.pink-color2[data-v-112ea134] {\n  color: #d7526a !important;\n}\n@media screen and (max-width: 1300px) and (min-width: 320px) {\n.bg-landscape-desktop[data-v-112ea134] {\n    display: none !important;\n}\n}", ""]);
+exports.push([module.i, ".bg-landscape-mobile[data-v-112ea134] {\n  display: none;\n}\n#staticBackdrop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: 100vh;\n}\n.bg-landscape-desktop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: calc(100vh - 94.66px);\n  margin-top: 94.66px;\n  position: fixed;\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n}\n.right-side[data-v-112ea134] {\n  margin-top: 94.66px;\n}\n.btn-close[data-v-112ea134] {\n  color: white !important;\n}\n.coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}\n.search-border[data-v-112ea134] {\n  border: 2px solid #d7526a !important;\n}\n.btn-login-register[data-v-112ea134] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.btn-custom[data-v-112ea134] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.8rem 0.8rem;\n  border: solid #d7526a 1px;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-112ea134]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n.pink-color2[data-v-112ea134] {\n  color: #d7526a !important;\n}\n@media screen and (max-width: 1300px) and (min-width: 320px) {\n.bg-landscape-desktop[data-v-112ea134] {\n    display: none !important;\n}\n}", ""]);
 
 // exports
 
@@ -71118,7 +71118,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Logo.svg?ebea300c31dce3d1324850858dce9dcd";
+module.exports = "/images/Logo.svg?4ed48ded3f899f3415ef8b60dcbf0d1c";
 
 /***/ }),
 
@@ -71739,8 +71739,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\poduz\OneDrive\Desktop\boolean-esercizi\Final Project\BoolBNB-Team\Team3-BoolBnB-FinalProject\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\poduz\OneDrive\Desktop\boolean-esercizi\Final Project\BoolBNB-Team\Team3-BoolBnB-FinalProject\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
