@@ -101,22 +101,21 @@
 
 
 
-      <div class="col-9 p-5 right-side ms-auto">
+      <div class="col-lg-9 col-sm-12 p-4 right-side ms-auto">
         <div class="d-flex">
           <div class="row">
             <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
-              class="apartment-card border-0 col-lg-3 col-md-5 img-fluid px-2 col-sm-12">
+              class="apartment-card border-0 col-lg-3 col-md-5  px-2 col-sm-12">
 
               <div class="card-relative">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg rounded-4" alt="cover image">
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-4" alt="cover image">
               </div>
 
               <div class="card-body p-0">
                 <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-                <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
-                <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
-                <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
+           
+                <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€  a notte</h6>
 
               </div>
             </a>
