@@ -100,7 +100,9 @@ export default {
     name: 'ApartmentShow',
     data() {
         return {
-            apartments: []
+            apartments: [],
+            latitude: '',
+            longitude: [],
 
 
         }
@@ -116,6 +118,10 @@ export default {
                 .then((res) => {
                     console.log('res data', res.data);
                     this.apartments = res.data;
+                    this.latitude = res.data.lat;
+                    this.longitude = res.data.long;
+                    console.log (this.latitude);
+                    console.log (this.longitude);
                     console.log(this.apartments);
                 })
         },
@@ -124,12 +130,14 @@ export default {
         getMap() {
             var latString = document.getElementById('lat')
             var longString = document.getElementById('long')
+       
 
-            var latNum = +latString.value
-            var longNum = +longString.value
+            var latNum = latString.value
+            var longNum = longString.value
             console.log(latNum)
             console.log(longNum)
-            var POS = [longNum, latNum]
+            var POS = [this.latitude, latNum]
+            console.log('DIOCANE' , POS)
 
 
             var map = tt.map({

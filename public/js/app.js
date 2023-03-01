@@ -18717,7 +18717,9 @@ __webpack_require__.r(__webpack_exports__);
   name: 'ApartmentShow',
   data: function data() {
     return {
-      apartments: []
+      apartments: [],
+      latitude: '',
+      longitude: []
     };
   },
   mounted: function mounted() {
@@ -18730,6 +18732,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("http://127.0.0.1:8000/api/apartments/" + this.$route.params.id).then(function (res) {
         console.log('res data', res.data);
         _this.apartments = res.data;
+        _this.latitude = res.data.lat;
+        _this.longitude = res.data["long"];
+        console.log(_this.latitude);
+        console.log(_this.longitude);
         console.log(_this.apartments);
       });
     },
@@ -18737,11 +18743,12 @@ __webpack_require__.r(__webpack_exports__);
     getMap: function getMap() {
       var latString = document.getElementById('lat');
       var longString = document.getElementById('long');
-      var latNum = +latString.value;
-      var longNum = +longString.value;
+      var latNum = latString.value;
+      var longNum = longString.value;
       console.log(latNum);
       console.log(longNum);
-      var POS = [longNum, latNum];
+      var POS = [this.latitude, latNum];
+      console.log('DIOCANE', POS);
       var map = tt.map({
         key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
         container: "map",
@@ -18784,10 +18791,10 @@ __webpack_require__.r(__webpack_exports__);
     getPosts: function getPosts() {
       var _this = this;
       axios.get("http://127.0.0.1:8000/api/apartments").then(function (res) {
-        console.log(res.data);
+        // console.log(res.data);
         _this.apartments = res.data;
         _this.apartments = _this.apartments.apartments;
-        console.log(_this.apartments);
+        // console.log(this.apartments);
       });
     }
   }
@@ -71335,7 +71342,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Logo.svg?4ed48ded3f899f3415ef8b60dcbf0d1c";
+module.exports = "/images/Logo.svg?ebea300c31dce3d1324850858dce9dcd";
 
 /***/ }),
 
@@ -71956,8 +71963,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/lorenzobianconi/Desktop/Boolean/Team3-BoolBnB-FinalProject/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\poduz\OneDrive\Desktop\boolean-esercizi\Final Project\BoolBNB-Team\Team3-BoolBnB-FinalProject\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\poduz\OneDrive\Desktop\boolean-esercizi\Final Project\BoolBNB-Team\Team3-BoolBnB-FinalProject\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
