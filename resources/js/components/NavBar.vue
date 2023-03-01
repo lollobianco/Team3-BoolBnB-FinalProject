@@ -15,7 +15,7 @@
             </router-link>
             <router-link v-else :to="`/`" class="btn btn-login-register rounded-5" type="submit">
               Back To Home
-              <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
+              <i class="fas fa-house"></i>
             </router-link>
           </form>
         </div>

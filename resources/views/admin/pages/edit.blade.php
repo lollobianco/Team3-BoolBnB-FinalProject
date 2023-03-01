@@ -158,6 +158,65 @@
     </div>
   </div>
 
+  <div class="sidebar-height-mobile w-100 py-3 px-3">
+
+    <div class="sidebar-container-mobile rounded-4 py-3 px-3">
+
+      <div class="nav nav-flush text-center">
+
+        <div class="nav-item w-100">
+
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <a href="/admin/apartments" class="nav-link active p-0">
+              <button type="button"
+                class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn"
+                data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                data-mdb-content="My Apartment" data-mdb-trigger="hover">
+                <i class="fas side-ico fa-house-user"></i>
+              </button>
+            </a>
+            <a href="{{ route('admin.apartments.create') }}" class="nav-link active p-0">
+              <button type="button"
+                class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn"
+                data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                data-mdb-content="Create Apartment" data-mdb-trigger="hover">
+                <i class="fas fa-plus side-ico"></i>
+              </button>
+            </a>
+            <a href="{{ route('admin.dashboard.index') }}" class="nav-link active p-0">
+              <button type="button"
+                class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn"
+                data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                data-mdb-content="Dashboard" data-mdb-trigger="hover">
+                <i class="fa-solid side-ico fa-table-columns"></i>
+              </button>
+            </a>
+            <div>
+              <a class="nav-link active p-0 align-self-end" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <button type="button"
+                  class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn"
+                  data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right"
+                  data-mdb-content="Logout" data-mdb-trigger="hover">
+                  <i class="fa-solid side-ico fa-right-from-bracket"></i>
+                </button>
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 
   {{-- MAPPA  --}}
 

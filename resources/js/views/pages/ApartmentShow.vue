@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-auto w-75 p-lg-5 p-sm-3 height-nav">
-        <div class="img-cont">
+    <div class="mx-auto w-75 p-lg-5 p-sm-4 height-nav">
+        <div class="">
             <h1>{{ apartments.name }}</h1>
             <p>{{ apartments.address }}</p>
             <img class="w-100 rounded-4 image-cover" style="height: 500px; object-fit: cover; object-position: center;"
@@ -53,9 +53,10 @@
                     <div class="questaclassenonesiste">
                         <h4>What you will find</h4>
                     </div>
-                    <ul class="p-0">                        
-                        <span v-for="service in apartments.services" :key="service.id" class="badge bg-secondary text-white mb-4 me-2">                            
-                            <!-- <font-awesome-icon icon="{{service.icon }}" /> -->
+                    <ul class="p-0">
+                        <span v-for="service in apartments.services" :key="service.id"
+                            class="badge bg-secondary text-white mb-4 me-2">
+                            <i class="me-1" :class="service.icon"></i>
                             {{ service.name }}
                         </span>
                     </ul>
@@ -72,14 +73,23 @@
                             <label class="form-label" for="Email"></label>
                             <input class="form-control" type="email" placeholder="Email" required>
                             <textarea class="form-control mt-4" name="message" placeholder="Message" required></textarea>
-                            <button type="submit" class="btn btn-custom mt-4">Send <font-awesome-icon class="ms-2" icon="fa-solid fa-paper-plane" /></button>
+                            <button type="submit" class="btn btn-custom mt-4">Send <font-awesome-icon class="ms-2"
+                                    icon="fa-solid fa-paper-plane" /></button>
                         </form>
                     </div>
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row p-2">
+                <div class=" col-12 p-0">
 
+                    <h2 class="mb-3">Dove si trova:</h2>
+                    <input type="hidden" :value=" apartments.lat" id="lat">
+                    <input type="hidden" :value=" apartments.long" id="long">
+
+                    <div id="map" class="map rounded-4 image-cover" style="width: 100%; height: 500px;"></div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -97,6 +107,7 @@ export default {
     },
     mounted() {
         this.getApartments()
+        this.getMap()
     },
     methods: {
         getApartments() {
@@ -108,6 +119,30 @@ export default {
                     console.log(this.apartments);
                 })
         },
+
+        // Map
+        getMap() {
+            var latString = document.getElementById('lat')
+            var longString = document.getElementById('long')
+
+            var latNum = +latString.value
+            var longNum = +longString.value
+            console.log(latNum)
+            console.log(longNum)
+            var POS = [longNum, latNum]
+
+
+            var map = tt.map({
+                key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
+                container: "map",
+                center: POS,
+                zoom: 3,
+            })
+
+            map.on('load', () => {
+                new tt.Marker().setLngLat(POS).addTo(map)
+            })
+        }
     }
 }
 
@@ -144,40 +179,41 @@ export default {
 }
 
 .btn-custom {
-  color: #fff;
-  background-color: #d7526a;
-  padding: 0.5rem 0.7rem;
-  border: solid #d7526a 1px;
-  // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  border-radius: 50px 50px;
-  transition: 1000ms;
-  transform: translateY(0);
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: center;
-  // align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
+    color: #fff;
+    background-color: #d7526a;
+    padding: 0.5rem 0.7rem;
+    border: solid #d7526a 1px;
+    // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 50px 50px;
+    transition: 1000ms;
+    transform: translateY(0);
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 .btn-custom:hover {
-  transition: 1000ms;
-  // padding: 1rem 1rem;
-  // transform: translateY(-0px);
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  background-color: #fff;
-  color: #d7526a;
+    transition: 1000ms;
+    // padding: 1rem 1rem;
+    // transform: translateY(-0px);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: #fff;
+    color: #d7526a;
 }
 
 @media screen and (max-width: 991px) {
 
     .height-nav {
         width: 90% !important;
-        margin-top: 86.66px;
+        margin-top: 80.66px;
+        margin-bottom: 20px;
     }
 
     .row>* {

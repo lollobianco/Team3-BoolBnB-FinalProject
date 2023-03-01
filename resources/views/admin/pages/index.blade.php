@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid d-flex">
+    <div class="">
 
-        <div class="d-flex flex-column right-section p-5">
+        <div class="container-fluid right-section py-3 w-100 col-lg-9 col-sm-12 p-sm-4 p-lg-5">
 
             <div class="d-flex pl-2">
                 <h1 class="">Your Apartments</h1>

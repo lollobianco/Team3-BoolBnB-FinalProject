@@ -18722,6 +18722,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getApartments();
+    this.getMap();
   },
   methods: {
     getApartments: function getApartments() {
@@ -18730,6 +18731,25 @@ __webpack_require__.r(__webpack_exports__);
         console.log('res data', res.data);
         _this.apartments = res.data;
         console.log(_this.apartments);
+      });
+    },
+    // Map
+    getMap: function getMap() {
+      var latString = document.getElementById('lat');
+      var longString = document.getElementById('long');
+      var latNum = +latString.value;
+      var longNum = +longString.value;
+      console.log(latNum);
+      console.log(longNum);
+      var POS = [longNum, latNum];
+      var map = tt.map({
+        key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
+        container: "map",
+        center: POS,
+        zoom: 3
+      });
+      map.on('load', function () {
+        new tt.Marker().setLngLat(POS).addTo(map);
       });
     }
   }
@@ -18818,11 +18838,9 @@ var render = function render() {
       to: "/",
       type: "submit"
     }
-  }, [_vm._v("\n            Back To Home\n            "), _c("font-awesome-icon", {
-    attrs: {
-      icon: "fa-solid fa-arrow-down-wide-short"
-    }
-  })], 1)], 1)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Back To Home\n            "), _c("i", {
+    staticClass: "fas fa-house"
+  })])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "dropdown"
   }, [_c("button", {
     staticClass: "btn btn-light rounded-4 dropdown-toggle d-flex align-items-center",
@@ -19332,10 +19350,8 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "mx-auto w-75 p-lg-5 p-sm-3 height-nav"
-  }, [_c("div", {
-    staticClass: "img-cont"
-  }, [_c("h1", [_vm._v(_vm._s(_vm.apartments.name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartments.address))]), _vm._v(" "), _c("img", {
+    staticClass: "mx-auto w-75 p-lg-5 p-sm-4 height-nav"
+  }, [_c("div", {}, [_c("h1", [_vm._v(_vm._s(_vm.apartments.name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartments.address))]), _vm._v(" "), _c("img", {
     staticClass: "w-100 rounded-4 image-cover",
     staticStyle: {
       height: "500px",
@@ -19390,7 +19406,10 @@ var render = function render() {
     return _c("span", {
       key: service.id,
       staticClass: "badge bg-secondary text-white mb-4 me-2"
-    }, [_vm._v("\n                        " + _vm._s(service.name) + "\n                    ")]);
+    }, [_c("i", {
+      staticClass: "me-1",
+      "class": service.icon
+    }), _vm._v("\n                        " + _vm._s(service.name) + "\n                    ")]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2"
   }, [_c("h3", {
@@ -19455,8 +19474,37 @@ var render = function render() {
       icon: "fa-solid fa-paper-plane"
     }
   })], 1)])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  })])]);
+    staticClass: "row p-2"
+  }, [_c("div", {
+    staticClass: "col-12 p-0"
+  }, [_c("h2", {
+    staticClass: "mb-3"
+  }, [_vm._v("Dove si trova:")]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "hidden",
+      id: "lat"
+    },
+    domProps: {
+      value: _vm.apartments.lat
+    }
+  }), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "hidden",
+      id: "long"
+    },
+    domProps: {
+      value: _vm.apartments["long"]
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "map rounded-4 image-cover",
+    staticStyle: {
+      width: "100%",
+      height: "500px"
+    },
+    attrs: {
+      id: "map"
+    }
+  })])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -19502,8 +19550,8 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container-fluid w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5"
+  return _c("div", [_c("div", {
+    staticClass: "container-fluid height-container w-100 col-lg-9 col-sm-12 p-sm-4 p-lg-5"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.apartments, function (elem) {
@@ -19542,7 +19590,7 @@ var render = function render() {
     }, [_vm._v("Beds: " + _vm._s(elem.beds))]), _vm._v(" "), _c("h6", {
       staticClass: "mt-0 card-element"
     }, [_c("strong", [_vm._v(_vm._s(elem.price) + "€ ")]), _vm._v(" a notte")])])]);
-  }), 1)]);
+  }), 1)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -23986,7 +24034,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".height-nav[data-v-32bf66f5] {\n  margin-top: 62.66px;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  background-color: rgba(190, 190, 190, 0.9);\n}\n.btn-custom[data-v-32bf66f5] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.5rem 0.7rem;\n  border: solid #d7526a 1px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-32bf66f5]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n@media screen and (max-width: 991px) {\n.height-nav[data-v-32bf66f5] {\n    width: 90% !important;\n    margin-top: 86.66px;\n}\n.row > *[data-v-32bf66f5] {\n    flex-shrink: 0;\n    width: 100%;\n    max-width: 100%;\n    padding-right: 4px !important;\n    padding-left: 4px !important;\n    margin-top: var(--bs-gutter-y);\n}\n.image-cover[data-v-32bf66f5] {\n    height: 300px !important;\n}\n}", ""]);
+exports.push([module.i, ".height-nav[data-v-32bf66f5] {\n  margin-top: 62.66px;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  background-color: rgba(190, 190, 190, 0.9);\n}\n.btn-custom[data-v-32bf66f5] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.5rem 0.7rem;\n  border: solid #d7526a 1px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-32bf66f5]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n@media screen and (max-width: 991px) {\n.height-nav[data-v-32bf66f5] {\n    width: 90% !important;\n    margin-top: 80.66px;\n    margin-bottom: 20px;\n}\n.row > *[data-v-32bf66f5] {\n    flex-shrink: 0;\n    width: 100%;\n    max-width: 100%;\n    padding-right: 4px !important;\n    padding-left: 4px !important;\n    margin-top: var(--bs-gutter-y);\n}\n.image-cover[data-v-32bf66f5] {\n    height: 300px !important;\n}\n}", ""]);
 
 // exports
 
@@ -24005,7 +24053,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".height-contaier[data-v-5157a858] {\n  margin-top: 62.66px;\n}\n.coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
+exports.push([module.i, ".height-container[data-v-5157a858] {\n  margin-top: 62.66px !important;\n}\n.coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
 
 // exports
 

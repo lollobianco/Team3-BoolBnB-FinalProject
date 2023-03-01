@@ -1,8 +1,12 @@
 <template>
-  <div class="container-fluid w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5">
-    <div class="row">
+  <div>
+    <!-- <div class="height-container">
+      <img src="../../../../public/assets/20291935_6278441.jpg" class="w-100 jumbo-head" alt="">
+    </div> -->
+    <div class="container-fluid height-container w-100 col-lg-9 col-sm-12 p-sm-4 p-lg-5">
+      <div class="row">
         <router-link v-for="elem in apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
-        class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
+          class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
           <div class="card-relative">
             <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
@@ -13,12 +17,13 @@
           <div class="card-body p-0">
             <h6 class="mt-2 card-element">{{ elem.address }}</h6>
             <h6 class="mt-2 card-element">Rooms: {{ elem.rooms }}</h6>
-              <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
+            <h6 class="mt-2 card-element">Beds: {{ elem.beds }}</h6>
             <h6 class="mt-0 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
 
           </div>
         </router-link>
-        
+
+      </div>
     </div>
   </div>
 </template>
@@ -54,9 +59,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.height-contaier{
-  margin-top: 62.66px;
+// .jumbo-head {
+//   filter: drop-shadow(0px 10px 20px #0063AC);
+// }
+
+.height-container {
+  margin-top: 62.66px!important;
 }
+
 .coverimg {
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -65,7 +75,7 @@ export default {
   -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);
 }
 
-.apartment-card  {
+.apartment-card {
   background: transparent !important;
   cursor: pointer;
   text-decoration: none;
