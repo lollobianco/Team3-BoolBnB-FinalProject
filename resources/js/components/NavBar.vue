@@ -1,20 +1,20 @@
 <template>
-  <div class="container-fluid py-3 container-nav">
+  <div class="container-fluid container-nav d-flex align-items-center">
     <div class="row navbar-80">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between h-100 align-items-center">
         <div class="logo-cont">
           <a href="/">
             <img src="../../../public/assets/Logo.svg" alt="logo">
           </a>
         </div>
         <div class="m-auto">
-          <form class="d-flex text-center" role="search">
-            <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
-              aria-label="Search" v-model="searched_address">
-            <button class="btn btn-login-register rounded-circle" onclick="return false" @keyup.enter="searchText()">
-              <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-            </button>
-            <router-link :to="`/advaced-search`" class="btn btn-login-register rounded-circle ms-2" type="submit">
+          <form class="d-flex text-center" role="search">         
+            <router-link v-if="$route.path === '/'" :to="`/advaced-search`" class="btn btn-login-register rounded-5" type="submit">
+              Advanced Search
+              <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
+            </router-link>
+            <router-link v-else :to="`/`" class="btn btn-login-register rounded-5" type="submit">
+              Back To Home
               <font-awesome-icon icon="fa-solid fa-arrow-down-wide-short" />
             </router-link>
           </form>
@@ -102,6 +102,11 @@ export default {
   box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  z-index: 2;
+  height: 62.66px;
 }
 
 .form-control:focus {
@@ -112,10 +117,6 @@ export default {
 .btn-login-register {
   background-color: #d7526a !important;
   color: white !important;
-}
-
-.search-border {
-  border: 2px solid #d7526a !important;
 }
 
 .navbar-80 {
@@ -131,10 +132,10 @@ export default {
 }
 
 .dropdown-toggle {
-  border: 2px solid #d7526a !important;
+  border: 1px solid #d7526a !important;
 }
 
-@media screen and (max-width: 600px) and (min-width: 320px) {
+@media screen and (max-width: 991px){
   .logo-cont {
     display: none;
   }

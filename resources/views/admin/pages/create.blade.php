@@ -326,7 +326,7 @@
           {{-- SERVICES --}}
           <div class="w-75 fs-6 mt-5 pt-1">
               @foreach ($services as $service)
-                  <div class="cat action btn btn-dark border-0 rounded-5 p-1 mr-1 mb-2 ">
+                  <div class="cat action btn btn-dark border-0 rounded-5 p-0 mr-1 mb-2 ">
                       <label class="">
                           <input type="checkbox" name="services[]"
                               value="{{ $service->id }}"><span>{{ $service->name }}</span>
