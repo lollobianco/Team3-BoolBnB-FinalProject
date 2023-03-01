@@ -15,7 +15,7 @@
 
     <div class="row d-flex h-100 justify-content-between">
       
-      <div class="d-flex col-3 flex-column border rounded-4">
+      <div class="d-flex col-3 p-3 flex-column border rounded-4">
         @foreach ($apartments as $elem)
           
           <a href="{{ route('admin.dashboard.show', $elem['id']) }}"
@@ -37,7 +37,7 @@
       </div>
 
       <div class="col-9">
-        <div class="border container-fluid rounded-4 p-5 h-100">
+        <div class="border container-fluid rounded-4 p-3 h-100">
           @yield('right-panel')
         </div>
       </div>

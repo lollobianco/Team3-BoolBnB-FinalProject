@@ -18605,12 +18605,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdvancedSearch',
-  props: {
-    searched_address: {
-      type: String,
-      required: false
-    }
-  },
   data: function data() {
     return {
       apartments: [],
@@ -18627,12 +18621,13 @@ __webpack_require__.r(__webpack_exports__);
       //Servizi che vogliamo filtrare
       min_beds: null,
       min_rooms: null,
+      searched_address: '',
       i: 1
     };
   },
   mounted: function mounted() {
     this.getServices();
-    if (window.matchMedia("(max-width: 991px)").matches) {
+    if (window.matchMedia("(max-width: 991px)").matches && this.filtered_apartments.length == 0) {
       this.openOffcanvas(); // La funzione che vuoi far partire
     }
   },
@@ -18657,6 +18652,14 @@ __webpack_require__.r(__webpack_exports__);
         if (_this2.min_beds && apartment.beds < _this2.min_beds) {
           return false;
         }
+        if (_this2.searched_address != '') {
+          _this2.searched_address = _this2.searched_address.toLowerCase();
+          var apartment_address = apartment.address.toLowerCase();
+          if (_this2.searched_address && !apartment_address.includes(_this2.searched_address)) {
+            return false;
+          }
+        }
+
         // filtra per servizi attivi
         if (_this2.active_services.length > 0) {
           var apartmentServiceIds = apartment.services.map(function (service) {
@@ -18681,14 +18684,21 @@ __webpack_require__.r(__webpack_exports__);
     openOffcanvas: function openOffcanvas() {
       var myOffcanvas = new bootstrap.Offcanvas(document.querySelector('#staticBackdrop'));
       myOffcanvas.show();
-    } // searchText() {
+    } //INIZIO FUNZIONE CALCOLO DISTANZA
+    // calcolaDistanza() {
     //   this.filtered_apartments = this.apartments.filter(apartment => {
-    //     if (this.searched_address && apartment.address != this.searched_address) {
-    //       return false;
-    //     }
-    //     return true;
-    //   });
-    // },
+    //     const raggioTerra = 6371; // raggio medio della Terra in km
+    //     const lat = (apartment.lat - lat1) * Math.PI / 180; // differenza di latitudine in radianti
+    //     const long = (lon2 - lon1) * Math.PI / 180; // differenza di longitudine in radianti
+    //     const a =
+    //       Math.sin(lat / 2) * Math.sin(lat / 2) +
+    //       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    //       Math.sin(long / 2) * Math.sin(long / 2);
+    //     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    //     const distanza = raggioTerra * c; // distanza in km
+    //     return distanza;
+    //   })
+    // }
   }
 });
 
@@ -19381,7 +19391,72 @@ var render = function render() {
       key: service.id,
       staticClass: "badge bg-secondary text-white mb-4 me-2"
     }, [_vm._v("\n                        " + _vm._s(service.name) + "\n                    ")]);
-  }), 0)]), _vm._v(" "), _vm._m(4)])])]);
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2"
+  }, [_c("h3", {
+    staticClass: "text-center text-dark p-2"
+  }, [_vm._v("Sent a message to the owner")]), _vm._v(" "), _c("div", {
+    staticClass: "p-2"
+  }, [_c("form", {
+    attrs: {
+      action: ""
+    }
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "Name"
+    }
+  }), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Name",
+      required: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "Surname"
+    }
+  }), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Surname",
+      required: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "Email"
+    }
+  }), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      placeholder: "Email",
+      required: ""
+    }
+  }), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control mt-4",
+    attrs: {
+      name: "message",
+      placeholder: "Message",
+      required: ""
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-custom mt-4",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Send "), _c("font-awesome-icon", {
+    staticClass: "ms-2",
+    attrs: {
+      icon: "fa-solid fa-paper-plane"
+    }
+  })], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  })])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -19407,53 +19482,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "questaclassenonesiste"
   }, [_c("h4", [_vm._v("What you will find")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2"
-  }, [_c("h3", {
-    staticClass: "text-center text-white p-2"
-  }, [_vm._v("Sent a message to the owner")]), _vm._v(" "), _c("div", {
-    staticClass: "p-2"
-  }, [_c("form", {
-    attrs: {
-      action: ""
-    }
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "Name"
-    }
-  }), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      placeholder: "Name"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "Surname"
-    }
-  }), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "text",
-      placeholder: "Surname"
-    }
-  }), _vm._v(" "), _c("textarea", {
-    staticClass: "form-control mt-4",
-    attrs: {
-      name: "message",
-      placeholder: "Message"
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "btn bg-danger bg-gradient text-white mt-4",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("Send")])])])]);
 }];
 render._withStripped = true;
 
@@ -19475,7 +19503,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5"
+    staticClass: "container-fluid w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.apartments, function (elem) {
@@ -23919,7 +23947,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.cdnfonts.com/css/circular-std);", ""]);
 
 // module
-exports.push([module.i, "* {\n  font-family: \"Circular Std\", sans-serif;\n}", ""]);
+exports.push([module.i, "* {\n  font-family: \"Circular Std\", sans-serif;\n}\n.form-control:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}", ""]);
 
 // exports
 
@@ -23958,7 +23986,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".height-nav[data-v-32bf66f5] {\n  margin-top: 62.66px;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  height: 400px;\n  background-color: #D7526A;\n}\n@media screen and (max-width: 991px) {\n.height-nav[data-v-32bf66f5] {\n    width: 90% !important;\n    margin-top: 86.66px;\n}\n.row > *[data-v-32bf66f5] {\n    flex-shrink: 0;\n    width: 100%;\n    max-width: 100%;\n    padding-right: 4px !important;\n    padding-left: 4px !important;\n    margin-top: var(--bs-gutter-y);\n}\n.image-cover[data-v-32bf66f5] {\n    height: 300px !important;\n}\n}", ""]);
+exports.push([module.i, ".height-nav[data-v-32bf66f5] {\n  margin-top: 62.66px;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  background-color: rgba(190, 190, 190, 0.9);\n}\n.btn-custom[data-v-32bf66f5] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.5rem 0.7rem;\n  border: solid #d7526a 1px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-32bf66f5]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n@media screen and (max-width: 991px) {\n.height-nav[data-v-32bf66f5] {\n    width: 90% !important;\n    margin-top: 86.66px;\n}\n.row > *[data-v-32bf66f5] {\n    flex-shrink: 0;\n    width: 100%;\n    max-width: 100%;\n    padding-right: 4px !important;\n    padding-left: 4px !important;\n    margin-top: var(--bs-gutter-y);\n}\n.image-cover[data-v-32bf66f5] {\n    height: 300px !important;\n}\n}", ""]);
 
 // exports
 
@@ -71312,7 +71340,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWifi"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKitchenSet"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCar"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTv"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFan"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPersonSwimming"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWater"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlusMinus"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWifi"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKitchenSet"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCar"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTv"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFan"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPersonSwimming"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWater"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlusMinus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPaperPlane"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);

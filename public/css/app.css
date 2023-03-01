@@ -11073,8 +11073,9 @@ a.text-dark:focus {
 }
 
 .container-nav {
-  padding: 2rem;
-  height: 8vh;
+  position: fixed;
+  top: 0;
+  height: 62.66px;
   box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 1px 7px 42px -3px rgba(0, 0, 0, 0.3);
@@ -11117,7 +11118,9 @@ a.text-dark:focus {
 
 .sidebar-height {
   z-index: 99;
-  height: 100vh;
+  position: fixed !important;
+  top: 0;
+  height: 100vh !important;
 }
 
 .side-ico {
@@ -11142,7 +11145,7 @@ a.text-dark:focus {
 
 .right-section {
   margin-left: 6rem;
-  margin-top: 8vh;
+  margin-top: 62.66px;
 }
 
 .dash-container {
@@ -11199,7 +11202,8 @@ a.text-dark:focus {
   height: 1.1rem;
 }
 
-.mapcontainer {
-  padding-top: 10vh !important;
+.container-minus-nav {
+  height: calc(100vh - 62.66px) !important;
+  margin-top: 62.66px !important;
 }
 

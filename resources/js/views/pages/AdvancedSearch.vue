@@ -50,7 +50,8 @@
           <!-- <h5 class="offcanvas-title" id="staticBackdropLabel">Search</h5> -->
           <!-- <button type="button" class="ms-auto btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
           <font-awesome-icon icon="fa-solid fa-x" type="button"
-            class="ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4" data-bs-dismiss="offcanvas" aria-label="Close" />
+            class="ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4" data-bs-dismiss="offcanvas"
+            aria-label="Close" />
         </div>
         <div class="offcanvas-body p-1">
           <div class="p-0 h-100 d-flex flex-column justify-content-center">
@@ -100,14 +101,16 @@
       </div>
 
       <div class="col-lg-9 col-sm-12 p-sm-4 right-side p-lg-5 ms-auto">
-        <button class="btn position-fixed btn-custom rounded-2 py-2 px-3 open-canvas d-none" type="button" style="z-index: 3; top:10px; left: 10px;" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+        <button class="btn position-fixed btn-custom rounded-2 py-2 px-3 open-canvas d-none" type="button"
+          style="z-index: 3; top:10px; left: 10px;" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
           aria-controls="staticBackdrop">
-          <font-awesome-icon icon="fa-solid fa-plus-minus"/>
+          <font-awesome-icon icon="fa-solid fa-plus-minus" />
         </button>
         <div class="d-flex">
           <div class="row">
-            <router-link v-for="elem in filtered_apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
-          class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
+            <router-link v-for="elem in filtered_apartments" :key="elem.id"
+              :to="{ name: 'apartment-show', params: { id: elem.id } }"
+              class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
               <div class="card-relative">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
@@ -134,12 +137,6 @@
 <script>
 export default {
   name: 'AdvancedSearch',
-  props: {
-    searched_address: {
-      type: String,
-      required: false
-    }
-  },
   data() {
     return {
       apartments: [], //Tutti gli appartamenti con i servizi
@@ -151,13 +148,14 @@ export default {
       active_services: [], //Servizi che vogliamo filtrare
       min_beds: null,
       min_rooms: null,
+      searched_address: '',
 
       i: 1,
     }
   },
   mounted() {
     this.getServices();
-    if (window.matchMedia("(max-width: 991px)").matches) {
+    if (window.matchMedia("(max-width: 991px)").matches && this.filtered_apartments.length == 0) {
       this.openOffcanvas(); // La funzione che vuoi far partire
     }
   },
@@ -184,6 +182,17 @@ export default {
         if (this.min_beds && apartment.beds < this.min_beds) {
           return false;
         }
+
+        if (this.searched_address != '') {
+          this.searched_address = this.searched_address.toLowerCase()
+          let apartment_address = apartment.address.toLowerCase()
+
+          if (this.searched_address && !apartment_address.includes(this.searched_address)) {
+            return false;
+          }
+
+        }
+
         // filtra per servizi attivi
         if (this.active_services.length > 0) {
 
@@ -205,20 +214,31 @@ export default {
       });
     },
     openOffcanvas() {
+
       let myOffcanvas = new bootstrap.Offcanvas(document.querySelector('#staticBackdrop'));
       myOffcanvas.show();
-    }
 
-    // searchText() {
+    },
+    
+    //INIZIO FUNZIONE CALCOLO DISTANZA
+
+    // calcolaDistanza() {
+
     //   this.filtered_apartments = this.apartments.filter(apartment => {
 
-    //     if (this.searched_address && apartment.address != this.searched_address) {
-    //       return false;
-    //     }
-    //     return true;
+    //     const raggioTerra = 6371; // raggio medio della Terra in km
+    //     const lat = (apartment.lat - lat1) * Math.PI / 180; // differenza di latitudine in radianti
+    //     const long = (lon2 - lon1) * Math.PI / 180; // differenza di longitudine in radianti
+    //     const a =
+    //       Math.sin(lat / 2) * Math.sin(lat / 2) +
+    //       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    //       Math.sin(long / 2) * Math.sin(long / 2);
+    //     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    //     const distanza = raggioTerra * c; // distanza in km
+    //     return distanza;
 
-    //   });
-    // },
+    //   })
+    // }
 
   }
 }
@@ -404,11 +424,10 @@ export default {
     display: none !important;
   }
 
-  .open-canvas{
-    display: block!important;
+  .open-canvas {
+    display: block !important;
   }
-  
+
 
 }
-
 </style>

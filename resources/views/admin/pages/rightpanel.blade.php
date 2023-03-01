@@ -3,12 +3,12 @@
 @section('right-panel')
   <div class="row h-100">
 
-    <div class="border-0 d-flex flex-column col-5">
+    <div class="border-0 d-flex flex-column col-4">
 
       {{-- Carusel --}}
       <div class="rounded-4 mb-4">
 
-        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid w-75">
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid w-100">
 
       </div>
 
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div class="col-7 border-left d-flex align-items-center justify-content-center">
+    <div class="col-8 border-left d-flex align-items-center justify-content-center">
       <h1>Sezione grafici</h1>
     </div>
   </div>

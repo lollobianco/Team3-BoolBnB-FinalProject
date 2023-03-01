@@ -28,4 +28,9 @@ import NavBar from "../components/NavBar.vue"
     font-family: 'Circular Std', sans-serif;
 }
 
+.form-control:focus {
+    border-color: #d7526a !important;
+    box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;
+}
+
 </style>

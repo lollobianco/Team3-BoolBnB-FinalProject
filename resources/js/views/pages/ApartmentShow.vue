@@ -15,9 +15,6 @@
                             <li class="list-group-item fs-6">{{ apartments.beds }} Beds</li>
                             <li class="list-group-item fs-6">{{ apartments.bathrooms }} Bathrooms</li>
                         </ul>
-                        <!-- <div class="mt-3">
-                        <img class="pic border border-danger rounded-4" :src="'/storage/' + apartments.cover_image">
-                    </div> -->
                     </div>
                     <hr>
                     <div class="d-flex">
@@ -65,18 +62,23 @@
                 </div>
                 <!-- RIGHT SIDE -->
                 <div class="mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2">
-                    <h3 class="text-center text-white p-2">Sent a message to the owner</h3>
+                    <h3 class="text-center text-dark p-2">Sent a message to the owner</h3>
                     <div class="p-2">
                         <form action="">
                             <label class="form-label" for="Name"></label>
-                            <input class="form-control" type="text" placeholder="Name">
+                            <input class="form-control" type="text" placeholder="Name" required>
                             <label class="form-label" for="Surname"></label>
-                            <input class="form-control" type="text" placeholder="Surname">
-                            <textarea class="form-control mt-4" name="message" placeholder="Message"></textarea>
-                            <button type="submit" class="btn bg-danger bg-gradient text-white mt-4">Send</button>
+                            <input class="form-control" type="text" placeholder="Surname" required>
+                            <label class="form-label" for="Email"></label>
+                            <input class="form-control" type="email" placeholder="Email" required>
+                            <textarea class="form-control mt-4" name="message" placeholder="Message" required></textarea>
+                            <button type="submit" class="btn btn-custom mt-4">Send <font-awesome-icon class="ms-2" icon="fa-solid fa-paper-plane" /></button>
                         </form>
                     </div>
                 </div>
+
+            </div>
+            <div class="row">
 
             </div>
         </div>
@@ -137,8 +139,38 @@ export default {
 }
 
 .card-contact {
-    height: 400px;
-    background-color: #D7526A;
+    // height: 400px;
+    background-color: rgba(190, 190, 190, 0.9);
+}
+
+.btn-custom {
+  color: #fff;
+  background-color: #d7526a;
+  padding: 0.5rem 0.7rem;
+  border: solid #d7526a 1px;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 50px 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center;
+  // align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-custom:hover {
+  transition: 1000ms;
+  // padding: 1rem 1rem;
+  // transform: translateY(-0px);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  background-color: #fff;
+  color: #d7526a;
 }
 
 @media screen and (max-width: 991px) {
