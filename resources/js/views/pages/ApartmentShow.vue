@@ -52,7 +52,7 @@
                     </div>
                     <hr>
                     <!-- SERVICES -->
-                    <div>
+                    <div class="questaclassenonesiste">
                         <h4>What you will find</h4>
                     </div>
                     <ul>
