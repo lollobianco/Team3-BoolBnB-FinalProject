@@ -1,26 +1,80 @@
 <template>
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="cont1">
         <div class="img-cont">
             <h1>{{ apartments.name }}</h1>
             <p>{{ apartments.address }}</p>
             <img :src="'/storage/' + apartments.cover_image">
-            <div class="cont d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between">
+                <!-- LEFT SIDE -->
                 <div class="left-side">
-                    <ul class="list-group list-group-horizontal pt-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <ul class="list-group list-group-horizontal pt-4">
                         <li class="list-group-item">{{ apartments.accomodation }} Guests</li>
                         <li class="list-group-item">{{ apartments.rooms }} Bedrooms</li>
                         <li class="list-group-item">{{ apartments.beds }} Beds</li>
                         <li class="list-group-item">{{ apartments.bathrooms }} Bathrooms</li>
                     </ul>
+                    <div class="mt-3">
+                        <img class="pic border border-danger rounded-4" :src="'/storage/' + apartments.cover_image">
+                    </div>
+                    </div>
                     <hr>
+                    <div class="d-flex">
+                        <div>
+                            <font-awesome-icon icon="fa-solid fa-location-dot" size="xl" />
+                        </div>
+                        <div class="mx-3">
+                            <h5>Good position</h5>
+                            <p>100% of recent guests rated the location 5-star.</p>
+                        </div> 
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <font-awesome-icon icon="fa-solid fa-key" size="lg" />
+                        </div>
+                        <div class="mx-3">
+                            <h5>Great check-in experience</h5>
+                            <p>100% of guests rated the check-in process 5 stars.</p>
+                        </div> 
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <font-awesome-icon icon="fa-solid fa-calendar-xmark" size="xl" />
+                        </div>
+                        <div class="mx-3">
+                            <h5>Free cancellation for 48 hours.</h5>
+                        </div> 
+                    </div>
+                    <hr>
+                    <!-- DESCRIPTION -->
+                    <div class="mt-4">
+                        <p>{{ apartments.description }}</p>
+                    </div>
+                    <hr>
+                    <!-- SERVICES -->
+                    <div>
+                        <h4>What you will find</h4>
+                    </div>
+                    <ul>
+                        <li>{{ apartments.services }}</li>
+                    </ul>
                 </div>
-                <div>MESSAGGI</div>
-
+                <!-- RIGHT SIDE -->
+                <div class="mt-3 card-contact rounded-4 p-2">
+                    <h3 class="text-center text-white p-2">Sent a message to the owner</h3>
+                    <div class="p-2">
+                        <form action="">
+                        <label class="form-label" for="Name"></label>
+                        <input  class="form-control" type="text" placeholder="Name">
+                        <label class="form-label" for="Surname"></label>
+                        <input  class="form-control" type="text" placeholder="Surname">
+                        <textarea  class="form-control mt-4" name="message" placeholder="Message"></textarea>
+                        <button type="submit" class="btn bg-danger bg-gradient text-white mt-4">Send</button>
+                    </form>
+                    </div>
+                </div>
             </div>
-            
-
         </div>
-        
     </div>
 </template>
 
@@ -54,14 +108,35 @@
 
 <style scoped lang="scss">
 
+.cont1{
+    width: 65%;
+    margin: 0 auto;
+}
+
 .left-side{
     width: 60%;
 }
 
-.img-cont2{
-    width: 100px;
-    
-
+.pic{
+    width: 120px;
 }
+
+.fa-location-dot{
+    color: #D7526A;
+}
+
+.fa-key{
+    color: #D7526A;
+}
+
+.fa-calendar-xmark{
+    color: #D7526A;
+}
+
+.card-contact{
+    height: 400px;
+    background-color: #D7526A;
+}
+
 
 </style>
