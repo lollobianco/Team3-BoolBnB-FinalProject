@@ -18632,7 +18632,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getServices();
-    if (window.matchMedia("(max-width: 1300px)").matches) {
+    if (window.matchMedia("(max-width: 991px)").matches) {
       this.openOffcanvas(); // La funzione che vuoi far partire
     }
   },
@@ -18780,11 +18780,11 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container-fluid py-3 container-nav"
+    staticClass: "container-fluid container-nav d-flex align-items-center"
   }, [_c("div", {
     staticClass: "row navbar-80"
   }, [_c("div", {
-    staticClass: "d-flex justify-content-between align-items-center"
+    staticClass: "d-flex justify-content-between h-100 align-items-center"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "m-auto"
   }, [_c("form", {
@@ -18792,13 +18792,23 @@ var render = function render() {
     attrs: {
       role: "search"
     }
-  }, [_c("router-link", {
+  }, [_vm.$route.path === "/" ? _c("router-link", {
     staticClass: "btn btn-login-register rounded-5",
     attrs: {
       to: "/advaced-search",
       type: "submit"
     }
   }, [_vm._v("\n            Advanced Search\n            "), _c("font-awesome-icon", {
+    attrs: {
+      icon: "fa-solid fa-arrow-down-wide-short"
+    }
+  })], 1) : _c("router-link", {
+    staticClass: "btn btn-login-register rounded-5",
+    attrs: {
+      to: "/",
+      type: "submit"
+    }
+  }, [_vm._v("\n            Back To Home\n            "), _c("font-awesome-icon", {
     attrs: {
       icon: "fa-solid fa-arrow-down-wide-short"
     }
@@ -18929,7 +18939,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center"
+    staticClass: "col-sm-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center"
   }, [_c("form", {
     staticClass: "d-flex mb-5",
     attrs: {
@@ -18997,9 +19007,9 @@ var render = function render() {
       }
     }), _vm._v(" "), _c("span", [_vm._v(_vm._s(service.name))])])]);
   }), 0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex w-100"
+    staticClass: "d-flex w-100 min-nums"
   }, [_c("div", {
-    staticClass: "w-50 px-1"
+    staticClass: "w-50 px-1 min-nums-w"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -19026,7 +19036,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-5 w-50 px-1"
+    staticClass: "mb-5 w-50 px-1 min-nums-w"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -19080,7 +19090,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "offcanvas-header w-100"
   }, [_c("font-awesome-icon", {
-    staticClass: "ms-auto btn-custom rounded-2 btn text-white p-2 fs-4",
+    staticClass: "ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4",
     attrs: {
       icon: "fa-solid fa-x",
       type: "button",
@@ -19236,14 +19246,31 @@ var render = function render() {
     }
   })], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-lg-9 col-sm-12 p-sm-4 right-side p-lg-5 ms-auto"
-  }, [_c("div", {
+  }, [_c("button", {
+    staticClass: "btn position-fixed btn-custom rounded-2 py-2 px-3 open-canvas d-none",
+    staticStyle: {
+      "z-index": "3",
+      top: "10px",
+      left: "10px"
+    },
+    attrs: {
+      type: "button",
+      "data-bs-toggle": "offcanvas",
+      "data-bs-target": "#staticBackdrop",
+      "aria-controls": "staticBackdrop"
+    }
+  }, [_c("font-awesome-icon", {
+    attrs: {
+      icon: "fa-solid fa-plus-minus"
+    }
+  })], 1), _vm._v(" "), _c("div", {
     staticClass: "d-flex"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.filtered_apartments, function (elem) {
     return _c("a", {
       key: elem.id,
-      staticClass: "apartment-card border-0 col-lg-3 col-md-5 px-2 col-sm-12",
+      staticClass: "apartment-card border-0 col-lg-3 col-md-6 px-2 col-sm-12",
       attrs: {
         href: "#"
       }
@@ -19266,7 +19293,7 @@ var render = function render() {
       staticClass: "mt-2 card-element"
     }, [_vm._v(_vm._s(elem.address))]), _vm._v(" "), _c("h6", {
       staticClass: "mt-0 mb-4 card-element"
-    }, [_vm._v(" " + _vm._s(elem.price) + "€  a notte")])])]);
+    }, [_vm._v(" " + _vm._s(elem.price) + "€ a notte")])])]);
   }), 0)])])])]);
 };
 var staticRenderFns = [];
@@ -23759,7 +23786,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  position: fixed;\n  background-color: #fff;\n  top: 0;\n  z-index: 100;\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n.dropdown-toggle[data-v-5dd24bca] {\n  border: 2px solid #d7526a !important;\n}\n@media screen and (max-width: 600px) and (min-width: 320px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, ".logo-cont img[data-v-5dd24bca] {\n  width: 150px;\n}\n.container-nav[data-v-5dd24bca] {\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  position: fixed;\n  background-color: #fff;\n  top: 0;\n  z-index: 2;\n  height: 62.66px;\n}\n.form-control[data-v-5dd24bca]:focus {\n  border-color: #d7526a !important;\n  box-shadow: 0 0 0 0.2rem rgba(215, 82, 106, 0.5) !important;\n}\n.btn-login-register[data-v-5dd24bca] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.navbar-80[data-v-5dd24bca] {\n  width: 90%;\n  margin: 0 auto;\n}\n.dropdown-menu .fa-solid[data-v-5dd24bca] {\n  color: #d7526a;\n  font-size: 0.75rem;\n}\n.dropdown-toggle[data-v-5dd24bca] {\n  border: 1px solid #d7526a !important;\n}\n@media screen and (max-width: 991px) {\n.logo-cont[data-v-5dd24bca] {\n    display: none;\n}\n.dropdown[data-v-5dd24bca] {\n    display: none;\n}\n}", ""]);
 
 // exports
 
@@ -23798,7 +23825,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".bg-landscape-mobile[data-v-112ea134] {\n  display: none;\n}\n#staticBackdrop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: 100vh;\n}\n.bg-landscape-desktop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: calc(100vh - 94.66px);\n  margin-top: 94.66px;\n  position: fixed;\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n}\n.right-side[data-v-112ea134] {\n  margin-top: 94.66px;\n}\n.btn-close[data-v-112ea134] {\n  color: white !important;\n}\n.coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}\n.search-border[data-v-112ea134] {\n  border: 2px solid #d7526a !important;\n}\n.btn-login-register[data-v-112ea134] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.btn-custom[data-v-112ea134] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.8rem 0.8rem;\n  border: solid #d7526a 1px;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-112ea134]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n.pink-color2[data-v-112ea134] {\n  color: #d7526a !important;\n}\n@media screen and (max-width: 1300px) and (min-width: 320px) {\n.bg-landscape-desktop[data-v-112ea134] {\n    display: none !important;\n}\n}", ""]);
+exports.push([module.i, ".bg-landscape-mobile[data-v-112ea134] {\n  display: none;\n}\n#staticBackdrop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  min-height: 100vh;\n}\n.bg-landscape-desktop[data-v-112ea134] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/assets/image.jpg */ "./public/assets/image.jpg")) + ");\n  background-position: bottom;\n  background-size: cover;\n  height: 100vh;\n  margin-top: 62.66px;\n  position: fixed;\n  box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);\n}\n.right-side[data-v-112ea134] {\n  margin-top: 62.66px;\n  padding-top: 10px;\n}\n.btn-close[data-v-112ea134] {\n  color: white !important;\n}\n.coverimg[data-v-112ea134] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-112ea134] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-112ea134]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-112ea134] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-112ea134] {\n  position: relative;\n}\n.fa-eye[data-v-112ea134] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-112ea134] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-112ea134] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}\n.cat[data-v-112ea134] {\n  cursor: pointer;\n}\n.cat label[data-v-112ea134] {\n  margin: 0;\n  cursor: pointer;\n}\n.cat label span[data-v-112ea134] {\n  text-align: center;\n  padding: 5px 10px;\n  display: block;\n  cursor: pointer;\n}\n.cat label input[data-v-112ea134] {\n  position: absolute;\n  display: none;\n  color: #fff !important;\n}\n.action input:checked + span[data-v-112ea134] {\n  background-color: #ff385c;\n  transition: 500ms;\n  border-radius: 30rem;\n  color: white;\n}\n.search-border[data-v-112ea134] {\n  border: 2px solid #d7526a !important;\n}\n.btn-login-register[data-v-112ea134] {\n  background-color: #d7526a !important;\n  color: white !important;\n}\n.btn-custom[data-v-112ea134] {\n  color: #fff;\n  background-color: #d7526a;\n  padding: 0.8rem 0.8rem;\n  border: solid #d7526a 1px;\n  border-radius: 50px 50px;\n  transition: 1000ms;\n  transform: translateY(0);\n  cursor: pointer;\n  text-transform: uppercase;\n}\n.btn-custom[data-v-112ea134]:hover {\n  transition: 1000ms;\n  transform: scale(1.1);\n  background-color: #fff;\n  color: #d7526a;\n}\n.pink-color2[data-v-112ea134] {\n  color: #d7526a !important;\n}\n@media screen and (max-width: 1300px) and (min-width: 992px) {\n.min-nums[data-v-112ea134] {\n    flex-direction: column;\n}\n.min-nums .min-nums-w[data-v-112ea134] {\n    width: 100% !important;\n    margin-bottom: 10px;\n}\n}\n@media screen and (max-width: 991px) {\n.bg-landscape-desktop[data-v-112ea134] {\n    display: none !important;\n}\n.open-canvas[data-v-112ea134] {\n    display: block !important;\n}\n}", ""]);
 
 // exports
 
@@ -23836,7 +23863,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".height-contaier[data-v-5157a858] {\n  margin-top: 94.66px;\n}\n.coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
+exports.push([module.i, ".height-contaier[data-v-5157a858] {\n  margin-top: 62.66px;\n}\n.coverimg[data-v-5157a858] {\n  aspect-ratio: 1/1;\n  -o-object-fit: cover;\n     object-fit: cover;\n  box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -webkit-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n  -moz-box-shadow: 7px 7px 21px -4px rgba(0, 0, 0, 0.55);\n}\n.apartment-card[data-v-5157a858] {\n  background: transparent !important;\n  cursor: pointer;\n  text-decoration: none;\n  color: black;\n}\n.apartment-card[data-v-5157a858]:hover {\n  text-decoration: none;\n  color: black;\n}\n.apartment-card:hover .coverimg[data-v-5157a858] {\n  filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);\n  transition: 300ms;\n}\n.card-relative[data-v-5157a858] {\n  position: relative;\n}\n.fa-eye[data-v-5157a858] {\n  display: none;\n  color: #ff385c;\n  position: absolute;\n  opacity: 0;\n  font-size: 2rem;\n}\n.apartment-card:hover .fa-eye[data-v-5157a858] {\n  display: block;\n  opacity: 1;\n  transition: 300ms;\n  z-index: 100;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);\n}\n.apartment-card:hover .card-element[data-v-5157a858] {\n  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);\n}", ""]);
 
 // exports
 

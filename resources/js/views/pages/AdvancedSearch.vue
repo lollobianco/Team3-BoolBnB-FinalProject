@@ -2,8 +2,7 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center">
-
+      <div class="col-sm-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center">
 
         <form action="" class="d-flex mb-5">
           <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search" aria-label="Search"
@@ -22,13 +21,13 @@
             </div>
           </div>
 
-          <div class="d-flex w-100 ">
-            <div class="w-50 px-1">
+          <div class="d-flex w-100 min-nums">
+            <div class="w-50 px-1 min-nums-w">
               <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms" class="form-control"
                 v-model="min_rooms">
             </div>
 
-            <div class="mb-5 w-50 px-1">
+            <div class="mb-5 w-50 px-1 min-nums-w">
               <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds" class="form-control"
                 v-model="min_beds">
             </div>
@@ -51,7 +50,7 @@
           <!-- <h5 class="offcanvas-title" id="staticBackdropLabel">Search</h5> -->
           <!-- <button type="button" class="ms-auto btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
           <font-awesome-icon icon="fa-solid fa-x" type="button"
-            class="ms-auto btn-custom rounded-2 btn text-white p-2 fs-4" data-bs-dismiss="offcanvas" aria-label="Close" />
+            class="ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4" data-bs-dismiss="offcanvas" aria-label="Close" />
         </div>
         <div class="offcanvas-body p-1">
           <div class="p-0 h-100 d-flex flex-column justify-content-center">
@@ -89,8 +88,9 @@
 
               </div>
 
-              <div class="w-100 d-flex justify-content-around align-items-center" data-bs-dismiss="offcanvas" aria-label="Close">
-                <button type="submit" class="btn-custom w-75" @click="advancedSearch()" >Search</button>
+              <div class="w-100 d-flex justify-content-around align-items-center" data-bs-dismiss="offcanvas"
+                aria-label="Close">
+                <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
                 <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
               </div>
 
@@ -99,21 +99,26 @@
         </div>
       </div>
 
-      <div class="col-lg-9 col-sm-12 p-sm-4 right-side  p-lg-5 ms-auto">
+      <div class="col-lg-9 col-sm-12 p-sm-4 right-side p-lg-5 ms-auto">
+        <button class="btn position-fixed btn-custom rounded-2 py-2 px-3 open-canvas d-none" type="button" style="z-index: 3; top:10px; left: 10px;" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+          aria-controls="staticBackdrop">
+          <font-awesome-icon icon="fa-solid fa-plus-minus"/>
+        </button>
         <div class="d-flex">
           <div class="row">
             <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
-              class="apartment-card border-0 col-lg-3 col-md-5  px-2 col-sm-12">
+              class="apartment-card border-0 col-lg-3 col-md-6  px-2 col-sm-12">
 
               <div class="card-relative">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-4" alt="cover image">
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-4"
+                  alt="cover image">
               </div>
 
               <div class="card-body p-0">
                 <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-           
-                <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€  a notte</h6>
+
+                <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€ a notte</h6>
 
               </div>
             </a>
@@ -152,7 +157,7 @@ export default {
   },
   mounted() {
     this.getServices();
-    if (window.matchMedia("(max-width: 1300px)").matches) {
+    if (window.matchMedia("(max-width: 991px)").matches) {
       this.openOffcanvas(); // La funzione che vuoi far partire
     }
   },
@@ -236,8 +241,8 @@ export default {
   background-image: url('../../../../public/assets/image.jpg');
   background-position: bottom;
   background-size: cover;
-  min-height: calc(100vh - 94.66px);
-  margin-top: 94.66px;
+  height: 100vh;
+  margin-top: 62.66px;
   position: fixed;
   box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
@@ -245,7 +250,8 @@ export default {
 }
 
 .right-side {
-  margin-top: 94.66px;
+  margin-top: 62.66px;
+  padding-top: 10px;
 }
 
 .btn-close {
@@ -350,7 +356,7 @@ export default {
   background-color: #d7526a;
   padding: 0.8rem 0.8rem;
   border: solid #d7526a 1px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 50px 50px;
   transition: 1000ms;
   transform: translateY(0);
@@ -379,11 +385,30 @@ export default {
   color: #d7526a !important;
 }
 
-@media screen and (max-width: 1300px) and (min-width: 320px) {
+@media screen and (max-width: 1300px) and (min-width: 992px) {
+
+  .min-nums {
+    flex-direction: column;
+
+    .min-nums-w {
+      width: 100% !important;
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 991px) {
 
   .bg-landscape-desktop {
     display: none !important;
   }
 
+  .open-canvas{
+    display: block!important;
+  }
+  
+
 }
+
 </style>

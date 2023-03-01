@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .height-contaier{
-  margin-top: 94.66px;
+  margin-top: 62.66px;
 }
 .coverimg {
   aspect-ratio: 1/1;
