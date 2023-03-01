@@ -19317,37 +19317,36 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "cont1"
+    staticClass: "mx-auto w-75 p-lg-5 p-sm-3 height-nav"
   }, [_c("div", {
     staticClass: "img-cont"
   }, [_c("h1", [_vm._v(_vm._s(_vm.apartments.name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartments.address))]), _vm._v(" "), _c("img", {
+    staticClass: "w-100 rounded-4 image-cover",
+    staticStyle: {
+      height: "500px",
+      "object-fit": "cover",
+      "object-position": "center"
+    },
     attrs: {
       src: "/storage/" + _vm.apartments.cover_image
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-between"
+    staticClass: "row d-flex justify-content-between p-2"
   }, [_c("div", {
-    staticClass: "left-side"
+    staticClass: "col-lg-8 col-sm-12 pe-lg-4 px-sm-0"
   }, [_c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("ul", {
-    staticClass: "list-group list-group-horizontal pt-4"
+    staticClass: "list-group list-group-horizontal-lg list-group-vertical-sm w-100 pt-4"
   }, [_c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item fs-6"
   }, [_vm._v(_vm._s(_vm.apartments.accomodation) + " Guests")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item fs-6"
   }, [_vm._v(_vm._s(_vm.apartments.rooms) + " Bedrooms")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item fs-6"
   }, [_vm._v(_vm._s(_vm.apartments.beds) + " Beds")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
-  }, [_vm._v(_vm._s(_vm.apartments.bathrooms) + " Bathrooms")])]), _vm._v(" "), _c("div", {
-    staticClass: "mt-3"
-  }, [_c("img", {
-    staticClass: "pic border border-danger rounded-4",
-    attrs: {
-      src: "/storage/" + _vm.apartments.cover_image
-    }
-  })])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "list-group-item fs-6"
+  }, [_vm._v(_vm._s(_vm.apartments.bathrooms) + " Bathrooms")])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "d-flex"
   }, [_c("div", [_c("font-awesome-icon", {
     attrs: {
@@ -19370,7 +19369,14 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "mt-4"
-  }, [_c("p", [_vm._v(_vm._s(_vm.apartments.description))])]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("ul", [_c("li", [_vm._v(_vm._s(_vm.apartments.services))])])]), _vm._v(" "), _vm._m(4)])])]);
+  }, [_c("p", [_vm._v(_vm._s(_vm.apartments.description))])]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("ul", {
+    staticClass: "p-0"
+  }, _vm._l(_vm.apartments.services, function (service) {
+    return _c("span", {
+      key: service.id,
+      staticClass: "badge bg-secondary text-white mb-4 me-2"
+    }, [_vm._v("\n                        " + _vm._s(service.name) + "\n                    ")]);
+  }), 0)]), _vm._v(" "), _vm._m(4)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -19400,7 +19406,7 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "mt-3 card-contact rounded-4 p-2"
+    staticClass: "mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2"
   }, [_c("h3", {
     staticClass: "text-center text-white p-2"
   }, [_vm._v("Sent a message to the owner")]), _vm._v(" "), _c("div", {
@@ -23947,7 +23953,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cont1[data-v-32bf66f5] {\n  width: 65%;\n  margin: 0 auto;\n}\n.left-side[data-v-32bf66f5] {\n  width: 60%;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  height: 400px;\n  background-color: #D7526A;\n}", ""]);
+exports.push([module.i, ".height-nav[data-v-32bf66f5] {\n  margin-top: 62.66px;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  height: 400px;\n  background-color: #D7526A;\n}\n@media screen and (max-width: 991px) {\n.height-nav[data-v-32bf66f5] {\n    width: 90% !important;\n    margin-top: 86.66px;\n}\n.row > *[data-v-32bf66f5] {\n    flex-shrink: 0;\n    width: 100%;\n    max-width: 100%;\n    padding-right: 4px !important;\n    padding-left: 4px !important;\n    margin-top: var(--bs-gutter-y);\n}\n.image-cover[data-v-32bf66f5] {\n    height: 300px !important;\n}\n}", ""]);
 
 // exports
 
@@ -71301,7 +71307,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWifi"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKitchenSet"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCar"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTv"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFan"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPersonSwimming"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWater"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);
