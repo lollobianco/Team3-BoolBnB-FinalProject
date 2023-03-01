@@ -26,7 +26,7 @@
                     @foreach ($apartments as $elem)
                         {{-- <a href="{{ route('admin.apartments.show', $elem['id']) }}"> --}}
                         <a href="{{ route('admin.apartments.show', $elem['id']) }}"
-                            class="apartment-card border-0 col-xl-2 col-lg-3 col-md-4 img-fluid p-2 col-sm-12">
+                            class="apartment-card border-0 col-xl-3 col-lg-3 col-md-4 img-fluid p-2 col-sm-12">
 
 
                             <div class="card-relative">
