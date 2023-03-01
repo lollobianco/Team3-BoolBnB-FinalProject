@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid height-contaier d-flex p-lg-5 p-sm-1">
+  <div class="container w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5">
     <div class="row">
         <router-link v-for="elem in apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
-          class="apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12">
+        class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
           <div class="card-relative">
             <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />

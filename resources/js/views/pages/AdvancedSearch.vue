@@ -106,8 +106,8 @@
         </button>
         <div class="d-flex">
           <div class="row">
-            <a v-for="elem in filtered_apartments" :key="elem.id" href="#"
-              class="apartment-card border-0 col-lg-3 col-md-6  px-2 col-sm-12">
+            <router-link v-for="elem in filtered_apartments" :key="elem.id" :to="{ name: 'apartment-show', params: { id: elem.id } }"
+          class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
               <div class="card-relative">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
@@ -121,7 +121,7 @@
                 <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€ a notte</h6>
 
               </div>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>

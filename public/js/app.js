@@ -19268,11 +19268,16 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.filtered_apartments, function (elem) {
-    return _c("a", {
+    return _c("router-link", {
       key: elem.id,
-      staticClass: "apartment-card border-0 col-lg-3 col-md-6 px-2 col-sm-12",
+      staticClass: "apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12",
       attrs: {
-        href: "#"
+        to: {
+          name: "apartment-show",
+          params: {
+            id: elem.id
+          }
+        }
       }
     }, [_c("div", {
       staticClass: "card-relative"
@@ -19294,7 +19299,7 @@ var render = function render() {
     }, [_vm._v(_vm._s(elem.address))]), _vm._v(" "), _c("h6", {
       staticClass: "mt-0 mb-4 card-element"
     }, [_vm._v(" " + _vm._s(elem.price) + "€ a notte")])])]);
-  }), 0)])])])]);
+  }), 1)])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -19470,13 +19475,13 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container-fluid height-contaier d-flex p-lg-5 p-sm-1"
+    staticClass: "container w-100 height-contaier d-flex col-lg-9 col-sm-12 p-sm-4 p-lg-5"
   }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.apartments, function (elem) {
     return _c("router-link", {
       key: elem.id,
-      staticClass: "apartment-card border-0 col-lg-2 col-md-4 img-fluid p-2 col-sm-12",
+      staticClass: "apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12",
       attrs: {
         to: {
           name: "apartment-show",
@@ -71307,7 +71312,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWifi"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKitchenSet"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCar"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTv"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFan"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPersonSwimming"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWater"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWifi"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKitchenSet"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCar"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTv"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFan"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPersonSwimming"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWater"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlusMinus"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);
