@@ -19317,7 +19317,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "d-flex justify-content-center align-items-center"
+    staticClass: "cont1"
   }, [_c("div", {
     staticClass: "img-cont"
   }, [_c("h1", [_vm._v(_vm._s(_vm.apartments.name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.apartments.address))]), _vm._v(" "), _c("img", {
@@ -19325,9 +19325,11 @@ var render = function render() {
       src: "/storage/" + _vm.apartments.cover_image
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "cont d-flex justify-content-between align-items-center"
+    staticClass: "d-flex justify-content-between"
   }, [_c("div", {
     staticClass: "left-side"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("ul", {
     staticClass: "list-group list-group-horizontal pt-4"
   }, [_c("li", {
@@ -19338,9 +19340,110 @@ var render = function render() {
     staticClass: "list-group-item"
   }, [_vm._v(_vm._s(_vm.apartments.beds) + " Beds")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
-  }, [_vm._v(_vm._s(_vm.apartments.bathrooms) + " Bathrooms")])]), _vm._v(" "), _c("hr")]), _vm._v(" "), _c("div", [_vm._v("MESSAGGI")])])])]);
+  }, [_vm._v(_vm._s(_vm.apartments.bathrooms) + " Bathrooms")])]), _vm._v(" "), _c("div", {
+    staticClass: "mt-3"
+  }, [_c("img", {
+    staticClass: "pic border border-danger rounded-4",
+    attrs: {
+      src: "/storage/" + _vm.apartments.cover_image
+    }
+  })])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("div", [_c("font-awesome-icon", {
+    attrs: {
+      icon: "fa-solid fa-location-dot",
+      size: "xl"
+    }
+  })], 1), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("div", [_c("font-awesome-icon", {
+    attrs: {
+      icon: "fa-solid fa-key",
+      size: "lg"
+    }
+  })], 1), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex"
+  }, [_c("div", [_c("font-awesome-icon", {
+    attrs: {
+      icon: "fa-solid fa-calendar-xmark",
+      size: "xl"
+    }
+  })], 1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+    staticClass: "mt-4"
+  }, [_c("p", [_vm._v(_vm._s(_vm.apartments.description))])]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("ul", [_c("li", [_vm._v(_vm._s(_vm.apartments.services))])])]), _vm._v(" "), _vm._m(4)])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mx-3"
+  }, [_c("h5", [_vm._v("Good position")]), _vm._v(" "), _c("p", [_vm._v("100% of recent guests rated the location 5-star.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mx-3"
+  }, [_c("h5", [_vm._v("Great check-in experience")]), _vm._v(" "), _c("p", [_vm._v("100% of guests rated the check-in process 5 stars.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mx-3"
+  }, [_c("h5", [_vm._v("Free cancellation for 48 hours.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "questaclassenonesiste"
+  }, [_c("h4", [_vm._v("What you will find")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "mt-3 card-contact rounded-4 p-2"
+  }, [_c("h3", {
+    staticClass: "text-center text-white p-2"
+  }, [_vm._v("Sent a message to the owner")]), _vm._v(" "), _c("div", {
+    staticClass: "p-2"
+  }, [_c("form", {
+    attrs: {
+      action: ""
+    }
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "Name"
+    }
+  }), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Name"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "Surname"
+    }
+  }), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Surname"
+    }
+  }), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control mt-4",
+    attrs: {
+      name: "message",
+      placeholder: "Message"
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn bg-danger bg-gradient text-white mt-4",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Send")])])])]);
+}];
 render._withStripped = true;
 
 
@@ -23844,7 +23947,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".left-side[data-v-32bf66f5] {\n  width: 60%;\n}\n.img-cont2[data-v-32bf66f5] {\n  width: 100px;\n}", ""]);
+exports.push([module.i, ".cont1[data-v-32bf66f5] {\n  width: 65%;\n  margin: 0 auto;\n}\n.left-side[data-v-32bf66f5] {\n  width: 60%;\n}\n.pic[data-v-32bf66f5] {\n  width: 120px;\n}\n.fa-location-dot[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-key[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.fa-calendar-xmark[data-v-32bf66f5] {\n  color: #D7526A;\n}\n.card-contact[data-v-32bf66f5] {\n  height: 400px;\n  background-color: #D7526A;\n}", ""]);
 
 // exports
 
@@ -71198,7 +71301,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 /* add icons to the library */
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faMagnifyingGlass"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPen"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faRightFromBracket"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEye"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faArrowDownWideShort"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLocationDot"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faKey"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCalendarXmark"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlaneDeparture"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faX"]);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"]);
