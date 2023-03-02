@@ -76,6 +76,7 @@
                                 required></textarea>
                             <button type="submit" @click="sendMex()" class="btn btn-custom mt-4">Send
                                 <font-awesome-icon class="ms-2" icon="fa-solid fa-paper-plane" /></button>
+
                         </form>
                     </div>
                 </div>
@@ -140,7 +141,7 @@ export default {
         },
         sendMex() {
 
-            axios.post('/api/message', {name: this.name, surname: this.surname, email: this.email, text: this.text, apartment_id: this.$route.params.id})
+            axios.post('/api/message', { name: this.name, surname: this.surname, email: this.email, text: this.text, apartment_id: this.$route.params.id })
 
             // .then(res => {
             //     console.log(res.data);
