@@ -24,7 +24,7 @@
               {{ session('success') }}
               <li>redirecting to the dashboard in 5 seconds</li>
           </div>
-          {{ header('refresh:5;url=http://127.0.0.1:8000/admin') }}
+          {{ header('refresh:5;url=http://127.0.0.1:8000/admin/apartments') }}
       @elseif (session('error'))
           <div class="alert alert-danger mt-3">
               {{ session('error') }}
