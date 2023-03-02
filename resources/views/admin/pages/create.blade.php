@@ -469,12 +469,6 @@
       longitudine.value = long;
     }
 
-
-
-
-
-
-
     function handleResultSelection(event) {
       var result = event.data.result
       if (result.type === "category" || result.type === "brand") {

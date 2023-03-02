@@ -84,13 +84,12 @@
                 <div class=" col-12 p-0">
 
                     <h2 class="mb-3">Dove si trova:</h2>
-                    <input type="hidden" :value=" apartments.lat" id="lat">
-                    <input type="hidden" :value=" apartments.long" id="long">
 
                     <div id="map" class="map rounded-4 image-cover" style="width: 100%; height: 500px;"></div>
 
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -100,14 +99,17 @@ export default {
     name: 'ApartmentShow',
     data() {
         return {
-            apartments: []
-
-
+            apartments: [],
+            lat: '',
+            long: '',
         }
     },
     mounted() {
         this.getApartments()
-        this.getMap()
+
+        setTimeout(() => {
+            this.getMap()
+        }, 1000); // delay time in milliseconds (1000ms = 1s)
     },
     methods: {
         getApartments() {
@@ -117,16 +119,17 @@ export default {
                     console.log('res data', res.data);
                     this.apartments = res.data;
                     console.log(this.apartments);
+                    this.lat = this.apartments.lat
+                    this.long = this.apartments.long
                 })
         },
 
         // Map
         getMap() {
-            var latString = document.getElementById('lat')
-            var longString = document.getElementById('long')
+            console.log(this.lat, this.long)
 
-            var latNum = +latString.value
-            var longNum = +longString.value
+            var latNum = this.lat
+            var longNum = this.long
             console.log(latNum)
             console.log(longNum)
             var POS = [longNum, latNum]

@@ -18,6 +18,7 @@
 
       {{-- Descrizione --}}
       <div class="container-fluid">
+
         <div class="row">
 
           {{-- Col LEft --}}
@@ -29,7 +30,7 @@
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->price }}€ a notte</div>
 
-            <div class="pb-3">
+            <div class="pb-0">
               <h3 class="m-0">Services</h3>
               @foreach ($apartment->services as $service)
                 @if (is_null($service->name))
@@ -38,6 +39,12 @@
                     {{ $service['name'] }}</span>
                 @endif
               @endforeach
+            </div>
+
+            <div>
+              <button class="border-0 bg-white p-0 mb-3">
+                <a href="" class="btn-custom text-decoration-none">Sponsor your flat</a>
+              </button>
             </div>
 
             <h3 class="mb-1">Actions</h3>
@@ -63,5 +70,6 @@
     <div class="col-8 border-left d-flex align-items-center justify-content-center">
       <h1>Sezione grafici</h1>
     </div>
+    
   </div>
 @endsection

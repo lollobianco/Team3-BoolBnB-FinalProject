@@ -9,6 +9,7 @@
 
 <script>
 import NavBar from "../components/NavBar.vue"
+import { tt } from '@tomtom-international/web-sdk-maps';
  
     export default {
         name:"App",

@@ -4,9 +4,11 @@
 
       <div class="col-sm-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center">
 
-        <form action="" class="d-flex mb-5">
-          <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search" aria-label="Search"
-            v-model="searched_address">
+        <form action="" id="search-bar" class="d-flex mb-5">
+          <!-- <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
+                  aria-label="Search" v-model="searched_address"> -->
+          <!-- <input ref="searchInput" type="text" placeholder="Search"> -->
+          <div id="map"></div>
         </form>
 
         <div class="">
@@ -36,7 +38,7 @@
         </div>
 
         <div class="w-100 d-flex justify-content-around align-items-center">
-          <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
+          <button type="submit" class="btn-custom w-75" @click="advancedSearch(), searchResults()">Search</button>
           <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
         </div>
 
@@ -47,8 +49,6 @@
       <div class="offcanvas offcanvas-start border-0" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header w-100">
-          <!-- <h5 class="offcanvas-title" id="staticBackdropLabel">Search</h5> -->
-          <!-- <button type="button" class="ms-auto btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
           <font-awesome-icon icon="fa-solid fa-x" type="button"
             class="ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4" data-bs-dismiss="offcanvas"
             aria-label="Close" />
@@ -58,9 +58,9 @@
             <div class="">
 
 
-              <form action="" class="d-flex mb-5">
-                <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
-                  aria-label="Search" v-model="searched_address">
+              <form action="" id="search-bar" class="d-flex mb-5">
+                <!-- <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
+                  aria-label="Search" v-model="searched_address"> -->
               </form>
 
               <div class="">
@@ -135,6 +135,8 @@
 </template>
 
 <script>
+import { tt } from '@tomtom-international/web-sdk-maps';
+
 export default {
   name: 'AdvancedSearch',
   data() {
@@ -151,6 +153,8 @@ export default {
       searched_address: '',
 
       i: 1,
+
+      options: '',
     }
   },
   mounted() {
@@ -158,7 +162,31 @@ export default {
     if (window.matchMedia("(max-width: 991px)").matches && this.filtered_apartments.length == 0) {
       this.openOffcanvas(); // La funzione che vuoi far partire
     }
+
+    const map = tt.map({
+      key: '0HdIeR7zDtKAE4DzRGUEAamM4AA7X491',
+      container: 'map'
+    });
+
+    const searchBox = new tt.plugins.SearchBox(tt.services, {
+      searchOptions: {
+        key: '0HdIeR7zDtKAE4DzRGUEAamM4AA7X491',
+        language: 'en-US',
+        limit: 5
+      },
+      autocompleteOptions: {
+        key: '0HdIeR7zDtKAE4DzRGUEAamM4AA7X491',
+        language: 'en-US'
+      }
+    });
+
+    map.addControl(searchBox);
+
+    searchBox.on('tomtom.searchbox.resultselected', function (event) {
+      console.log(event.data.result);
+    });
   },
+
   methods: {
     getServices() {
       axios
@@ -166,12 +194,11 @@ export default {
         .then((res) => {
 
           this.apartments = res.data.apartments;
-          console.log(this.apartments)
+          console.log(this.apartments);
           this.services = res.data.services;
 
-        })
+        });
     },
-
     advancedSearch() {
       this.filtered_apartments = this.apartments.filter(apartment => {
         // filtra per numero minimo di stanze
@@ -218,34 +245,39 @@ export default {
       let myOffcanvas = new bootstrap.Offcanvas(document.querySelector('#staticBackdrop'));
       myOffcanvas.show();
 
-    },
-    
-    //INIZIO FUNZIONE CALCOLO DISTANZA
-
-    // calcolaDistanza() {
-
-    //   this.filtered_apartments = this.apartments.filter(apartment => {
-
-    //     const raggioTerra = 6371; // raggio medio della Terra in km
-    //     const lat = (apartment.lat - lat1) * Math.PI / 180; // differenza di latitudine in radianti
-    //     const long = (lon2 - lon1) * Math.PI / 180; // differenza di longitudine in radianti
-    //     const a =
-    //       Math.sin(lat / 2) * Math.sin(lat / 2) +
-    //       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-    //       Math.sin(long / 2) * Math.sin(long / 2);
-    //     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    //     const distanza = raggioTerra * c; // distanza in km
-    //     return distanza;
-
-    //   })
-    // }
+    }
 
   }
+
 }
+//INIZIO FUNZIONE CALCOLO DISTANZA
+
+// calcolaDistanza() {
+
+//   this.filtered_apartments = this.apartments.filter(apartment => {
+
+//     const raggioTerra = 6371; // raggio medio della Terra in km
+//     const lat = (apartment.lat - lat1) * Math.PI / 180; // differenza di latitudine in radianti
+//     const long = (lon2 - lon1) * Math.PI / 180; // differenza di longitudine in radianti
+//     const a =
+//       Math.sin(lat / 2) * Math.sin(lat / 2) +
+//       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+//       Math.sin(long / 2) * Math.sin(long / 2);
+//     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+//     const distanza = raggioTerra * c; // distanza in km
+//     return distanza;
+
+//   })
+// }
 
 </script>
 
 <style lang="scss" scoped>
+#map {
+  height: 400px;
+  width: 200px;
+}
+
 .bg-landscape-mobile {
   display: none;
 }
