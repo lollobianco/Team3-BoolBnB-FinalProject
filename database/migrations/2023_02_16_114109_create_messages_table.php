@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('text');
+            $table->string('text')->default('diocane');
             $table->string('email');
             $table->timestamps();
         });

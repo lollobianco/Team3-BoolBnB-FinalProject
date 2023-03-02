@@ -72,9 +72,10 @@
                             <input class="form-control" v-model="surname" type="text" placeholder="Surname" required>
                             <label class="form-label" for="Email"></label>
                             <input class="form-control" v-model="email" type="email" placeholder="Email" required>
-                            <textarea class="form-control mt-4" v-model="message" name="message" placeholder="Message" required></textarea>
-                            <button type="submit" class="btn btn-custom mt-4">Send <font-awesome-icon class="ms-2"
-                                    icon="fa-solid fa-paper-plane" /></button>
+                            <textarea class="form-control mt-4" v-model="text" name="message" placeholder="Message"
+                                required></textarea>
+                            <button type="submit" @click="sendMex()" class="btn btn-custom mt-4">Send
+                                <font-awesome-icon class="ms-2" icon="fa-solid fa-paper-plane" /></button>
                         </form>
                     </div>
                 </div>
@@ -99,16 +100,15 @@ export default {
     name: 'ApartmentShow',
     data() {
         return {
+
             apartments: [],
 
-            
 
-             name: '',
-             surname: '',
-             email: '',
-             message: '',  
+            name: '',
+            surname: '',
+            email: '',
+            text: '',
 
-            
 
             lat: '',
             long: '',
@@ -140,15 +140,14 @@ export default {
         },
         sendMex() {
 
-            axios.post('/message', {
-                data: this.myData
-            })
-                .then(response => {
-                    // Handle success
-                })
-                .catch(error => {
-                    // Handle error
-                });
+            axios.post('/api/message', {name: this.name, surname: this.surname, email: this.email, text: this.text, apartment_id: this.$route.params.id})
+
+            // .then(res => {
+            //     console.log(res.data);
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // });
 
         },
         // Map

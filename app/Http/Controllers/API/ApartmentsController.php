@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 
 class ApartmentsController extends Controller
@@ -22,12 +23,6 @@ class ApartmentsController extends Controller
         return response()->json(compact('apartments'));
 
     }
-
-    public function saveMex(Request $request)
-        {
-            $data = $request->input('data');
-        // Handle the data as desired
-        }
 
     /**
      * Store a newly created resource in storage.

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class MessagesController extends Controller
 {
@@ -15,6 +16,19 @@ class MessagesController extends Controller
     public function index()
     {
         //
+    }
+
+    public function saveMex(Request $request)
+    {
+
+        $data = $request->all();
+        
+        $message = new Message();
+        $message->fill($data);
+        $message->save();
+
+        return response()->json(['success' => true]);
+    // Handle the data as desired
     }
 
     /**
