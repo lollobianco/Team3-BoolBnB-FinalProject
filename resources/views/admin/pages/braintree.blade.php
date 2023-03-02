@@ -2,21 +2,7 @@
 
 @section('content')
 
-<div class="container">
-
-
-  <div class="card mt-3">
-      <div class="card-body">
-
-          <div class="d-flex justify-content-between">
-              <h1>Benvenuto nella pagina di checkout</h1>
-              <a href="{{ route('admin.dashboard.index') }}" class="btn btn-secondary align-self-center" type="button">
-                  Dashboard
-              </a>
-          </div>
-
-      </div>
-  </div>
+<div class="container p-5 container-minus-nav d-flex flex-column align-items-center justify-content-center">
 
   <div class="container">
       @if (session('success'))
@@ -34,16 +20,12 @@
 
   </div>
 
-  <div class="w-50 mx-auto">
+  <div class="mx-auto">
       <form method="POST" id="payment-form" action="{{ route('admin.sponsors.checkout', ['price' => $type->price, $apartment_id]) }}">
 
           @csrf
-          <h1 class="text-center">Hai scelto la versione: <span>{{ $type->name }}</span></h1>
+          <h1 class="text-center">Packet: <span>{{ $type->name }}</span></h1>
           <section class="mt-6 mb-3">
-              <label class="d-flex">
-                  <span>Prezzo:</span>
-                  <span>{{ $type->price }} € </span>
-              </label>
 
               <div>
                   <div id="bt-dropin"></div>
@@ -52,11 +34,12 @@
 
           <input id="nonce" name="payment_method_nonce" type="hidden" />
           <div class="d-flex justify-content-center">
-              <button class="btn btn-primary" type="submit"><span>{{$apartment_id}}Paga Ora</span></button>
+              <button class="btn btn-custom" type="submit"><span>PAY {{ $type->price }}€</span></button>
           </div>
 
       </form>
   </div>
+
 </div>
 
 @endsection

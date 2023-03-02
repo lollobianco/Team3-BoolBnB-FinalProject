@@ -67,12 +67,12 @@
                     <div class="p-2">
                         <form action="">
                             <label class="form-label" for="Name"></label>
-                            <input class="form-control" type="text" placeholder="Name" required>
+                            <input class="form-control" v-model="name" type="text" placeholder="Name" required>
                             <label class="form-label" for="Surname"></label>
-                            <input class="form-control" type="text" placeholder="Surname" required>
+                            <input class="form-control" v-model="surname" type="text" placeholder="Surname" required>
                             <label class="form-label" for="Email"></label>
-                            <input class="form-control" type="email" placeholder="Email" required>
-                            <textarea class="form-control mt-4" name="message" placeholder="Message" required></textarea>
+                            <input class="form-control" v-model="email" type="email" placeholder="Email" required>
+                            <textarea class="form-control mt-4" v-model="message" name="message" placeholder="Message" required></textarea>
                             <button type="submit" class="btn btn-custom mt-4">Send <font-awesome-icon class="ms-2"
                                     icon="fa-solid fa-paper-plane" /></button>
                         </form>
@@ -101,13 +101,18 @@ export default {
         return {
             apartments: [],
 
+            
+
+             name: '',
+             surname: '',
+             email: '',
+             message: '',  
+
+            
+
             lat: '',
             long: '',
-            //             latitude: '',
-            //             longitude: [],
 
-
-            // >>>>>>> 09159cdb7842e7b38088a22ca9c9a0625a33eda1
         }
     },
     mounted() {
@@ -133,7 +138,19 @@ export default {
                     this.long = this.apartments.long
                 })
         },
+        sendMex() {
 
+            axios.post('/message', {
+                data: this.myData
+            })
+                .then(response => {
+                    // Handle success
+                })
+                .catch(error => {
+                    // Handle error
+                });
+
+        },
         // Map
         getMap() {
             console.log(this.lat, this.long)
@@ -143,7 +160,7 @@ export default {
             console.log(latNum)
             console.log(longNum)
             var POS = [longNum, latNum]
-            console.log('DIOCANE', POS)
+            console.log(POS)
 
 
             var map = tt.map({

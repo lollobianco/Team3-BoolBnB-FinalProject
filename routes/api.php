@@ -11,12 +11,12 @@ Route::namespace('api')->prefix('/apartments')->group(function(){
     
     Route::get('/', 'ApartmentsController@index'); // -> Genera: localhost:8080/api/posts
     Route::get('/{id}', 'ApartmentsController@show');
+    Route::post('/message', 'ApartmentsController@saveMex');
 
 });
 
 Route::namespace('api')->prefix('/advanced-search')->group(function(){
     
     Route::get('/', 'SearchController@index'); // -> Genera: localhost:8080/api/posts
-    
     
 });

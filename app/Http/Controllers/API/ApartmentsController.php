@@ -23,6 +23,12 @@ class ApartmentsController extends Controller
 
     }
 
+    public function saveMex(Request $request)
+        {
+            $data = $request->input('data');
+        // Handle the data as desired
+        }
+
     /**
      * Store a newly created resource in storage.
      *

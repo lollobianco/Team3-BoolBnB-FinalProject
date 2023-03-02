@@ -24,25 +24,14 @@
                 <div class="d-flex flex-wrap">
 
                     @foreach ($apartments as $elem)
-                        {{-- <a href="{{ route('admin.apartments.show', $elem['id']) }}"> --}}
                         <a href="{{ route('admin.apartments.show', $elem['id']) }}"
                             class="apartment-card border-0 col-xl-3 col-lg-3 col-md-4 img-fluid p-2 col-sm-12">
-
 
                             <div class="card-relative">
                                 <i class="fa-regular fa-eye"></i>
                                 <img src="{{ asset("storage/$elem->cover_image") }}" class="card-img coverimg rounded-4"
                                     alt="cover image">
                             </div>
-
-
-                            <div class="py-3 px-0">
-
-                                <h6 class="mt-2 card-element">{{ $elem->address }}</h6>
-                                <h6 class="mt-0 card-element"> <strong>{{ $elem->price }}€ </strong> a notte</h6>
-
-                            </div>
-
 
                         </a>
                         
