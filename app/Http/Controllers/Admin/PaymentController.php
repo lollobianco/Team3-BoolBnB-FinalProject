@@ -3,31 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Apartment;
-use App\Models\Service;
-use App\Models\Sponsor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
+use Braintree\Gateway;
 
-class DashboardController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        $user_id = Auth::user()->id;
-
-        // $user = User::find($user_id); 
-        $apartments = Apartment::with('services')->whereHas('user', function ($query) use ($user_id) {
-            $query->where('user_id', $user_id);
-        })->get();
+    public function index()
+    {
         
-        return view('admin.pages.dashboard', compact('apartments'));
-
     }
 
     /**
@@ -35,10 +23,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+       //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -59,20 +48,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        $user_id = Auth::user()->id;
-
-        // $user = User::find($user_id); 
-        $apartments = Apartment::with('services')->whereHas('user', function ($query) use ($user_id) {
-            $query->where('user_id', $user_id);
-        })->get();
-
-        
-        $bronze = Sponsor::whereId(1)->first();
-        $silver = Sponsor::whereId(2)->first();
-        $gold = Sponsor::whereId(3)->first();
-        $apartment = Apartment::with('services')->findOrFail($id);
-        // dd($apartment);
-        return view('admin.pages.rightpanel', compact('apartment', 'apartments', 'bronze', 'silver', 'gold'));
+        //
     }
 
     /**

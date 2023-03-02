@@ -21,31 +21,11 @@
       <div id="carouselExampleRide" class="carousel m-auto slide rounded-4 w-75" data-bs-ride="true">
 
         {{-- Carusel --}}
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid d-block w-100">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-        </div>
-
-        {{-- Bottoni --}}
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-
-        {{-- Bottoni --}}
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="w-100 rounded-4" style="height: 500px; object-fit: cover; object-position: center;">
 
 
       {{-- Descrizione --}}
-      <div class="container-fluid w-75 m-auto pt-5">
+      <div class="container-fluid pt-5">
         <div class="row">
 
           {{-- Col LEft --}}
@@ -86,20 +66,22 @@
 
           {{-- COl right --}}
           <div class="col-4">
-            <h3>€{{ $apartment->price }}</h3>
+            <h3>€{{ $apartment->price }} at night</h3>
+
+            <div class="mt-2 p-0">
+
+              <h2 class="mb-3">Location:</h2>
+              <input type="hidden" value="{{ $apartment->lat }}" id="lat" type="text">
+              <input type="hidden" value="{{ $apartment->long }}" id="long" type="text">
+  
+              <div id="map" class="map rounded-4" style="width: 100%; height: 300px;"></div>
+  
+            </div>
           </div>
 
         </div>
          {{-- Mappa --}}
-         <div class="mt-5 p-0">
 
-            <h2 class="mb-3">Dove si trova il tuo appartamento:</h2>
-            <input type="hidden" value="{{ $apartment->lat }}" id="lat" type="text">
-            <input type="hidden" value="{{ $apartment->long }}" id="long" type="text">
-
-            <div id="map" class="map rounded-4" style="width: 100%; height: 500px;"></div>
-
-          </div>
         <div>
 
         </div>

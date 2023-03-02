@@ -13,12 +13,14 @@ class CreateApartmentSponsorTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartment_sponsor', function (Blueprint $table) {
+        Schema::create('sponsor_apartments', function (Blueprint $table) {
             $table->unsignedBigInteger('apartment_id');
             $table->foreign('apartment_id')->references('id')->on('apartments');
 
             $table->unsignedBigInteger('sponsor_id');
             $table->foreign('sponsor_id')->references('id')->on('sponsors');
+
+            $table->dateTime('sponsor_duration')->nullable();
         });
     }
 
@@ -29,6 +31,6 @@ class CreateApartmentSponsorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartment_sponsor');
+        Schema::dropIfExists('sponsor_apartments');
     }
 }

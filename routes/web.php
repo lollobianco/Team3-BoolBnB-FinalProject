@@ -1,6 +1,8 @@
 <?php
 
 
+use App\Http\Controllers\Admin\SponsorController;
+use App\Models\Spec;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +25,8 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
     Route::resource('/apartments', ApartmentsController::class);
     Route::resource('/dashboard', DashboardController::class);
 
+    Route::get('/checkout/{type}/{apartment_id}', [SponsorController::class, 'token'])->name('sponsor.pay');
+    Route::post('/checkout/{price}/{apartment_id}', [SponsorController::class, 'checkout'])->name('sponsors.checkout');
 
 });
 
