@@ -67,6 +67,7 @@
           {{-- COl right --}}
           <div class="col-lg-4 col-sm-12 ">
             <h3><strong class="border border-4 border-dark rounded-5 bg-dark text-white">€{{ $apartment->price }}</strong> at night</h3>
+            <h2 class="pt-1">Position <i class="fas fa-down-long fs-4"></i></h2>
 
             <div class="mt-0 pt-0">
 
@@ -75,8 +76,9 @@
               <input type="hidden" value="{{ $apartment->long }}" id="long" type="text">
   
               <div class="container-minus-nav mt-0 ">
-                <h2 class="mb-3">Location:</h2>
+                
                 <div id="map" style="width:80%; height: 40%; border-radius: 2%"></div>
+                
               </div>
   
             </div>
@@ -111,7 +113,8 @@
           key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
           container: "map",
           center: POS,
-          zoom: 3,
+          zoom: 7,
+          container: 'map'
         })
 
         map.on('load', () => {
