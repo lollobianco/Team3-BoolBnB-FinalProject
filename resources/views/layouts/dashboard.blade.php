@@ -4,14 +4,7 @@
     
 <div class="container-fluid w-75 mx-auto dash-container">
 
-    {{-- <div class="d-flex my-5">
-      @if (session('success'))
-        <div class="alert alert-success ml-4 mb-2 alert-dismissible fade show" role="alert">
-          {{ session('success') }}.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      @endif
-    </div> --}}
+
 
     <div class="row d-flex h-100 justify-content-between">
       

@@ -2,17 +2,17 @@
 
 @section('content')
   @if (session('success'))
-    <div class="container d-flex justify-content-center pt-5 alert-container">
+    <div class="container d-lg-flex justify-content-center pt-5 alert-container">
       <div class="alert alert-success">
         {{ session('success') }}
       </div>
     </div>
   @endif
 
-  <div class="container-fluid w-75 mt-5 py-5">
+  <div class="container-fluid  mt-5 py-5">
 
 
-    <div class=" row border-0 d-flex flex-column">
+    <div class=" border-0 d-flex flex-column">
 
       {{-- Titolo --}}
       <h1 class="mb-4 w-75 m-auto text-decoration-none text-black">{{ $apartment->name }}</h1>
@@ -21,7 +21,7 @@
       <div id="carouselExampleRide" class="carousel m-auto slide rounded-4 w-75" data-bs-ride="true">
 
         {{-- Carusel --}}
-        <img src="{{ asset("storage/$apartment->cover_image") }}" class="w-100 rounded-4" style="height: 500px; object-fit: cover; object-position: center;">
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="w-100 rounded-4" style="object-fit: cover; object-position: center;">
 
 
       {{-- Descrizione --}}
@@ -29,7 +29,7 @@
         <div class="row">
 
           {{-- Col LEft --}}
-          <div class="col-8">
+          <div class="col-lg-8 col-sm-12">
             <span>Description</span>
             <h3>
               {{ $apartment->description }}
@@ -50,31 +50,34 @@
             </div>
 
             {{-- EDIT --}}
-            <button class="btn btn-warning">
-              <a href="{{ route('admin.apartments.edit', $apartment->id) }}">Edit</a>
-            </button>
+            <a class="text-decoration-none"
+            href="{{ route('admin.apartments.edit', $apartment->id) }}">
+            <button class="btn-custom my-2">EDIT</i></button></a>
 
             {{-- DESTROY --}}
-            <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
+            <form  method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
               @csrf
               @method('DELETE')
-              <button type="submit" onclick="return confirm('Are you sure?')" class="p-2 my-1 btn btn-danger">Delete
+              <button type="submit" onclick="return confirm('Are you sure?')" class="btn-custom mb-5">Delete
                 apartment</button>
             </form>
 
           </div>
 
           {{-- COl right --}}
-          <div class="col-4">
-            <h3>€{{ $apartment->price }} at night</h3>
+          <div class="col-lg-4 col-sm-12 ">
+            <h3><strong class="border border-4 border-dark rounded-5 bg-dark text-white">€{{ $apartment->price }}</strong> at night</h3>
 
-            <div class="mt-2 p-0">
+            <div class="mt-0 pt-0">
 
-              <h2 class="mb-3">Location:</h2>
+             
               <input type="hidden" value="{{ $apartment->lat }}" id="lat" type="text">
               <input type="hidden" value="{{ $apartment->long }}" id="long" type="text">
   
-              <div id="map" class="map rounded-4" style="width: 100%; height: 300px;"></div>
+              <div class="container-minus-nav mt-0 ">
+                <h2 class="mb-3">Location:</h2>
+                <div id="map" style="width:80%; height: 40%; border-radius: 2%"></div>
+              </div>
   
             </div>
           </div>
