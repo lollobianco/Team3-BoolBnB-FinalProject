@@ -252,6 +252,7 @@
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
+    z-index: -99;
 }
 
 .btn-custom:hover {
@@ -308,9 +309,7 @@
         background-color: white;
         width: 100%;
         border: 1px solid #d7526a;
-        -webkit-box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.75);
-        box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.75);
+        
 }
 
 .accordion-button:not(.collapsed) {
@@ -321,9 +320,13 @@
     // box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1000px) {
     .left-side-register {
         padding: 10px;
+    }
+
+    .w-50 {
+        width: 100%!important;
     }
 
     .width-container {
@@ -348,7 +351,36 @@
         position: fixed!important;
         bottom: 0;
     }
+
+    #map {
+        margin-top: 7rem;
+        width: 100%!important;
+        height: 45%!important;
+        margin-bottom:5%!important ;
+
+    }
+
+    .mobile-fix {
+        margin-bottom: 8rem!important;
+        padding-bottom: 8rem!important;;
+       
+    }
     
+    .mobile-fix-create {
+        margin-bottom: 1rem!important;
+        padding-bottom: 1rem!important;;
+       
+    }
+
+    .ps-mobile {
+        padding-left: 3%!important;
+    }
+
+  
+
+ 
+
+  
 }
 
 @media screen and (max-width: 1300px) and (min-width: 992px) {

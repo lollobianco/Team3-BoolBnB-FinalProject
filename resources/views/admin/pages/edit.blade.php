@@ -104,14 +104,6 @@
       <div class="nav nav-flush text-center">
         <div class="nav-item d-flex flex-column align-items-center position-stiky">
           <div>
-            {{-- <a href="/" class="nav-link active p-0" aria-current="page">
-            <button type="button"
-              class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
-              data-mdb-container="body" data-mdb-toggle="popover" data-mdb-placement="right" data-mdb-content="Home"
-              data-mdb-trigger="hover">
-              <i class="fa-solid fa-house side-ico"></i>
-            </button>
-          </a> --}}
             <a href="/admin/apartments" class="nav-link active p-0">
               <button type="button"
                 class="btn d-flex flex-align-center justify-content-center btn-light rounded-4 side-btn mb-3"
@@ -220,9 +212,9 @@
 
   {{-- MAPPA  --}}
 
-  <div class="container-minus-nav p-5 d-flex align-items-center w-75 mx-auto">
-    <div id="map" style="width: 50%; height: 90%; border-radius: 2%"></div>
-    <form class="d-flex flex-column justify-content-center w-50 ps-5 m-auto h-100" method="POST"
+  <div class="container-minus-nav container-sm align-items-center d-lg-flex mobile-fix">
+    <div id="map" style="width:80%; height: 90%; border-radius: 2%"></div>
+    <form class="d-lg-flex flex-column justify-content-center mobile-fix ps-lg-5 m-auto h-100" method="POST"
       action="{{ route('admin.apartments.update', $apartment->id) }}" enctype="multipart/form-data">
 
       @csrf
@@ -234,7 +226,7 @@
 
 
       {{-- NAME --}}
-      <div class="mb-4">
+      <div class="mb-4 mx-2">
         <label class="form-label">Name</label>
         <input name="name" type="text" class="form-control " value="{{ $apartment->name }}" required>
         @error('name')
@@ -243,9 +235,9 @@
       </div>
 
       {{-- DESCRIPTION --}}
-      <div class="mb-4">
+      <div class="mb-4 mx-2">
         <label class="form-label">Description</label>
-        <textarea name="description" class="form-control" style="max-height: 91px" required>{{ $apartment->description }}</textarea>
+        <textarea name="description" class="form-control"  required>{{ $apartment->description }}</textarea>
         @error('description')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -253,10 +245,10 @@
 
 
       {{-- primo raggruppamento  --}}
-      <div class="d-flex mb-4">
+      <div class="d-lg-flex mb-4">
 
         {{-- ROOMS --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2  w-100">
           <label class="form-label form-check-label" for="">Rooms</label>
           <input type="number" min="1" max="50" class="form-control" name="rooms"
             value="{{ $apartment->rooms }}" required>
@@ -266,7 +258,7 @@
         </div>
 
         {{-- BEDS --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2   w-100">
           <label class="form-label form-check-label" for="">Beds</label>
           <input type="number" min="1" max="50" class="form-control" name="beds"
             value="{{ $apartment->beds }}" required>
@@ -277,7 +269,7 @@
 
 
         {{-- BATHROOM --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2  w-100">
           <label class="form-label form-check-label" for="">Bathrooms</label>
           <input type="number" min="1" max="50" class="form-control" name="bathrooms"
             value="{{ $apartment->bathrooms }}" required>
@@ -286,7 +278,7 @@
           @enderror
         </div>
         {{-- MQ --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2   w-100">
           <label class="form-label form-check-label" for="">Mq</label>
           <input type="number" min="1" max="1000" class="form-control" name="mq"
             value="{{ $apartment->mq }}" required>
@@ -300,14 +292,14 @@
 
       {{-- secondo raggruppamento --}}
 
-      <div class="d-flex justify-content-center align-items-end mb-4">
+      <div class="d-lg-flex justify-content-center align-items-end mb-4">
 
         {{-- IMMAGINE --}}
 
         <div class="file-input mx-2 w-100 d-flex flex-column">
           <label for="">Image</label>
           <input type="file" name="cover_image" id="file-input" class="file-input__input " required />
-          <label class="file-input__label mb-0 py-2 px-4 d-flex justify-content-center" for="file-input">
+          <label class="file-input__label mb-0 py-2 px-4 d-lg-flex justify-content-center" for="file-input">
             <i class="fa-solid fa-file-arrow-up fs-4"></i>
           </label>
           @error('cover_image')
@@ -316,7 +308,7 @@
         </div>
 
 
-        <div class="w-100 mx-2">
+        <div class="w-100 mx-2 ">
           <label class="form-label form-check-label" for="">Accomodation</label>
           <input type="number" min="1" max="50" class="form-control" name="accomodation"
             value="{{ $apartment->accomodation }}" required>
@@ -348,8 +340,7 @@
 
         {{-- ADDRESS --}}
 
-        <div class="w-100 mx-2">
-          {{-- <label class="form-label form-check-label" for="">Address</label> --}}
+        <div class="w-100">
           <input type="text" class="form-control border-0 position-absolute"
             style="top: 120px; left: -1000px; opacity: 0.0;" name="address" id="address"
             value="{{ $apartment->address }}" required>
@@ -362,12 +353,12 @@
 
       {{-- ACCOMODATION --}}
 
-      <div class="d-flex flex-column justify-content-between">
+      <div class="d-lg-flex flex-column justify-content-between">
 
         {{-- SERVICES --}}
-        <div class="fs-6 pt-1">
+        <div class="fs-6 pt-1 mx-2">
           @foreach ($services as $service)
-            <div class="cat action btn btn-dark border-0 rounded-5 p-0 mr-1 mb-2">
+            <div class="cat action btn btn-dark border-0 rounded-5 p-0 mr-1 mb-2 ps-mobile">
               <label>
                 <input type="checkbox" name="services[]" value="{{ $service->id }}"
                   {{ $apartment->services->contains($service) ? 'checked' : '' }}>
@@ -382,7 +373,7 @@
         <input type="hidden" name="long" type="text" id="long" value="{{$apartment->long}}"> </input>
 
         {{-- INVIO --}}
-        <div class="w-25 mt-4">
+        <div class="w-25 mt-4 mobile-fix">
           <button type="submit" class=" btn-custom rouded-2">EDIT <i class="fas ms-2 fa-pen-clip"></i></button>
         </div>
 

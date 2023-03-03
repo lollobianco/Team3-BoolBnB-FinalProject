@@ -217,15 +217,15 @@
 
 
   {{-- MAPPA  --}}
-  <div class="container-minus-nav p-5 d-flex align-items-center w-75 mx-auto">
-    <div id="map" style="width: 50%; height: 90%; border-radius: 2%"></div>
-    <form class="d-flex flex-column justify-content-center w-50 ps-5 m-auto h-100" method="POST"
+  <div class="container-minus-nav container-sm align-items-center d-lg-flex mobile-fix">
+    <div id="map" style="width:80%; height: 90%; border-radius: 2%"></div>
+    <form class="d-lg-flex flex-lg-column justify-content-center mobile-fix  ps-lg-5 " method="POST"
       action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
 
       @csrf
 
 
-      <div class="fs-1 mb-5 mt-1">New apartment</div>
+      <div class="fs-1 mb-5">New apartment</div>
 
 
 
@@ -249,7 +249,7 @@
 
 
       {{-- primo raggruppamento  --}}
-      <div class="d-flex mb-4">
+      <div class="d-lg-flex mb-4">
 
         {{-- ROOMS --}}
         <div class="mx-2 w-100">
@@ -271,7 +271,7 @@
 
 
         {{-- BATHROOM --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2 w-100 ">
           <label class="form-label form-check-label" for="">Bathrooms</label>
           <input type="number" min="1" max="50" class="form-control" name="bathrooms" required>
           @error('bathrooms')
@@ -279,7 +279,7 @@
           @enderror
         </div>
         {{-- MQ --}}
-        <div class="mx-2 w-100">
+        <div class="mx-2 w-100 ">
           <label class="form-label form-check-label" for="">Mq</label>
           <input type="number" min="1" max="1000" class="form-control" name="mq" required>
           @error('mq')
@@ -292,11 +292,11 @@
 
       {{-- secondo raggruppamento --}}
 
-      <div class="d-flex justify-content-center align-items-end mb-4">
+      <div class="d-lg-flex justify-content-center align-items-end mb-4 ">
 
         {{-- IMMAGINE --}}
 
-        <div class="file-input mx-2 w-100 d-flex flex-column">
+        <div class="file-input mx-2 w-100 d-flex flex-column ">
           <label for="">Image</label>
           <input type="file" name="cover_image" id="file-input" class="file-input__input " required />
           <label class="file-input__label mb-0 py-2 px-4 d-flex justify-content-center" for="file-input">
@@ -308,7 +308,7 @@
         </div>
 
 
-        <div class="w-100 mx-2">
+        <div class="w-100 mx-2 ">
           <label class="form-label form-check-label" for="">Accomodation</label>
           <input type="number" min="1" max="50" class="form-control" name="accomodation" required>
           @error('accomodation')
@@ -318,7 +318,7 @@
         
         
         {{-- PRICE --}}
-        <div class="w-100 mx-2">
+        <div class="w-100 mx-2 ">
             <label class="form-label form-check-label" for="">Price</label>
             <input type="number" min="1" class="form-control" name="price" required>
             @error('price')
@@ -328,7 +328,7 @@
         
         
         {{-- AVAILABLE --}}
-        <div class="w-100 mx-2">
+        <div class="w-100 mx-2 ">
             <label class="form-label form-check-label" for="">Availability</label>
             <select name="available" class="form-control" required>
                 <option value=1>Available</option>
@@ -338,7 +338,7 @@
         
         {{-- ADDRESS --}}
 
-        <div class="w-100 mx-2">
+        <div class="w-100 mx-2 ">
           {{-- <label class="form-label form-check-label" for="">Address</label> --}}
           <input type="text" class="form-control border-0 position-absolute"
             style="top: 120px; left: -1000px; opacity: 0.0;" name="address" id="address" required>
@@ -351,10 +351,10 @@
 
       {{-- ACCOMODATION --}}
 
-      <div class="d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column justify-content-between ">
 
         {{-- SERVICES --}}
-        <div class="fs-6 pt-1">
+        <div class="fs-6 pt-1 ps-mobile">
           @foreach ($services as $service)
             <div class="cat action btn btn-dark border-0 rounded-5 p-0 mr-1 mb-2 ">
               <label class="">
@@ -370,7 +370,7 @@
         <input type="hidden" name="long" type="text" id="long"> </input>
 
         {{-- INVIO --}}
-        <div class="w-25 mt-4">
+        <div class="w-25 mt-4 mobile-fix-create ">
           <button type="submit" class=" btn-custom rouded-2">ADD <i class="fa-solid ms-2 fa-plus"></i></button>
         </div>
 
@@ -395,7 +395,7 @@
       key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
       container: "map",
       center: ITALIA,
-      zoom: 5,
+      zoom: 6,
       language: "it-IT",
     })
 
