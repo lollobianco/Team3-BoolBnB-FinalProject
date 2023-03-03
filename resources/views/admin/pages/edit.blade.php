@@ -223,9 +223,10 @@
   <div class="container-minus-nav p-5 d-flex align-items-center w-75 mx-auto">
     <div id="map" style="width: 50%; height: 90%; border-radius: 2%"></div>
     <form class="d-flex flex-column justify-content-center w-50 ps-5 m-auto h-100" method="POST"
-      action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
+      action="{{ route('admin.apartments.update', $apartment->id) }}" enctype="multipart/form-data">
 
       @csrf
+      @method('PUT')
 
 
       <div class="fs-1 mb-5 mt-1">Edit apartment</div>
