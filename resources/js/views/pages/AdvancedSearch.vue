@@ -106,15 +106,15 @@
           aria-controls="staticBackdrop">
           <font-awesome-icon icon="fa-solid fa-plus-minus" />
         </button>
-        <div class="d-flex">
+        <div class="d-flex ">
           <div class="row">
             <router-link v-for="elem in filtered_apartments" :key="elem.id"
               :to="{ name: 'apartment-show', params: { id: elem.id } }"
               class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
-              <div class="card-relative">
+              <div class="card-relative ">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-4"
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-3 pt-1"
                   alt="cover image">
               </div>
 

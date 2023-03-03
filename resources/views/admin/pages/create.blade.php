@@ -405,7 +405,7 @@
       searchOptions: {
         key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
         language: "it-IT",
-        limit: 1,
+        limit: 5,
       },
       autocompleteOptions: {
         key: "0HdIeR7zDtKAE4DzRGUEAamM4AA7X491",
