@@ -30,12 +30,12 @@
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->price }}€ a notte</div>
 
-            <div class="pb-0">
+            <div class="mb-4">
               <h3 class="m-0">Services</h3>
               @foreach ($apartment->services as $service)
                 @if (is_null($service->name))
                 @else
-                  <span class="badge bg-dark text-white mb-4"><i class="mr-2 {{ $service['icon'] }}"></i>
+                  <span class="badge bg-dark text-white"><i class="mr-2 {{ $service['icon'] }}"></i>
                     {{ $service['name'] }}</span>
                 @endif
               @endforeach
@@ -44,16 +44,19 @@
             <h3 class="mb-1">Actions</h3>
             <div class="d-flex">
               {{-- EDIT --}}
-              <a class="btn-custom text-decoration-none p-0"
-                href="{{ route('admin.apartments.edit', $apartment->id) }}"><i class="fas fa-pen-clip p-2"></i></a>
+              <a class="btn-custom text-decoration-none p-0" href="{{ route('admin.apartments.edit', $apartment->id) }}">
+                <i class="fas fa-pen-clip p-2"></i>
+              </a>
 
               {{-- DESTROY --}}
               <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure?')"
-                  class="p-0 ml-2 btn-custom text-decoration-none"><i class="fas fa-trash-can p-2"></i></button>
+                <button type="submit" onclick="return confirm('Are you sure?')" class="p-0 ml-2 btn-custom text-decoration-none">
+                  <i class="fas fa-trash-can p-2"></i>
+                </button>
               </form>
+
             </div>
 
           </div>
@@ -113,7 +116,7 @@
         </div>
       </div>
 
-      <div class="accordion border-bottom mb-4 accordion-flush" id="accordionFlushExample">
+      <div class="accordion mb-4 accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container-fluid w-75 mx-auto dash-container">
+  <div class="container-fluid w-75 mx-auto container-minus-nav p-3">
 
     <div class="row d-flex h-100 justify-content-between">
 

@@ -2,7 +2,7 @@
 
 @section('content')
     
-<div class="container-fluid w-75 mx-auto dash-container">
+<div class="container-fluid w-75 mx-auto container-minus-nav p-3">
 
 
 

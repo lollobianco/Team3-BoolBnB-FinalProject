@@ -11194,6 +11194,14 @@ a.text-dark:focus {
   margin-top: 62.66px !important;
 }
 
+.image-cover {
+  height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 .sidebar-height-mobile {
   display: none;
 }
@@ -11247,6 +11255,14 @@ a.text-dark:focus {
     display: block !important;
     position: fixed !important;
     bottom: 0;
+  }
+
+  .image-cover {
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
   }
 
   #map {

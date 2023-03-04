@@ -297,9 +297,11 @@
     margin-top: 62.66px!important;
 }
 
-// .image-cover {
-//         height: 300px !important;
-//     }
+.image-cover {
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+}
 
 .sidebar-height-mobile{
     display: none;
@@ -353,6 +355,11 @@
         display: block!important;
         position: fixed!important;
         bottom: 0;
+    }
+    .image-cover {
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
     }
 
     #map {
