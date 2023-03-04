@@ -9,7 +9,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('api')->prefix('/apartments')->group(function(){
     
-    Route::get('/', 'ApartmentsController@index'); // -> Genera: localhost:8080/api/posts
+    Route::get('/', 'ApartmentsController@index'); // -> Genera: localhost:8080/api/apartments
     Route::get('/{id}', 'ApartmentsController@show');
 
 });

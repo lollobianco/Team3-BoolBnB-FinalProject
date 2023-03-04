@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\SponsorApartment;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,8 +20,9 @@ class ApartmentsController extends Controller
     {
         $apartments = Apartment::All();
         $auth_user = Auth::user();
+        $apartments_sponsors = SponsorApartment::All();
         
-        return response()->json(compact('apartments'));
+        return response()->json(compact('apartments', 'apartments_sponsors'));
 
     }
 

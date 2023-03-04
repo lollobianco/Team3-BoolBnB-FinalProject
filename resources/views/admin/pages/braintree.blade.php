@@ -34,7 +34,7 @@
 
           <input id="nonce" name="payment_method_nonce" type="hidden" />
           <div class="d-flex justify-content-center">
-              <button class="btn btn-custom" type="submit"><span>PAY {{ $type->price }}€</span></button>
+              <button class="btn btn-primary" type="submit"><span>PAY {{ $type->price }}€</span></button>
           </div>
 
       </form>

@@ -47,8 +47,6 @@
       <div class="offcanvas offcanvas-start border-0" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header w-100">
-          <!-- <h5 class="offcanvas-title" id="staticBackdropLabel">Search</h5> -->
-          <!-- <button type="button" class="ms-auto btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
           <font-awesome-icon icon="fa-solid fa-x" type="button"
             class="ms-auto btn-custom rounded-2 btn text-white py-2 px-3 fs-4" data-bs-dismiss="offcanvas"
             aria-label="Close" />
@@ -106,24 +104,22 @@
           aria-controls="staticBackdrop">
           <font-awesome-icon icon="fa-solid fa-plus-minus" />
         </button>
-        <div class="d-flex ">
+        <div class="d-flex">
           <div class="row">
             <router-link v-for="elem in filtered_apartments" :key="elem.id"
               :to="{ name: 'apartment-show', params: { id: elem.id } }"
-              class="apartment-card border-0 col-xxl-2 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
+              class="apartment-card border-0 col-xxl-3 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
 
               <div class="card-relative ">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-3 pt-1"
-                  alt="cover image">
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-3" alt="cover image">
               </div>
 
               <div class="card-body p-0">
                 <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-
                 <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€ a notte</h6>
-
               </div>
+
             </router-link>
           </div>
         </div>
@@ -162,12 +158,13 @@ export default {
   methods: {
     getServices() {
       axios
-        .get("http://127.0.0.1:8000/api/advanced-search")
+        .get("api/advanced-search")
         .then((res) => {
 
           this.apartments = res.data.apartments;
           console.log(this.apartments)
           this.services = res.data.services;
+          console.log(this.services)
 
         })
     },
@@ -219,7 +216,7 @@ export default {
       myOffcanvas.show();
 
     },
-    
+
     //INIZIO FUNZIONE CALCOLO DISTANZA
 
     // calcolaDistanza() {
