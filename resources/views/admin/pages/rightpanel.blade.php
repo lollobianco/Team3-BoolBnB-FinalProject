@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('right-panel')
-  <div class="row h-100">
+  <div class="row h-100 p-sm-2 p-lg-3">
 
-    <div class="border-0 d-flex flex-column col-lg-4 col-sm-12 overflow-y-auto">
+    <div class="border-0 d-flex flex-column col-lg-4 col-sm-12 overflow-y-auto p-0">
 
       {{-- Carusel --}}
       <div class="rounded-4 mb-4">
@@ -13,7 +13,7 @@
       </div>
 
       {{-- Titolo --}}
-      <h1 class="mb-4 text-decoration-none text-black">{{ $apartment->name }}</h1>
+      <h1 class="mb-3 text-decoration-none text-black">{{ $apartment->name }}</h1>
 
 
       {{-- Descrizione --}}
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <div class="col-lg-8 col-sm-12 border-left overflow-y-auto">
+    <div class="col-lg-8 col-sm-12 overflow-y-auto">
 
       <div class="">
         <h2 class="text-center mb-0 mt-mobile">Sponsor Your Flat</h2>
@@ -138,11 +138,6 @@
           </div>
         </div>
       </div>
-
-      <div class="d-flex h-100 align-items-center justify-content-center">
-        Sezione Grafici
-      </div>
-
     </div>
 
   </div>

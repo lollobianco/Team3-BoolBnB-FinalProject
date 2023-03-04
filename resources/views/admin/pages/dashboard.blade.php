@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container-fluid w-75  mx-auto container-minus-nav p-3" id="width100mobile">
+  <div class="container-fluid w-75  mx-auto container-minus-nav p-0 m-0" id="width100mobile">
 
     <div class="row d-flex h-100 justify-content-between">
 
@@ -24,7 +24,7 @@
       </div>
 
       <div class="col-lg-9 col-sm-12 ">
-        <div class="border rounded-4 p-3 h-100">
+        <div class="p-3 h-100">
           @yield('right-panel')
 
           <div class="d-lg-flex h-100 justify-content-center align-items-center" id="sm-none">

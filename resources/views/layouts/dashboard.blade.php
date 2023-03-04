@@ -6,7 +6,7 @@
 
 
 
-    <div class="row d-flex h-100 justify-content-between">
+    <div class="row d-flex py-3 justify-content-between">
       
       <div class="d-flex col-lg-3 col-sm-12 p-3 flex-column border rounded-4">
         @foreach ($apartments as $elem)
@@ -29,8 +29,8 @@
         @endforeach
       </div>
 
-      <div class="col-lg-9 col-sm-12 mt-mobile">
-        <div class="border container-fluid rounded-4 p-3 h-100" id="width100mobile">
+      <div class="col-lg-9 col-sm-12 mt-mobile p-0 border rounded-4">
+        <div class="container-fluid h-100" id="width100mobile">
           @yield('right-panel')
         </div>
       </div>
