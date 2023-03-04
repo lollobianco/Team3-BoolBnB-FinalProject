@@ -3,7 +3,7 @@
         <div class="">
             <h1>{{ apartments.name }}</h1>
             <p>{{ apartments.address }}</p>
-            <img class="w-100 rounded-4 image-cover" style="height: 500px; object-fit: cover; object-position: center;"
+            <img class="w-100 rounded-4 image-cover" style="height: 600px; object-fit: cover; object-position: center;"
                 :src="'/storage/' + apartments.cover_image">
             <div class="row d-flex justify-content-between p-2">
                 <!-- LEFT SIDE -->
@@ -62,7 +62,8 @@
                     </ul>
                 </div>
                 <!-- RIGHT SIDE -->
-                <div class="mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2">
+                <div class="mt-3 col-lg-4 col-sm-12 card-contact rounded-4 p-2" id="sendMex">
+                    <i class="fa-solid fa-envelope-circle-check d-none position-relative" id="check"></i>
                     <h3 class="text-center text-dark p-2">Sent a message to the owner</h3>
                     <div class="p-2">
                         <form action="">
@@ -74,9 +75,9 @@
                             <input class="form-control" v-model="email" type="email" placeholder="Email" required>
                             <textarea class="form-control mt-4" v-model="text" name="message" placeholder="Message"
                                 required></textarea>
-                            <button type="submit" @click="sendMex()" class="btn btn-custom mt-4">Send
-                                <font-awesome-icon class="ms-2" icon="fa-solid fa-paper-plane" /></button>
-
+                            <button type="button" class="btn btn-custom mt-4" onclick="return false"
+                                @click="sendMex()">Send <font-awesome-icon class="ms-2"
+                                    icon="fa-solid fa-paper-plane" /></button>
                         </form>
                     </div>
                 </div>
@@ -126,7 +127,7 @@ export default {
     methods: {
         getApartments() {
             axios
-                .get("http://127.0.0.1:8000/api/apartments/" + this.$route.params.id)
+                .get("/api/apartments/" + this.$route.params.id)
                 .then((res) => {
                     console.log('res data', res.data);
                     this.apartments = res.data;
@@ -134,7 +135,7 @@ export default {
                     this.longitude = res.data.long;
                     console.log(this.latitude);
                     console.log(this.longitude);
-                    console.log(this.apartments);
+                    console.log('appartamento', this.apartments);
                     this.lat = this.apartments.lat
                     this.long = this.apartments.long
                 })
@@ -143,12 +144,18 @@ export default {
 
             axios.post('/api/message', { name: this.name, surname: this.surname, email: this.email, text: this.text, apartment_id: this.$route.params.id })
 
-            // .then(res => {
-            //     console.log(res.data);
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // });
+            this.name = ''
+            this.surname = ''
+            this.email = ''
+            this.text = ''
+
+            var sendMex = document.getElementById("sendMex");
+            var check = document.getElementById("check");
+
+            // Aggiungi la classe "attivo" all'elemento
+            sendMex.classList.add("sendedMex");
+            check.classList.remove("d-none");
+
 
         },
         // Map
@@ -173,7 +180,8 @@ export default {
             map.on('load', () => {
                 new tt.Marker().setLngLat(POS).addTo(map)
             })
-        }
+        },
+
     }
 }
 
@@ -207,6 +215,22 @@ export default {
 .card-contact {
     // height: 400px;
     background-color: rgba(190, 190, 190, 0.9);
+}
+
+.sendedMex{
+    filter: blur(1px) brightness(0.7) contrast(0.9) grayscale(0.12);
+    transition: 300ms;
+    position: relative;
+}
+
+.fa-envelope-circle-check{
+    font-size: 6rem;
+    opacity: 1;
+    z-index: 9999;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: rgb(18, 175, 18);
 }
 
 .btn-custom {

@@ -140,9 +140,9 @@ export default {
     display: none;
   }
 
-  .dropdown {
-    display: none;
-  }
+  // .dropdown {
+  //   display: none;
+  // }
 
 }
 </style>

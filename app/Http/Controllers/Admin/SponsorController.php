@@ -76,7 +76,7 @@ class SponsorController extends Controller
         ]);
 
         if ($result->success) {
-            return back()->with('success', 'Ordine confermato');
+            return redirect()->route('admin.apartments.index')->with('success', "Pagamento avvenuto con successo");
         } else {
             return back()->with('error', 'Ordine rifiutato ');
         }

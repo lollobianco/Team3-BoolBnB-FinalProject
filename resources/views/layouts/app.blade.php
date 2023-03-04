@@ -54,7 +54,7 @@
       class="container-fluid container-nav position-fixed d-flex justify-content-center align-items-center navz-index z-index-nav">
 
       <div class="row navbar-80 d-flex justify-content-center align-items-center">
-        <div class="d-flex justify-content-between justify-content-center align-items-center">
+        <div class="d-flex justify-content-center justify-content-center align-items-center">
           {{-- LOGO --}}
           <div class="logo-cont">
             <a href="/">
@@ -63,17 +63,17 @@
           </div>
 
           {{-- MENU --}}
-          <div class="m-auto">
+          {{-- <div class="m-auto search">
             <form class="d-flex text-center" role="search">
               <input class="form-control me-2 rounded-5 search-border-pink" type="search" placeholder="Search"
                 aria-label="Search">
               <button class="btn btn-login-register rounded-circle" type="submit"><i
                   class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-          </div>
+          </div> --}}
 
           {{-- DROP DOWN --}}
-          <div class="dropdown">
+          {{-- <div class="dropdown">
             <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-bars"></i>
@@ -103,7 +103,7 @@
               </li>
 
             </ul>
-          </div>
+          </div> --}}
         </div>
 
       </div>

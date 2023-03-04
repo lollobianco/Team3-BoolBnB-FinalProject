@@ -21,7 +21,7 @@
       <div id="carouselExampleRide" class="carousel m-auto slide rounded-4 w-75" data-bs-ride="true">
 
         {{-- Carusel --}}
-        <img src="{{ asset("storage/$apartment->cover_image") }}" class="w-100 rounded-4" style="object-fit: cover; object-position: center;">
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="w-100 rounded-4 image-cover" style="height: 600px; object-fit: cover; object-position: center;">
 
 
       {{-- Descrizione --}}

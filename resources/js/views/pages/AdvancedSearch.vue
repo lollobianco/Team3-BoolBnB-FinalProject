@@ -105,7 +105,7 @@
           <font-awesome-icon icon="fa-solid fa-plus-minus" />
         </button>
         <div class="d-flex">
-          <div class="row">
+          <div class="row" v-if="filtered_apartments.length != 0">
             <router-link v-for="elem in filtered_apartments" :key="elem.id"
               :to="{ name: 'apartment-show', params: { id: elem.id } }"
               class="apartment-card border-0 col-xxl-3 col-lg-3 col-md-6 img-fluid p-2 col-sm-12">
@@ -121,6 +121,9 @@
               </div>
 
             </router-link>
+          </div>
+          <div v-else class="row fs-2">
+            {{ nessun_appartamento }}
           </div>
         </div>
       </div>
@@ -145,6 +148,8 @@ export default {
       min_beds: null,
       min_rooms: null,
       searched_address: '',
+
+      nessun_appartamento: '',
 
       i: 1,
     }
@@ -209,6 +214,9 @@ export default {
         // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
         return true;
       });
+      if(this.filtered_apartments.length <= 0){
+          this.nessun_appartamento = 'Non ci sono appartamenti che corrispondono ai tuoi filtri di ricerca 🙁'
+        }
     },
     openOffcanvas() {
 

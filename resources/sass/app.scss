@@ -179,9 +179,6 @@
 }
 
 @media screen and (max-width: 600px) and (min-width: 320px) {
-    .logo-cont {
-        display: none;
-    }
 
     .dropdown {
         display: none;
@@ -300,6 +297,9 @@
     margin-top: 62.66px!important;
 }
 
+// .image-cover {
+//         height: 300px !important;
+//     }
 
 .sidebar-height-mobile{
     display: none;
@@ -309,6 +309,7 @@
         display: none;
         background-color: white;
         width: 100%;
+        margin: auto;
         border: 1px solid #d7526a;
         
 }
@@ -343,6 +344,7 @@
     }
     .sidebar-container-mobile{
         display: block!important;
+        max-width: 358px;
     }
     .right-section{
         margin-left: 0;

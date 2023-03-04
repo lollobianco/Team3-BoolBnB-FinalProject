@@ -1,4 +1,4 @@
-<form id="payment-form" method="post" action="{{ route('payment.store') }}">
+{{-- <form id="payment-form" method="post" action="{{ route('payment.store') }}">
   {{ csrf_field() }}
   <div class="form-group">
       <label for="amount">Amount</label>
@@ -32,4 +32,4 @@
           });
       });
   });
-</script>
+</script> --}}
