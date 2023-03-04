@@ -3,7 +3,7 @@
 @section('right-panel')
   <div class="row h-100">
 
-    <div class="border-0 d-flex flex-column col-4 overflow-y-auto">
+    <div class="border-0 d-flex flex-column col-lg-4 col-sm-12 overflow-y-auto">
 
       {{-- Carusel --}}
       <div class="rounded-4 mb-4">
@@ -17,7 +17,7 @@
 
 
       {{-- Descrizione --}}
-      <div class="container-fluid">
+      <div class="container-fluid" id="sm-none">
 
         <div class="row">
 
@@ -66,14 +66,14 @@
       </div>
     </div>
 
-    <div class="col-8 border-left overflow-y-auto">
+    <div class="col-lg-8 col-sm-12 border-left overflow-y-auto">
 
-      <div>
-        <h2 class="text-center mb-0">Sponsor Your Flat</h2>
+      <div class="">
+        <h2 class="text-center mb-0 mt-mobile">Sponsor Your Flat</h2>
         <p class="text-center mb-4 text-decoration-underline">Make your flat more visible <i
             class="fa-solid ms-2 fa-chart-line"></i></p>
-        <div class="d-flex pb-4 border-bottom">
-          <div class="col-4 p-2 text-center">
+        <div class="d-lg-flex pb-4 border-bottom">
+          <div class="col-lg-4 col-sm-12 p-2 text-center">
 
             <div class="border p-3 rounded-4 bg-light">
               <h4>{{ $bronze->name }}<i class="fa-regular fa-gem fs-6" style="color: #A8845C"></i></h4>
@@ -85,7 +85,7 @@
             </div>
 
           </div>
-          <div class="col-4 p-2 text-center">
+          <div class="col-lg-4 col-sm-12 p-2 text-center">
 
             <div class="border p-3 rounded-4 bg-light">
               <h4>{{ $silver->name }}<i class="fa-regular fa-gem fs-6" style="color: #CCD3D1"></i><i
@@ -99,7 +99,7 @@
             </div>
 
           </div>
-          <div class="col-4 p-2 text-center">
+          <div class="col-lg-4 col-sm-12 p-2 text-center">
 
             <div class="border p-3 rounded-4 bg-light">
               <h4>{{ $gold->name }}<i class="fa-regular fa-gem fs-6" style="color: #E8BE44"></i><i
