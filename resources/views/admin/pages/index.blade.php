@@ -19,7 +19,7 @@
           return to
           home</a>
       </div>
-      <div class="container-fluid px-0">
+      <div class="container-fluid mobile-fix-index px-0">
 
         <div class="d-flex flex-wrap">
 

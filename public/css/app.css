@@ -11154,7 +11154,6 @@ a.text-dark:focus {
   align-items: center;
   cursor: pointer;
   text-transform: uppercase;
-  z-index: -99;
 }
 
 .btn-custom:hover {
@@ -11254,6 +11253,7 @@ a.text-dark:focus {
   .sidebar-height-mobile {
     display: block !important;
     position: fixed !important;
+    z-index: 99;
     bottom: 0;
   }
 
@@ -11272,14 +11272,19 @@ a.text-dark:focus {
     margin-bottom: 5% !important;
   }
 
+  .mobile-fix-index {
+    margin-bottom: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
   .mobile-fix {
     margin-bottom: 8rem !important;
     padding-bottom: 8rem !important;
   }
 
   .mobile-fix-create {
-    margin-bottom: 1rem !important;
-    padding-bottom: 1rem !important;
+    margin-bottom: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
   }
 
   .ps-mobile {

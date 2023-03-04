@@ -249,7 +249,7 @@
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
-    z-index: -99;
+    // z-index: -99;
 }
 
 .btn-custom:hover {
@@ -310,6 +310,7 @@
 .sidebar-container-mobile{
         display: none;
         background-color: white;
+        // z-index: 99;
         width: 100%;
         margin: auto;
         border: 1px solid #d7526a;
@@ -347,6 +348,7 @@
     .sidebar-container-mobile{
         display: block!important;
         max-width: 358px;
+
     }
     .right-section{
         margin-left: 0;
@@ -354,6 +356,7 @@
     .sidebar-height-mobile{
         display: block!important;
         position: fixed!important;
+        z-index: 99;
         bottom: 0;
     }
     .image-cover {
@@ -370,15 +373,21 @@
 
     }
 
+    .mobile-fix-index {
+        margin-bottom: 3rem!important;
+        padding-bottom: 3rem!important;
+       
+    }
+
     .mobile-fix {
         margin-bottom: 8rem!important;
-        padding-bottom: 8rem!important;;
+        padding-bottom: 8rem!important;
        
     }
     
     .mobile-fix-create {
-        margin-bottom: 1rem!important;
-        padding-bottom: 1rem!important;;
+        margin-bottom: 0.7rem!important;
+        padding-bottom: 0.7rem!important;
        
     }
 
