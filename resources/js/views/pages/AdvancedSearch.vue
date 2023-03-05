@@ -4,41 +4,43 @@
 
       <div class="col-sm-3 bg-landscape-desktop border-end d-flex flex-column justify-content-center">
 
-        <form action="" class="d-flex mb-5">
-          <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search" aria-label="Search"
+        <form action="" onsubmit="return false;" class="d-flex mb-5 d-flex flex-column justify-content-center">
+          <input class="form-control me-2 rounded-5 search-border" type="text" placeholder="Search" aria-label="Search"
             v-model="searched_address">
+
+
+          <div class="">
+
+            <div class="my-5">
+              <div v-for="service in services" :key="service.id"
+                class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
+                <label>
+                  <input type="checkbox" :value="service.name" v-model="active_services">
+                  <span>{{ service.name }}</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="d-flex w-100 min-nums">
+              <div class="w-50 px-1 min-nums-w">
+                <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms"
+                  class="form-control" v-model="min_rooms">
+              </div>
+
+              <div class="mb-5 w-50 px-1 min-nums-w">
+                <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds" class="form-control"
+                  v-model="min_beds">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="w-100 d-flex justify-content-around align-items-center">
+            <button type="submit" class="btn-custom w-75" @keyup.enter="advancedSearch()"
+              @click="advancedSearch()">Search</button>
+            <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
+          </div>
         </form>
-
-        <div class="">
-
-          <div class="mb-5">
-            <div v-for="service in services" :key="service.id"
-              class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
-              <label>
-                <input type="checkbox" :value="service.name" v-model="active_services">
-                <span>{{ service.name }}</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="d-flex w-100 min-nums">
-            <div class="w-50 px-1 min-nums-w">
-              <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms" class="form-control"
-                v-model="min_rooms">
-            </div>
-
-            <div class="mb-5 w-50 px-1 min-nums-w">
-              <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds" class="form-control"
-                v-model="min_beds">
-            </div>
-          </div>
-
-        </div>
-
-        <div class="w-100 d-flex justify-content-around align-items-center">
-          <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
-          <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
-        </div>
 
 
 
@@ -56,42 +58,44 @@
             <div class="">
 
 
-              <form action="" class="d-flex mb-5">
+              <form action="" onsubmit="return false;" class="d-flex mb-5 d-flex flex-column justify-content-center">
                 <input class="form-control me-2 rounded-5 search-border" type="search" placeholder="Search"
                   aria-label="Search" v-model="searched_address">
+
+
+                <div class="">
+
+                  <div class="my-5">
+                    <div v-for="service in services" :key="service.id"
+                      class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
+                      <label>
+                        <input type="checkbox" :value="service.name" v-model="active_services">
+                        <span>{{ service.name }}</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex w-100 ">
+                    <div class="w-50 px-1">
+                      <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms"
+                        class="form-control" v-model="min_rooms">
+                    </div>
+
+                    <div class="mb-5 w-50 px-1">
+                      <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds"
+                        class="form-control" v-model="min_beds">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="w-100 d-flex justify-content-around align-items-center" data-bs-dismiss="offcanvas"
+                  aria-label="Close">
+                  <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
+                  <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
+                </div>
+
               </form>
-
-              <div class="">
-
-                <div class="mb-5">
-                  <div v-for="service in services" :key="service.id"
-                    class="my-2 cat action btn btn-secondary border-0 p-0 rounded-5 me-2">
-                    <label>
-                      <input type="checkbox" :value="service.name" v-model="active_services">
-                      <span>{{ service.name }}</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="d-flex w-100 ">
-                  <div class="w-50 px-1">
-                    <input name="Rooms" id="" type="number" min="1" max="50" placeholder="Number of Rooms"
-                      class="form-control" v-model="min_rooms">
-                  </div>
-
-                  <div class="mb-5 w-50 px-1">
-                    <input name="Beds" id="" type="number" min="1" max="50" placeholder="Number of Beds"
-                      class="form-control" v-model="min_beds">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="w-100 d-flex justify-content-around align-items-center" data-bs-dismiss="offcanvas"
-                aria-label="Close">
-                <button type="submit" class="btn-custom w-75" @click="advancedSearch()">Search</button>
-                <font-awesome-icon icon="fa-solid fa-plane-departure" class="pink-color2 fs-1" />
-              </div>
 
             </div>
           </div>
@@ -112,7 +116,8 @@
 
               <div class="card-relative ">
                 <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
-                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-3" alt="cover image">
+                <img :src="'/storage/' + elem.cover_image" class="card-img coverimg img-fluid rounded-3"
+                  alt="cover image">
               </div>
 
               <div class="card-body p-0">
@@ -122,7 +127,7 @@
 
             </router-link>
           </div>
-          <div v-else class="row fs-2">
+          <div v-else class="row fs-2 p-3">
             {{ nessun_appartamento }}
           </div>
         </div>
@@ -214,9 +219,9 @@ export default {
         // se l'appartamento ha superato tutti i filtri, lo inserisce nell'array filtrato
         return true;
       });
-      if(this.filtered_apartments.length <= 0){
-          this.nessun_appartamento = 'Non ci sono appartamenti che corrispondono ai tuoi filtri di ricerca 🙁'
-        }
+      if (this.filtered_apartments.length <= 0) {
+        this.nessun_appartamento = 'Non ci sono appartamenti che corrispondono ai tuoi filtri di ricerca 🙁'
+      }
     },
     openOffcanvas() {
 
