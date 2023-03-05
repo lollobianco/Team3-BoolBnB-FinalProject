@@ -3,18 +3,6 @@
 @section('content')
   <div class="border-0 right-section container d-flex flex-column p-sm-4 p-lg-5">
 
-    {{-- Titolo --}}
-    {{-- <div class="d-flex">
-      <h1 class="mb-4 text-decoration-none text-black">{{ $apartment->name }}</h1>
-      @if (session('success'))
-        <div class="container ms-3 me-auto alert-container">
-          <div class="alert alert-success">
-            {{ session('success') }}
-          </div>
-        </div>
-      @endif
-      <div></div>
-    </div> --}}
     <div class="d-flex pl-2 mb-4">
       <h1 class="text-decoration-none text-black">{{ $apartment->name }}</h1>
       @if (session('success'))
@@ -92,13 +80,6 @@
 
       </div>
       {{-- Mappa --}}
-
-      <div>
-
-      </div>
-
-
-
 
 
     </div>
