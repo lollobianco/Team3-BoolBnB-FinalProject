@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\Sponsor;
+use App\Models\SponsorApartment;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -68,13 +69,17 @@ class DashboardController extends Controller
         })->get();
 
         $messages = Message::where('apartment_id', '=', $id)->get();
+
+        $apartments_sponsors = SponsorApartment::All();
+
+        // dd($apartments_sponsors);
         
         $bronze = Sponsor::whereId(1)->first();
         $silver = Sponsor::whereId(2)->first();
         $gold = Sponsor::whereId(3)->first();
         $apartment = Apartment::with('services')->findOrFail($id);
         // dd($apartment);
-        return view('admin.pages.rightpanel', compact('apartment', 'apartments', 'bronze', 'silver', 'gold', 'messages'));
+        return view('admin.pages.rightpanel', compact('apartment', 'apartments', 'bronze', 'silver', 'gold', 'messages', 'apartments_sponsors'));
     }
 
     /**

@@ -13,11 +13,20 @@
       </div>
 
       {{-- Titolo --}}
-      <h1 class="mb-3 text-decoration-none text-black">{{ $apartment->name }}</h1>
-
+      <div class="d-flex align-items-center">
+      <h1 class="text-decoration-none m-0 text-black">{{ $apartment->name }}</h1>
+      @foreach ($apartments_sponsors as $sponsored_apartment)
+        @if ($sponsored_apartment->apartment_id == $apartment->id)
+          <div class="d-flex align-items-center">
+            <i class="fas fa-star mx-2" style="color: #E8BE44;"></i>
+            <div>{{ $sponsored_apartment->sponsor_duration }}</div>
+          </div>
+        @endif
+      @endforeach
+      </div>
 
       {{-- Descrizione --}}
-      <div class="container-fluid" id="sm-none">
+      <div class="container-fluid mt-3" id="sm-none">
 
         <div class="row">
 
@@ -26,7 +35,7 @@
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->address }}</div>
             <h3 class="m-0">Description</h3>
-            <div class="pb-3">{{Str::limit($apartment->description, 100)}}</div>
+            <div class="pb-3">{{ Str::limit($apartment->description, 100) }}</div>
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->price }}€ a notte</div>
 
@@ -52,7 +61,8 @@
               <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure?')" class="p-0 ml-2 btn-custom text-decoration-none">
+                <button type="submit" onclick="return confirm('Are you sure?')"
+                  class="p-0 ml-2 btn-custom text-decoration-none">
                   <i class="fas fa-trash-can p-2"></i>
                 </button>
               </form>
@@ -119,20 +129,22 @@
       <div class="accordion mb-4 accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               Read Messages
             </button>
           </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               @foreach ($messages as $message)
-              <div class="border-bottom mb-4">
-                <div class="mb-2">
-                  <div>{{$message->name}}</div>
-                  <div>{{$message->email}}</div>
+                <div class="border-bottom mb-4">
+                  <div class="mb-2">
+                    <div>{{ $message->name }}</div>
+                    <div>{{ $message->email }}</div>
+                  </div>
+                  <div class="">{{ $message->text }}</div>
                 </div>
-                <div class="">{{$message->text}}</div>
-              </div>
               @endforeach
             </div>
           </div>
