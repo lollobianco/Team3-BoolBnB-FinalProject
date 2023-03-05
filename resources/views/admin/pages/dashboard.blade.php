@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container-fluid w-75  mx-auto container-minus-nav p-0 m-0" id="width100mobile">
+  <div class="container-fluid w-75  mx-auto container-minus-nav p-3" id="width100mobile">
 
-    <div class="row d-flex h-100 justify-content-between">
+    <div class="row d-flex py-3 h-100 justify-content-between">
 
       <div class="d-flex col-lg-3 col-sm-12 flex-column border rounded-4">
         @foreach ($apartments as $elem)
@@ -23,7 +23,7 @@
         @endforeach
       </div>
 
-      <div class="col-lg-9 col-sm-12 ">
+      <div class="col-lg-9 col-sm-12 border rounded-4">
         <div class="p-3 h-100">
           @yield('right-panel')
 

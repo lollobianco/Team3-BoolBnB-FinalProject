@@ -6,9 +6,9 @@
 
 
 
-    <div class="row d-flex py-3 justify-content-between">
+    <div class="row d-flex py-3 justify-content-between h-100">
       
-      <div class="d-flex col-lg-3 col-sm-12 p-3 flex-column border rounded-4">
+      <div class="d-flex col-lg-3 col-sm-12 flex-column border rounded-4">
         @foreach ($apartments as $elem)
           
           <a href="{{ route('admin.dashboard.show', $elem['id']) }}"
@@ -29,7 +29,7 @@
         @endforeach
       </div>
 
-      <div class="col-lg-9 col-sm-12 mt-mobile p-0 border rounded-4">
+      <div class="col-lg-9 col-sm-12 mt-mobile p-2 border rounded-4">
         <div class="container-fluid h-100" id="width100mobile">
           @yield('right-panel')
         </div>

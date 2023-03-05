@@ -8,7 +8,7 @@
       {{-- Carusel --}}
       <div class="rounded-4 mb-4">
 
-        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded img-fluid w-100">
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded-4 img-fluid w-100">
 
       </div>
 
@@ -26,7 +26,7 @@
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->address }}</div>
             <h3 class="m-0">Description</h3>
-            <div class="pb-3">{{ $apartment->description }}</div>
+            <div class="pb-3">{{Str::limit($apartment->description, 100)}}</div>
             <h3 class="m-0">Address</h3>
             <div class="pb-3">{{ $apartment->price }}€ a notte</div>
 
@@ -69,7 +69,7 @@
     <div class="col-lg-8 col-sm-12 overflow-y-auto">
 
       <div class="">
-        <h2 class="text-center mb-0 mt-mobile">Sponsor Your Flat</h2>
+        <h2 class="text-center mb-0 mt-mobile py-1">Sponsor Your Flat</h2>
         <p class="text-center mb-4 text-decoration-underline">Make your flat more visible <i
             class="fa-solid ms-2 fa-chart-line"></i></p>
         <div class="d-lg-flex pb-4 border-bottom">
