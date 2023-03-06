@@ -44,7 +44,7 @@
         {{-- LOGO --}}
         <div class="logo-cont">
           <a href="/">
-            <img src="{{ asset('assets/Logo.svg') }}" alt="logo">
+            <img src="{{ asset('assets/logo-v2.svg') }}" alt="logo">
           </a>
         </div>
 

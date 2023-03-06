@@ -120,9 +120,9 @@
                   alt="cover image">
               </div>
 
-              <div class="card-body p-0">
-                <h6 class="mt-2 card-element">{{ elem.address }}</h6>
-                <h6 class="mt-0 mb-4 card-element"> {{ elem.price }}€ a notte</h6>
+              <div class="card-body p-0 mt-4">
+                <h6 class="mt-3 card-element">{{ elem.address }} | {{ elem.name }}</h6>
+                <h6 class="mt-0 mb-4  "> <span class="card-element"> {{ elem.price }}€</span> night</h6>
               </div>
 
             </router-link>

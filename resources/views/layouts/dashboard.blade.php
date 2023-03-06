@@ -21,7 +21,7 @@
                 <h6 class="mt-2 card-element">{{ $elem->address }}</h6>
               </div>
 
-              <h6 id="sm-none" class="mt-0 card-element align-self-end"> <strong>{{ $elem->price }}€ </strong> a notte</h6>
+              <h6 id="sm-none" class="mt-0 align-self-end"> <span class=" card-element">{{ $elem->price }}€ </span> night</h6>
   
             </div>
           </a>

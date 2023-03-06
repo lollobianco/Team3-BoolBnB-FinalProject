@@ -11,15 +11,15 @@
           <div class="card-relative mx-1 mt-2">
             <font-awesome-icon icon="fa-regular fa-eye" class="fa-eye" />
             <i class="fa-solid fa-star"></i>
-            <img :src="'/storage/' + sponsor.cover_image" class="card-img coverimg rounded-4" alt="cover image">
+            <img :src="'/storage/' + sponsor.cover_image" class="card-img coverimg border border-warning border-1 rounded-4" alt="cover image">
           </div>
 
 
-          <div class="card-body mx-1 ">
-            <h6 class="mt-3 card-element">{{ sponsor.name }}</h6>
-            <h6 class="mt-2 card-element fs-smaller">{{ sponsor.address }}</h6>
+            <div class="card-body mx-1 mt-3">
+            <h6 class="mt-4 mb-0 pb-0 card-element">{{ sponsor.name }}</h6>
+            <p class="  mb-1  ">{{ sponsor.address }}</p>
 
-            <h6 class="mt-2 card-element"> <strong>{{ sponsor.price }}€ </strong> a notte</h6>
+            <p class=""><span class="card-element fw-bold">{{ sponsor.price }}€</span>   night</p>
           </div>
 
         </router-link>
@@ -34,17 +34,18 @@
           </div>
 
 
-          <div class="card-body mx-1 ">
-            <h6 class="mt-3 card-element">{{ elem.name }}</h6>
-            <h6 class="mt-2 card-element fs-smaller">{{ elem.address }}</h6>
+          <div class="card-body mx-1 mt-3 ">
+            <h6 class="mt-4 mb-0 pb-0 card-element">{{ elem.name }}</h6>
+            <p class="  mb-1  ">{{ elem.address }}</p>
 
-            <h6 class="mt-2 card-element"> <strong>{{ elem.price }}€ </strong> a notte</h6>
+            <p class=" fs-smaller"><span class="card-element fw-bold">{{ elem.price }}€</span>   night</p>
           </div>
 
         </router-link>
 
       </div>
     </div>
+    <div class="bg-dark ww-100 text-white p-1 mt-5 pe-5 text-end fixed-bottom ">Made with Love ❤️ BoolBnb - Team 3 - #77  @2023</div>
   </div>
 </template>
 
@@ -173,9 +174,9 @@ export default {
 .fa-star {
   color: #E8BE44;
   position: absolute;
-  bottom: 5px;
-  left: 5px;
-  font-size: 2rem;
+  bottom: 9px;
+  left: 7px;
+  font-size: 2.2rem;
 }
 
 .apartment-card:hover .fa-eye {
@@ -189,10 +190,10 @@ export default {
 }
 
 .card-element {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
 }
 
 .apartment-card:hover .card-element {
-  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);
+  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.15);
 }
 </style>

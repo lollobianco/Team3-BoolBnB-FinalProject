@@ -4,9 +4,14 @@
   <div class="">
 
     <div class="container-fluid right-section py-3 w-100 col-lg-9 col-sm-12 p-sm-4 p-lg-5">
+        
 
       <div class="d-flex pl-2">
-        <h1 class="">Your Apartments</h1>
+        
+        
+        @if(auth()->check())
+          <h2 class="align-right">Welcome {{ auth()->user()->name }}, check your apartments</h1>
+            @endif
         @if (session('success'))
           <div class="alert alert-success ml-4 mb-2 alert-dismissible fade show" role="alert">
             {{ session('success') }}.

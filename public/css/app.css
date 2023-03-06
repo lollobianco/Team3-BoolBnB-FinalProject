@@ -6744,7 +6744,8 @@ a.close.disabled {
   float: left;
   width: 100%;
   margin-right: -100%;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
 }
 
@@ -11055,7 +11056,7 @@ a.text-dark:focus {
 }
 
 .apartment-card:hover .card-element {
-  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.35);
+  text-shadow: 1px 1px 1px rgba(255, 56, 92, 0.25);
 }
 
 .logo-cont img {

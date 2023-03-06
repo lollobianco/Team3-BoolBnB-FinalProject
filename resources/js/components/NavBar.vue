@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between h-100 align-items-center">
         <div class="logo-cont">
           <a href="/">
-            <img src="../../../public/assets/Logo.svg" alt="logo">
+            <img src="../../../public/assets/logo-v2.svg" alt="logo">
           </a>
         </div>
         <div class="m-auto">
@@ -20,11 +20,12 @@
           </form>
         </div>
         <div class="dropdown">
-          <button class="btn btn-light rounded-4 dropdown-toggle d-flex align-items-center" type="button"
+          <button class="btn rounded-4 dropdown-toggle d-flex align-items-center" type="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             <font-awesome-icon icon="fa-solid fa-bars" />
-            <div class="ms-2 p-2">
-              <font-awesome-icon icon="fa-solid fa-user" />
+            <div class="">
+              <!-- <font-awesome-icon icon="fa-solid fa-user" /> -->
+              <img src="../../../public/assets/PngItem_220721.png" alt="" class="usericon">
             </div>
 
           </button>
@@ -98,6 +99,11 @@ export default {
   }
 }
 
+.usericon {
+  width: 40px;
+  margin-left: 10px;
+}
+
 .container-nav {
   box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: 1px 7px 42px -4px rgba(0, 0, 0, 0.55);
@@ -132,7 +138,7 @@ export default {
 }
 
 .dropdown-toggle {
-  border: 1px solid #d7526a !important;
+  border: 0.1px solid black !important;
 }
 
 @media screen and (max-width: 991px){

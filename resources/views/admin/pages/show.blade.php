@@ -46,6 +46,8 @@
             <a class="text-decoration-none" href="{{ route('admin.apartments.edit', $apartment->id) }}">
               <button class="btn-custom my-2">EDIT</i></button></a>
 
+              
+
             {{-- DESTROY --}}
             <form method="POST" action="{{ route('admin.apartments.destroy', $apartment['id']) }}">
               @csrf

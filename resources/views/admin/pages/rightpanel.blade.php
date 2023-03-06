@@ -3,18 +3,18 @@
 @section('right-panel')
   <div class="row h-100 p-sm-2 p-lg-3">
 
-    <div class="border-0 d-flex flex-column col-lg-4 col-sm-12 overflow-y-auto p-0">
+    <div class="border-0 d-flex flex-column col-lg-5 col-sm-12 overflow-y-auto p-0">
 
       {{-- Carusel --}}
-      <div class="rounded-4 mb-4">
+      <div class="rounded-4 mb-4 p-1">
 
-        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded-4 img-fluid w-100">
+        <img src="{{ asset("storage/$apartment->cover_image") }}" class="rounded-5 img-fluid w-100">
 
       </div>
 
       {{-- Titolo --}}
       <div class="d-flex align-items-center">
-      <h1 class="text-decoration-none m-0 text-black">{{ $apartment->name }}</h1>
+      <h2 class="text-decoration-none m-0 text-black">{{ $apartment->name }}</h2>
       @foreach ($apartments_sponsors as $sponsored_apartment)
         @if ($sponsored_apartment->apartment_id == $apartment->id)
           <div class="d-flex align-items-center">
@@ -37,7 +37,7 @@
             <h3 class="m-0">Description</h3>
             <div class="pb-3">{{ Str::limit($apartment->description, 100) }}</div>
             <h3 class="m-0">Address</h3>
-            <div class="pb-3">{{ $apartment->price }}€ a notte</div>
+            <div class="pb-3">{{ $apartment->price }}€ night</div>
 
             <div class="mb-4">
               <h3 class="m-0">Services</h3>
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="col-lg-8 col-sm-12 overflow-y-auto">
+    <div class="col-lg-7 col-sm-12 overflow-y-auto">
 
       <div class="">
         <h2 class="text-center mb-0 mt-mobile py-1">Sponsor Your Flat</h2>

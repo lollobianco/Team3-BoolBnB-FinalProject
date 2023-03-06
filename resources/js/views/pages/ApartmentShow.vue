@@ -122,7 +122,7 @@ export default {
 
         setTimeout(() => {
             this.getMap()
-        }, 10000); // delay time in milliseconds (1000ms = 1s)
+        }, 7000); // delay time in milliseconds (1000ms = 1s)
     },
     methods: {
         getApartments() {
@@ -224,8 +224,9 @@ export default {
 }
 
 .fa-envelope-circle-check{
+    
     font-size: 6rem;
-    opacity: 1;
+    opacity: 5;
     z-index: 9999;
     top: 50%;  
     left: 50%; 
