@@ -122,7 +122,7 @@ export default {
 
         setTimeout(() => {
             this.getMap()
-        }, 1000); // delay time in milliseconds (1000ms = 1s)
+        }, 10000); // delay time in milliseconds (1000ms = 1s)
     },
     methods: {
         getApartments() {
